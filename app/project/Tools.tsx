@@ -8,6 +8,8 @@ import {
   SiAdobelightroom, SiAdobeaudition, SiAdobe
 } from "react-icons/si";
 import { FaShieldVirus } from "react-icons/fa6";
+import { FaWindows } from "react-icons/fa";
+
 
 
 type ToolItem = {
@@ -65,6 +67,12 @@ const TOOL_ITEMS: ToolItem[] = [
     name: "Antivirus",
     description: "Phần mềm duyệt virus.",
     href: "https://drive.google.com/drive/folders/1uv53NDtowH1nkLs12WI-clhpYQSOO_WD?usp=drive_link"
+  },
+  {
+    icon: <FaWindows className="text-4xl" aria-hidden />,
+    name: "MS Office 2016",
+    description: "Phần mềm văn phòng Microsoft.",
+    href: "https://drive.google.com/file/d/1WaU74f2Bjl_hA3dTiulAQAOxe1SekfwD/view?usp=drive_link"
   },
 ];
 export function ToolsSection() {
