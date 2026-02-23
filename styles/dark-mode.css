@@ -2,9 +2,73 @@
   scrollbar-color: var(--code-scroll-bar-color) #282C34;
 }
 
+/* =========================
+   DARK MODE - CODE HIGHLIGHT
+========================= */
 
-.dark pre code.hljs {
-  color: white;
+.dark .hljs {
+  background-color: #37415100;
+  /* nền tối mềm */
+  color: #d4d4d4;
+}
+
+.dark .hljs-keyword {
+  color: #c678dd;
+  /* tím */
+  font-weight: 600;
+}
+
+.dark .hljs-string {
+  color: #98c379;
+  /* xanh lá dịu */
+}
+
+.dark .hljs-comment {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.dark .hljs-built_in {
+  color: #61afef;
+  /* xanh dương */
+}
+
+.dark .hljs-title,
+.dark .hljs-function {
+  color: #e5c07b;
+  /* vàng cam */
+}
+
+.dark .hljs-number {
+  color: #d19a66;
+  /* cam */
+}
+
+.dark .hljs-attr {
+  color: #e06c75;
+  /* đỏ nhẹ */
+}
+
+.dark .hljs-variable {
+  color: #e06c75;
+}
+
+.dark pre {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.dark .hljs-operator {
+  color: #56b6c2;
+}
+
+.dark .hljs-type {
+  color: #e5c07b;
+}
+
+.dark .hljs-symbol {
+  color: #56b6c2;
 }
 
 .dark .admonition,
