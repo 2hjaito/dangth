@@ -57,7 +57,7 @@ export default function AvatarStack() {
               alt={`Profile avatar ${img.id}`}
               fill
               sizes="120px"
-              quality={70}
+              quality={60}
               className="object-cover"
             />
           </motion.div>
@@ -107,7 +107,7 @@ function DraggableImage({
         alt={`Profile avatar ${img.id}`}
         fill
         sizes="120px"
-        quality={75}
+        quality={60}
         priority
         className="object-cover"
       />

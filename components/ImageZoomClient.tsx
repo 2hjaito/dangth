@@ -8,7 +8,6 @@ export default function ImageZoomClient() {
   const pathname = usePathname()
 
   useEffect(() => {
-    console.log('Zoom init on route:', pathname)
     enableImageZoom()
 
     // Optional: nếu bạn cần clear các effect trước khi zoom lại
