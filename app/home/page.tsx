@@ -1,15 +1,36 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
-import { iconMap } from "@/lib/utils/iconMap";
+import GithubContributionsLazy from "@/components/home/GithubContributionsLazy";
+import { FiGithub, FiYoutube } from "react-icons/fi";
+import { LuLinkedin, LuFacebook } from "react-icons/lu";
+import { SiLeetcode, SiAngular, SiMongodb, SiRedis } from "react-icons/si";
+import { TbBrandHackerrank, TbBrandTiktok, TbBrandNextjs } from "react-icons/tb";
+import { BiLogoSpringBoot, BiLogoPostgresql } from "react-icons/bi";
+import { DiMsqlServer } from "react-icons/di";
+import { FaNodeJs, FaDocker } from "react-icons/fa";
 
-const GithubContributions = dynamic(
-  () => import("@/components/github/GithubContributions"),
-  {
-    loading: () => <div className="h-[120px]" />,
-  }
-);
+const socialIconMap = {
+  github: FiGithub,
+  leetcode: SiLeetcode,
+  hackerrank: TbBrandHackerrank,
+  linkedin: LuLinkedin,
+  youtube: FiYoutube,
+  facebook: LuFacebook,
+  tiktok: TbBrandTiktok,
+} as const;
+
+const skillIconMap = {
+  angular: { icon: SiAngular, color: "#F3044C" },
+  nextjs: { icon: TbBrandNextjs, color: "#000000" },
+  springboot: { icon: BiLogoSpringBoot, color: "#76BC1E" },
+  nodejs: { icon: FaNodeJs, color: "#43853d" },
+  mssql: { icon: DiMsqlServer, color: "#E2302A" },
+  postgresql: { icon: BiLogoPostgresql, color: "#336791" },
+  mongodb: { icon: SiMongodb, color: "#16AA52" },
+  redis: { icon: SiRedis, color: "#C8302B" },
+  dockerfile: { icon: FaDocker, color: "#2496ED" },
+} as const;
 
 export default function Home() {
   const mySkills = [
@@ -19,7 +40,7 @@ export default function Home() {
 
   const renderSkillIcons = (keys: string[]) =>
     keys.map((key) => {
-      const entry = iconMap[key];
+      const entry = skillIconMap[key as keyof typeof skillIconMap];
       if (!entry) return null;
       const Icon = entry.icon;
       return (
@@ -69,7 +90,7 @@ export default function Home() {
             { icon: "facebook", link: "https://www.facebook.com/dangth.dev/", label: "Facebook" },
             { icon: "tiktok", link: "https://www.tiktok.com/@theanishtar", label: "TikTok" },
           ].map((s, i) => {
-            const Icon = iconMap[s.icon].icon;
+            const Icon = socialIconMap[s.icon as keyof typeof socialIconMap];
             return (
               <a
                 href={s.link}
@@ -165,7 +186,7 @@ export default function Home() {
       {/* GITHUB CONTRIBUTIONS */}
       <section className="mt-12 fade-in">
         <h2 className="text-[32px] font-semibold mb-4">Github Contributions</h2>
-        <GithubContributions />
+        <GithubContributionsLazy />
       </section>
 
       {/* CERTIFICATIONS */}
