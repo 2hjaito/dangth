@@ -13,9 +13,6 @@ export default function GithubContributions() {
 
   return (
     <div className="react-github-calendar">
-      {/* Thêm CSS inline ngay đây để đẩy thanh scroll ra cho nhanh */}
-      <style>{`.react-github-calendar > div { padding-bottom: 20px !important; }`}</style>
-
       <GitHubCalendar
         username={GITHUB.username}
         blockSize={12}

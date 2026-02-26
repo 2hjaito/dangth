@@ -136,3 +136,141 @@
     @apply bg-background text-foreground;
   }
 }
+
+/*====== GITHUB CONTRIBUTIONS ======*/
+.react-github-calendar__block {
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.react-github-calendar__block:hover {
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+
+.dark .react-github-calendar__block:hover {
+  stroke: #5a606b;
+  stroke-width: 1;
+}
+
+.react-github-calendar :not(.react-activity-calendar__legend-colors)>svg {
+  padding: 0px 5px;
+  margin-bottom: 5px;
+}
+
+.react-github-calendar rect {
+  stroke: rgb(0 0 0 / 11%) !important;
+}
+
+.dark .react-github-calendar rect {
+  stroke: rgba(255, 255, 255, 0.04) !important;
+}
+
+.react-github-calendar rect[data-level="0"] {
+  fill: #F0F0F0;
+}
+
+.react-github-calendar rect[data-level="1"] {
+  fill: #b9e6c1;
+}
+
+.react-github-calendar rect[data-level="2"] {
+  fill: #81cd95;
+}
+
+.react-github-calendar rect[data-level="3"] {
+  fill: #4fb66f;
+}
+
+.react-github-calendar rect[data-level="4"] {
+  fill: #2b9c51;
+}
+
+
+.dark .react-github-calendar rect[data-level="0"] {
+  fill: #374151;
+}
+
+.dark .react-github-calendar rect[data-level="1"] {
+  fill: #1e4429;
+}
+
+.dark .react-github-calendar rect[data-level="2"] {
+  fill: #2d6d32;
+}
+
+.dark .react-github-calendar rect[data-level="3"] {
+  fill: #3fa641;
+}
+
+.dark .react-github-calendar rect[data-level="4"] {
+  fill: #53d353;
+}
+
+.dark .react-activity-calendar__footer {
+  color: #F0F0F0
+}
+
+/* Light mode */
+.react-activity-calendar__legend-colors svg:nth-child(2) rect {
+  fill: #F0F0F0;
+}
+
+.react-activity-calendar__legend-colors svg:nth-child(3) rect {
+  fill: #b9e6c1;
+}
+
+.react-activity-calendar__legend-colors svg:nth-child(4) rect {
+  fill: #81cd95;
+}
+
+.react-activity-calendar__legend-colors svg:nth-child(5) rect {
+  fill: #4fb66f;
+}
+
+.react-activity-calendar__legend-colors svg:nth-child(6) rect {
+  fill: #2b9c51;
+}
+
+/* Dark mode */
+.dark .react-activity-calendar__legend-colors svg:nth-child(2) rect {
+  fill: #374151;
+}
+
+.dark .react-activity-calendar__legend-colors svg:nth-child(3) rect {
+  fill: #1e4429;
+}
+
+.dark .react-activity-calendar__legend-colors svg:nth-child(4) rect {
+  fill: #2d6d32;
+}
+
+.dark .react-activity-calendar__legend-colors svg:nth-child(5) rect {
+  fill: #3fa641;
+}
+
+.dark .react-activity-calendar__legend-colors svg:nth-child(6) rect {
+  fill: #53d353;
+}
+
+.react-activity-calendar__scroll-container {
+  padding-bottom: 5px !important;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-thumb {
+  background-color: #bbbbbb4d;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
