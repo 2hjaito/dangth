@@ -23,6 +23,7 @@ export default function Footer() {
         <p className="flex items-center gap-4">
           <a
             href={SITE_CONFIG.githubRepo}
+            aria-label="Xem mã nguồn trên GitHub"
             className="flex items-center gap-1 underline hover:text-primary"
           >
             <FaCode />
@@ -30,6 +31,7 @@ export default function Footer() {
           </a>
           <a
             href='/rss.xml'
+            aria-label="Xem RSS feed"
             className="flex items-center gap-1 underline hover:text-primary"
           >
             <FaRss />
