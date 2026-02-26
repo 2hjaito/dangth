@@ -23,12 +23,12 @@ export default function GithubContributions() {
         fontSize={12}
         theme={theme}
         renderBlock={(block, activity) => (
-          <a
+          <g
             data-tooltip-id="gh-tooltip"
             data-tooltip-content={`${activity.count} contributions on ${activity.date}`}
           >
             {block}
-          </a>
+          </g>
         )}
       />
 

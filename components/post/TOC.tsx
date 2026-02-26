@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation'
 
 interface Heading {
   id: string
@@ -9,6 +10,8 @@ interface Heading {
 }
 
 export default function TOC({ headings }: { headings: Heading[] }) {
+  const pathname = usePathname()
+
   return (
     <aside className="hidden xl:block fixed top-[100px] right-8 min-w-[200px] max-h-[calc(100vh-120px)] overflow-y-auto text-sm text-gray-600 dark:text-[#E5E7EB] mb-3">
       <strong className="block text-base text-gray-800 dark:text-[#E5E7EB] mb-3">Mục lục</strong>
@@ -20,7 +23,7 @@ export default function TOC({ headings }: { headings: Heading[] }) {
             style={{ marginLeft: `${(heading.level - 2) * 16}px` }}
           >
             <a
-              href={`#${heading.id}`}
+              href={`${pathname}#${heading.id}`}
               className="hover:text-blue-500 no-underline transition-colors duration-150 dark:text-[#E5E7EB]"
             >
               {heading.text}
@@ -30,7 +33,7 @@ export default function TOC({ headings }: { headings: Heading[] }) {
 
         <li className="list-none leading-relaxed mt-2">
           <a
-            href="#comments"
+            href={`${pathname}#comments`}
             className="hover:text-blue-500 no-underline transition-colors duration-150 dark:text-[#E5E7EB]"
           >
             Thảo luận

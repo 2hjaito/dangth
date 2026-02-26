@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             {headings.map((heading, idx) => (
               <li key={idx} className={`toc-item level-${heading.level}`}>
                 <a
-                  href={`#${heading.id}`}
+                  href={`/post/${slug}#${heading.id}`}
                   // Sử dụng truncate và giới hạn chiều rộng
                   className="text-gray-600 hover:text-blue-500 dark:text-gray-300 max-w-[300px] truncate block" // <--- Đã sửa đổi
                 >
@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </a>
               </li>
             ))}
-            <li className="toc-item level-2"><a href="#comments">Thảo luận</a></li>
+            <li className="toc-item level-2"><a href={`/post/${slug}#comments`}>Thảo luận</a></li>
           </ul>
         </aside>
       )}
