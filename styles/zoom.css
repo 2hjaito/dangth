@@ -1,0 +1,22 @@
+/* ====== ZOOM IMAGES ====== */
+.zoom-img {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoom-clone {
+  position: fixed;
+  z-index: 10000;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
