@@ -42,7 +42,7 @@ export default function Home() {
               Tran Huu Dang
             </p>
 
-            <p className="text-[#2b2c2fa1] dark:text-[#E5E7EB] font-semibold">Fullstack developer</p>
+            <p className="text-[#2b2c2f] dark:text-[#E5E7EB] font-semibold">Fullstack developer</p>
           </div>
 
           <div className="md:static mx-auto mb-[50px] ml-[30%] md:ml-0 md:mb-0 md:mx-0">
@@ -54,25 +54,31 @@ export default function Home() {
         {/* SOCIAL */}
         <div className="flex flex-wrap gap-2 mt-6">
           {[
-            { icon: "github", link: "https://github.com/dangtranhuu" },
-            { icon: "leetcode", link: "https://leetcode.com/tranhuudang" },
-            { icon: "hackerrank", link: "https://www.hackerrank.com/tranhuudang" },
-            { icon: "linkedin", link: "https://www.linkedin.com/in/tranhuudang" },
-            { icon: "youtube", link: "https://www.youtube.com/@devlands" },
-            { icon: "facebook", link: "https://www.facebook.com/dangth.dev/" },
-            { icon: "tiktok", link: "https://www.tiktok.com/@theanishtar" },
+            { icon: "github", link: "https://github.com/dangtranhuu", label: "GitHub" },
+            { icon: "leetcode", link: "https://leetcode.com/tranhuudang", label: "LeetCode" },
+            { icon: "hackerrank", link: "https://www.hackerrank.com/tranhuudang", label: "HackerRank" },
+            { icon: "linkedin", link: "https://www.linkedin.com/in/tranhuudang", label: "LinkedIn" },
+            { icon: "youtube", link: "https://www.youtube.com/@devlands", label: "YouTube" },
+            { icon: "facebook", link: "https://www.facebook.com/dangth.dev/", label: "Facebook" },
+            { icon: "tiktok", link: "https://www.tiktok.com/@theanishtar", label: "TikTok" },
           ].map((s, i) => {
             const Icon = iconMap[s.icon].icon;
             return (
-              <a href={s.link} target="_blank" key={i}>
-                <button
-                  className="
+              <a
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Mở ${s.label}`}
+                title={s.label}
+                key={i}
+                className="
             bg-[var(--contact-bc)] 
             dark:bg-[var(--contact-bc-dark)]
 
             text-[var(--contact-bc-dark)] 
             dark:text-[var(--contact-bc)]
 
+            inline-flex items-center justify-center
             px-3 py-1 rounded text-[18px]
 
             transition-all duration-200 ease-out
@@ -80,9 +86,8 @@ export default function Home() {
             hover:shadow-lg hover:shadow-[var(--contact-bc)/50]
             dark:hover:shadow-[var(--contact-bc-dark)/50]
           "
-                >
-                  <Icon size={20} />
-                </button>
+              >
+                <Icon size={20} />
               </a>
             );
           })}
@@ -192,8 +197,8 @@ export default function Home() {
               <div className="font-bold mt-2 text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
                 {cert.title}
               </div>
-              <div className="text-[14px] text-[#555]">{cert.org}</div>
-              <div className="text-[13px] text-[#888] mt-1">Issued {cert.date}</div>
+              <div className="text-[14px] text-[#444] dark:text-gray-300">{cert.org}</div>
+              <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">Issued {cert.date}</div>
             </article>
           ))}
 

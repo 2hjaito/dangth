@@ -53,7 +53,7 @@ export default function ExpandItem({
               </span>
             </div>
 
-            <div className="bot text-sm text-gray-500 dark:text-gray-400">
+            <div className="bot text-sm text-gray-700 dark:text-gray-300">
               {subtitle}
             </div>
           </div>
