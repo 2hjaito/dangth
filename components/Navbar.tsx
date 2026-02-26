@@ -78,6 +78,7 @@ export default function Navbar() {
           <div className="nav-item relative" key={href}>
             <Link
               href={href}
+              prefetch={false}
               onClick={() => setActiveNav(href)}
               title={label}
               className="
