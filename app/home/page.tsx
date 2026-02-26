@@ -1,8 +1,15 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
-import GithubContributions from "@/components/github/GithubContributions";
 import { iconMap } from "@/lib/utils/iconMap";
+
+const GithubContributions = dynamic(
+  () => import("@/components/github/GithubContributions"),
+  {
+    loading: () => <div className="h-[120px]" />,
+  }
+);
 
 export default function Home() {
   const mySkills = [

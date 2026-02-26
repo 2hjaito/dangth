@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const avatars = [
@@ -39,10 +40,8 @@ export default function AvatarStack() {
             zIndex={zIndex}
           />
         ) : (
-          <motion.img
+          <motion.div
             key={img.id}
-            src={img.src}
-            alt={`Profile avatar ${img.id}`}
             animate={{
               x: offsetX,
               y: offsetY,
@@ -50,9 +49,18 @@ export default function AvatarStack() {
               scale,
             }}
             transition={{ duration: 0.2 }}
-            className="absolute top-0 left-0 w-full h-full rounded-lg object-cover pointer-events-none shadow-md"
+            className="absolute top-0 left-0 w-full h-full rounded-lg pointer-events-none shadow-md overflow-hidden"
             style={{ zIndex }}
-          />
+          >
+            <Image
+              src={img.src}
+              alt={`Profile avatar ${img.id}`}
+              fill
+              sizes="120px"
+              quality={70}
+              className="object-cover"
+            />
+          </motion.div>
         );
       })}
     </div>
@@ -75,10 +83,7 @@ function DraggableImage({
   const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
   return (
-    <motion.img
-      key={img.id}
-      src={img.src}
-      alt={`Profile avatar ${img.id}`}
+    <motion.div
       drag
       dragElastic={0.5}
       onDragEnd={(_, info) => {
@@ -86,7 +91,7 @@ function DraggableImage({
           onDragEnd();
         }
       }}
-      className="absolute top-0 left-0 w-full h-full rounded-lg object-cover cursor-grab shadow-lg"
+      className="absolute top-0 left-0 w-full h-full rounded-lg cursor-grab shadow-lg overflow-hidden"
       style={{
         x,
         y,
@@ -96,6 +101,16 @@ function DraggableImage({
         transformPerspective: 1500,
       }}
       transition={{ type: 'spring', stiffness: 250, damping: 20 }}
-    />
+    >
+      <Image
+        src={img.src}
+        alt={`Profile avatar ${img.id}`}
+        fill
+        sizes="120px"
+        quality={75}
+        priority
+        className="object-cover"
+      />
+    </motion.div>
   );
 }
