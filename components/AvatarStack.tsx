@@ -42,6 +42,7 @@ export default function AvatarStack() {
           <motion.img
             key={img.id}
             src={img.src}
+            alt={`Profile avatar ${img.id}`}
             animate={{
               x: offsetX,
               y: offsetY,
@@ -77,6 +78,7 @@ function DraggableImage({
     <motion.img
       key={img.id}
       src={img.src}
+      alt={`Profile avatar ${img.id}`}
       drag
       dragElastic={0.5}
       onDragEnd={(_, info) => {

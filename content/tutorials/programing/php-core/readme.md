@@ -13,5 +13,5 @@ Hãy sẵn sàng khám phá thế giới của PHP và hãy bắt đầu hành t
 # Tác giả
 | Tác giả | Nội dung     | Số bài giảng | Công cụ cần có | Hình ảnh |
 |--------|-------------|---------|-----------|----------|
-|[Trần Hữu Đang]()| Lập trình PHP căn bản| 8 | [Visual Studio Code](https://code.visualstudio.com/brand) | <img src="https://github.com/danqth/images/blob/main/ide/vscode.png?raw=true" width="35"> |
+|[Trần Hữu Đang]()| Lập trình PHP căn bản| 8 | [Visual Studio Code](https://code.visualstudio.com/brand) | <img src="https://github.com/danqth/images/blob/main/ide/vscode.png?raw=true" width="35" alt="Visual Studio Code logo"> |
 || | | [XAMPP](https://www.apachefriends.org/download.html) | <img src="https://github.com/danqth/images/blob/main/ide/xampp.jpg?raw=true" title="" alt="Professor Male.png" width="35"> |
