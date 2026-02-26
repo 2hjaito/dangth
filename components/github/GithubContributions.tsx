@@ -8,7 +8,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 export default function GithubContributions() {
   const theme = {
     dark: ['#374151', '#1e4429', '#2d6d32', '#3fa641', '#53d353'],
-    light: ['#F0F0F0', '#b9e6c1', '#81cd95', '#4fb66f', '#2b9c51'],
+    light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
   };
 
   return (

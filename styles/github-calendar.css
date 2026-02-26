@@ -28,23 +28,23 @@
 }
 
 .react-github-calendar rect[data-level="0"] {
-  fill: #F0F0F0;
+  fill: #ebedf0;
 }
 
 .react-github-calendar rect[data-level="1"] {
-  fill: #b9e6c1;
+  fill: #9be9a8;
 }
 
 .react-github-calendar rect[data-level="2"] {
-  fill: #81cd95;
+  fill: #40c463;
 }
 
 .react-github-calendar rect[data-level="3"] {
-  fill: #4fb66f;
+  fill: #30a14e;
 }
 
 .react-github-calendar rect[data-level="4"] {
-  fill: #2b9c51;
+  fill: #216e39;
 }
 
 .dark .react-github-calendar rect[data-level="0"] {
@@ -72,23 +72,23 @@
 }
 
 .react-activity-calendar__legend-colors svg:nth-child(2) rect {
-  fill: #F0F0F0;
+  fill: #ebedf0;
 }
 
 .react-activity-calendar__legend-colors svg:nth-child(3) rect {
-  fill: #b9e6c1;
+  fill: #9be9a8;
 }
 
 .react-activity-calendar__legend-colors svg:nth-child(4) rect {
-  fill: #81cd95;
+  fill: #40c463;
 }
 
 .react-activity-calendar__legend-colors svg:nth-child(5) rect {
-  fill: #4fb66f;
+  fill: #30a14e;
 }
 
 .react-activity-calendar__legend-colors svg:nth-child(6) rect {
-  fill: #2b9c51;
+  fill: #216e39;
 }
 
 .dark .react-activity-calendar__legend-colors svg:nth-child(2) rect {
