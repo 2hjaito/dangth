@@ -7,7 +7,7 @@ import { cmuSansVi } from './fonts'
 import Navbar from '@/components/Navbar'
 
 
-import Live2DWidgetClient from '@/components/Live2DWidgetClient'
+// import Live2DWidgetClient from '@/components/Live2DWidgetClient'
 import Footer from '@/components/Footer'
 
 
@@ -106,7 +106,7 @@ export default async function RootLayout({
         <Navbar />
 
         <main className='dark:bg-[var(--background-color-dark)]'>{children}</main>
-        <Live2DWidgetClient modelName="HK416-2-destroy" />
+        {/* <Live2DWidgetClient modelName="HK416-2-destroy" /> */}
         <Footer />
       </body>
     </html>
