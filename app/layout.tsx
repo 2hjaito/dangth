@@ -5,8 +5,11 @@ import { ReactNode } from 'react'
 import Script from 'next/script';
 import { cmuSansVi } from './fonts'
 import Navbar from '@/components/Navbar'
+
+
+import Live2DWidgetClient from '@/components/Live2DWidgetClient'
 import Footer from '@/components/Footer'
-import GoogleAdsenseBanner from '@/components/GoogleAdsenseBanner';
+
 
 import type { Metadata } from 'next';
 
@@ -101,8 +104,9 @@ export default async function RootLayout({
       </head>
       <body className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'>
         <Navbar />
-        <GoogleAdsenseBanner />
+
         <main className='dark:bg-[var(--background-color-dark)]'>{children}</main>
+        <Live2DWidgetClient modelName="HK416-2-destroy" />
         <Footer />
       </body>
     </html>

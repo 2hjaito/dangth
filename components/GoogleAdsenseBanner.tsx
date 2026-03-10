@@ -1,8 +1,11 @@
 "use client";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function GoogleAdsenseBanner() {
+  const insRef = useRef<HTMLModElement | null>(null);
+  const [hidden, setHidden] = useState(false);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
@@ -11,8 +14,21 @@ export default function GoogleAdsenseBanner() {
       } catch (e) {
         // ignore
       }
+      // Sau 2 giây, kiểm tra xem quảng cáo có hiển thị không
+      const timer = setTimeout(() => {
+        const el = insRef.current;
+        if (el) {
+          // Nếu chiều cao nhỏ hoặc không có child nào => ẩn
+          if ((el as HTMLElement).offsetHeight < 50 || el.children.length === 0) {
+            setHidden(true);
+          }
+        }
+      }, 2000);
+      return () => clearTimeout(timer);
     }
   }, []);
+
+  if (hidden) return null;
 
   return (
     <>
@@ -24,6 +40,7 @@ export default function GoogleAdsenseBanner() {
         crossOrigin="anonymous"
       />
       <ins
+        ref={insRef}
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-9187603281407054"
