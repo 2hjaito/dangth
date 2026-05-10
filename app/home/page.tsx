@@ -82,13 +82,13 @@ export default function Home() {
         {/* SOCIAL */}
         <div className="flex flex-wrap gap-2 mt-6">
           {[
-            { icon: "github", link: "https://github.com/dangtranhuu", label: "GitHub" },
+            { icon: "github", link: "https://github.com/2hjaito", label: "GitHub" },
             { icon: "leetcode", link: "https://leetcode.com/tranhuudang", label: "LeetCode" },
             { icon: "hackerrank", link: "https://www.hackerrank.com/tranhuudang", label: "HackerRank" },
             { icon: "linkedin", link: "https://www.linkedin.com/in/tranhuudang", label: "LinkedIn" },
-            { icon: "youtube", link: "https://www.youtube.com/@devlands", label: "YouTube" },
+            { icon: "youtube", link: "https://www.youtube.com/@2hjaito", label: "YouTube" },
             { icon: "facebook", link: "https://www.facebook.com/dangth.dev/", label: "Facebook" },
-            { icon: "tiktok", link: "https://www.tiktok.com/@theanishtar", label: "TikTok" },
+            { icon: "tiktok", link: "https://www.tiktok.com/@2hjato", label: "TikTok" },
           ].map((s, i) => {
             const Icon = socialIconMap[s.icon as keyof typeof socialIconMap];
             return (
