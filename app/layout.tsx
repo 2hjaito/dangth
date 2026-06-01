@@ -95,12 +95,7 @@ export default async function RootLayout({
     <html className={cmuSansVi.variable} lang="vi">
       <head>
         {/* ...existing code... */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9187603281407054"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
+
       </head>
       <body className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'>
         <Navbar />

@@ -3,47 +3,52 @@
 import { useState } from "react";
 import Image from "next/image";
 
+type ExpandItemProps = {
+  title: string;
+  subtitle: string;
+  time: string;
+  logo?: string;
+  children: React.ReactNode;
+};
+
 export default function ExpandItem({
   title,
   subtitle,
   time,
   logo,
   children,
-}: {
-  title: string;
-  subtitle: string;
-  time: string;
-  logo: string;
-  children: React.ReactNode;
-}) {
+}: ExpandItemProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <article className="item mb-4">
-      {/* HEADER CLICKABLE */}
       <header
         className="title flex justify-between items-start py-2 cursor-pointer group"
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-start">
-          <Image
-            src={logo}
-            width={48}
-            height={48}
-            className="rounded-md object-cover"
-            alt={title}
-          />
+          {logo && (
+            <Image
+              src={logo}
+              width={48}
+              height={48}
+              className="rounded-md object-cover"
+              alt={title}
+            />
+          )}
 
-          <div className="ml-2">
+          <div className={logo ? "ml-2" : ""}>
             <div className="top font-semibold text-[17px] flex items-center gap-1">
               {title}
 
-              {/* ARROW ICON */}
               <span className="icon-wrap">
                 <svg
                   className={`
                     w-4 h-4 transform transition-all duration-300
-                    ${open ? "rotate-90 opacity-100" : "opacity-0 group-hover:opacity-100"}
+                    ${open
+                      ? "rotate-90 opacity-100"
+                      : "opacity-0 group-hover:opacity-100"
+                    }
                   `}
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -62,7 +67,6 @@ export default function ExpandItem({
         <div className="times text-[15px] font-semibold">{time}</div>
       </header>
 
-      {/* CONTENT COLLAPSE */}
       <div
         className={`
           details overflow-hidden transition-all duration-300

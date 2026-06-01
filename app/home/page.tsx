@@ -125,38 +125,77 @@ export default function Home() {
 
       {/* ABOUT */}
       <section className="mt-12 space-y-4 fade-in">
-        <p>Tôi là Trần Hữu Đang, một Fullstack Developer với kinh nghiệm xây dựng web app sử dụng công nghệ hiện đại như Next.js, Angular, Spring Boot, Node.js, PostgreSQL, MongoDB và Redis.</p>
         <p>
-          Tôi tập trung vào việc xây dựng những ứng dụng web có hiệu năng cao, kiến trúc rõ ràng
-          và trải nghiệm người dùng mượt mà. Trong quá trình phát triển, tôi thường làm việc với
-          các hệ thống realtime, websocket, xử lý sự kiện qua webhook, tích hợp AI vào sản phẩm
-          và triển khai nhiều kỹ thuật tối ưu hiệu năng như caching, queue, lazy loading
-          và database indexing.
-        </p>
-        <p>
-          Tôi đảm nhiệm cả frontend và backend, từ thiết kế API, tối ưu server, xây dựng giao diện
-          tương tác cho đến việc triển khai hệ thống thực tế. Tôi luôn ưu tiên các giải pháp có khả năng
-          mở rộng, dễ bảo trì và tối ưu tài nguyên.
+          I'm Tran Huu Dang, a Fullstack Developer focused on building modern web
+          applications with React, Next.js, Angular, Node.js, Spring Boot,
+          PostgreSQL, MongoDB, and Redis.
         </p>
 
-        <p>Bên cạnh phát triển phần mềm, tôi còn quan tâm đến UI/UX, DevOps cơ bản và cloud computing. Tôi luôn học hỏi để cập nhật kiến thức, đồng thời chia sẻ qua Github và mạng xã hội.</p>
+        <p>
+          Over the past few years, I have worked on internal business systems,
+          management platforms, and web applications serving hundreds of active users.
+          My experience covers both frontend and backend development, from designing
+          responsive user interfaces to building scalable APIs and database
+          architectures.
+        </p>
+
+        <p>
+          I regularly work with real-time technologies such as WebSocket, Server-Sent
+          Events (SSE), webhooks, background jobs, caching strategies, and database
+          optimization techniques to improve performance and reliability.
+        </p>
+
+        <p>
+          Recently, I have been exploring AI-powered applications, including RAG
+          pipelines, semantic search, vector databases, document processing, and LLM
+          integrations. I enjoy finding practical ways to incorporate AI into
+          real-world workflows and products.
+        </p>
+
+        <p>
+          Besides software development, I have hands-on experience with Docker, Linux
+          servers, Nginx, CI/CD pipelines, and cloud deployment. I value clean code,
+          maintainable architecture, and continuous learning.
+        </p>
+
         <div className="mt-4 flex flex-wrap gap-2">
-          <span>Kỹ năng của tôi:</span>
+          <span>Core skills:</span>
           {renderSkillIcons(mySkills)}
         </div>
       </section>
 
-      {/* EXPERIENCE */}
       <section className="mt-12 fade-in">
         <h2 className="text-[32px] font-semibold mb-4">Experience</h2>
 
         <ExpandItem
-          title="Devlands"
-          subtitle="Designer & Content creator"
-          time="2021–2023"
-          logo="/images/exp/devlands.jpg"
+          title="Fullstack Development"
+          subtitle="Web Applications & Internal Platforms"
+          time="2023 – Present"
         >
-          Tôi xây dựng các bài học lập trình, hướng dẫn thiết kế giao diện và tạo ra một không gian chia sẻ kiến thức dành cho cộng đồng người học. Đây không phải là một dự án phần mềm, mà là hoạt động cá nhân giúp tôi cải thiện kỹ năng trình bày, thiết kế UI và viết nội dung kỹ thuật một cách rõ ràng, dễ tiếp cận.
+          Built and maintained web-based systems used by hundreds of users. Worked
+          across the entire stack, including frontend development, API design,
+          database modeling, authentication, authorization, performance optimization,
+          and deployment workflows.
+        </ExpandItem>
+
+        <ExpandItem
+          title="AI & Automation"
+          subtitle="LLM Integration and RAG Systems"
+          time="2024 – Present"
+        >
+          Developed AI-assisted features using modern language models, vector search,
+          retrieval-augmented generation, document processing, semantic search,
+          streaming responses, and workflow automation.
+        </ExpandItem>
+
+        <ExpandItem
+          title="Realtime & Infrastructure"
+          subtitle="Performance and Scalability"
+          time="Ongoing"
+        >
+          Worked with WebSocket, SSE, Redis, caching, queues, Docker, Linux servers,
+          Nginx, CI/CD pipelines, and monitoring tools to improve application
+          performance, reliability, and maintainability.
         </ExpandItem>
       </section>
 
@@ -170,7 +209,8 @@ export default function Home() {
           time="Sep 2025 – Jan 2027"
           logo="/images/education/ctu.png"
         >
-          Học về lập trình, cơ sở dữ liệu, phân tích hệ thống và nền tảng công nghệ thông tin.
+          Studying programming, databases, system analysis, software engineering
+          fundamentals, and core information technology concepts.
         </ExpandItem>
 
         <ExpandItem
@@ -179,7 +219,9 @@ export default function Home() {
           time="Sep 2021 – Jan 2024"
           logo="/images/education/fpoly.jpg"
         >
-          Tập trung thực hành trong các môn như OOP, thiết kế web, backend, test và phát triển ứng dụng thực tế.
+          Focused on practical software development, including object-oriented
+          programming, web development, backend development, testing, and building
+          real-world applications.
         </ExpandItem>
       </section>
 
@@ -192,26 +234,31 @@ export default function Home() {
       {/* CERTIFICATIONS */}
       <section className="mt-12 fade-in text-center">
         <h2 className="text-[32px] font-semibold mb-4">Certifications</h2>
-        <p>Tôi đã hoàn thành một số chứng chỉ quốc tế như:</p>
+
+        <p className="mb-8 text-gray-700 dark:text-gray-300">
+          I have completed several certifications that strengthen my foundation in
+          backend development, cloud computing, and data handling.
+        </p>
+
         <div className="flex flex-wrap gap-10 justify-center">
           {[
             {
               img: "udemy.png",
               title: "Master Microservices with Spring Boot & Spring Cloud",
               org: "Udemy",
-              date: "02/08/2024",
+              date: "Feb 08, 2024",
             },
             {
               img: "aws-cloudfoundations.png",
               title: "AWS Academy Cloud Foundations",
-              org: "AWS",
-              date: "03/07/2022",
+              org: "AWS Academy",
+              date: "Jul 03, 2022",
             },
             {
               img: "datacamp/statement-of-accomplishment.png",
               title: "Intermediate SQL Queries",
-              org: "Data Camp",
-              date: "APR 15, 2022",
+              org: "DataCamp",
+              date: "Apr 15, 2022",
             },
           ].map((cert, idx) => (
             <article key={idx} className="w-[250px]">
@@ -222,15 +269,20 @@ export default function Home() {
                 height={100}
                 className="mx-auto object-contain"
               />
+
               <div className="font-bold mt-2 text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
                 {cert.title}
               </div>
-              <div className="text-[14px] text-[#444] dark:text-gray-300">{cert.org}</div>
-              <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">Issued {cert.date}</div>
+
+              <div className="text-[14px] text-[#444] dark:text-gray-300">
+                {cert.org}
+              </div>
+
+              <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">
+                Issued {cert.date}
+              </div>
             </article>
           ))}
-
-          <p>Những chứng chỉ này giúp tôi củng cố kiến thức backend, cloud, và xử lý dữ liệu.</p>
         </div>
       </section>
     </div>

@@ -6,7 +6,7 @@ import GoogleAdsenseBanner from "./GoogleAdsenseBanner";
 export default function Footer() {
   return (
     <>
-      <GoogleAdsenseBanner />
+      {/* <GoogleAdsenseBanner /> */}
       <footer className="mt-[50px] pt-[20px] pb-[20px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)] border-t border-gray-200 dark:border-[#9a9a9a7c]">
         <div className="max-w-[700px] mx-auto px-4 text-sm text-gray-700 dark:text-gray-300 flex justify-between items-center">
 
