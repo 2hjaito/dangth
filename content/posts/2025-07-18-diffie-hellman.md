@@ -386,7 +386,7 @@ System.out.println("Thông điệp sau khi giải mã: " + decrypted);
 
 - Nếu dùng sai khóa, sẽ sinh lỗi hoặc kết quả sai hoàn toàn.
 
-### **3.5. Nhận xét** {#nhận-xét}
+### **3.5. Nhận xét**
 
 Thông qua việc triển khai kết hợp `Diffie-Hellman` và AES bằng Java:
 
@@ -585,7 +585,7 @@ Dữ liệu mã hóa: Trả về một chuỗi Base64
 
 Thông điệp sau giải mã: Hi, Are you ok?
 
-### **5.4. Giao diện chương trình** {#giao-diện-chương-trình}
+### **5.4. Giao diện chương trình**
 
 Chương trình hiện tại chạy trên dòng lệnh (Command Line Interface -- CLI) với luồng xử lý tuần tự:
 
