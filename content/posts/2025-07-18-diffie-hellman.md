@@ -3,7 +3,7 @@ title: "Triển khai mã hóa đầu-cuối với Diffie-Hellman và AES bằng 
 subtitle: "Xây dựng cơ chế trao đổi khóa và mã hóa tin nhắn cho dự án mạng xã hội Destiny"
 author: Trần Hữu Đang
 date: 2025-07-14
-image: /images/post/2025-07-14-diffie-hellman/1.png
+image: /images/post/2025-07-18-diffie-hellman/0.png
 tags:
   - Bảo mật
   - Mật mã học
