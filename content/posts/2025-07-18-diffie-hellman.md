@@ -73,7 +73,7 @@ Quy trình thực hiện cụ thể như sau:
 
     - Bob: $B\  = \ g^{b}\ mod\ p\,$ 
 
-![Trao đổi khóa Diffie-Hellman -- Wikipedia tiếng Việt](media/image2.png)
+![Trao đổi khóa Diffie-Hellman -- Wikipedia tiếng Việt](/images/post/2025-07-18-diffie-hellman/1.png)
 
 4.  Trao đổi khóa công khai A và B
 
@@ -141,7 +141,7 @@ Dữ liệu được xử lý trong dạng ma trận 4x4 byte, gọi là "State"
 
 - Độ bảo mật cao: Không có tấn công thực tiễn nào bẻ được AES-128 (cho đến nay).
 
-![AES hoat dong](media/image3.jpeg)
+![AES hoat dong](/images/post/2025-07-18-diffie-hellman/2.jpg)
 
 - Dễ triển khai: Có mặt trong mọi thư viện mật mã tiêu chuẩn (Java, Python, OpenSSL\...).
 
@@ -504,7 +504,7 @@ Mọi thao tác được thực hiện trên môi trường Java console với �
 
 ### **5.2. Các bước thực hiện chi tiết** 
 
-![C:\Users\ADMIN\Desktop\1.jpg](media/image4.jpeg)
+![C:\Users\ADMIN\Desktop\1.jpg](/images/post/2025-07-18-diffie-hellman/3.jpg)
 
 #### Bước 1: Khởi tạo giá trị công khai
 
@@ -602,9 +602,9 @@ Chương trình hiện tại chạy trên dòng lệnh (Command Line Interface -
 
 6\. Mã hóa và giải mã tin nhắn
 
-![C:\Users\ADMIN\Desktop\2.jpg](media/image5.jpeg)
+![C:\Users\ADMIN\Desktop\2.jpg](/images/post/2025-07-18-diffie-hellman/4.jpg)
 
-![C:\Users\ADMIN\Desktop\3.jpg](media/image6.jpeg)
+![C:\Users\ADMIN\Desktop\3.jpg](/images/post/2025-07-18-diffie-hellman/5.jpg)
 
 ### **5.4. Giao diện chương trình** 
 
