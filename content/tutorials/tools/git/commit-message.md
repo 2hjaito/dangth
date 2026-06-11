@@ -4,7 +4,7 @@ title: Bài 6. Viết commits chuyên nghiệp
 subtitle: Làm chủ Git Commit Message
 author: "Trần Hữu Đang"
 date: "2023-08-01"
-headerImage: https://github.com/theanishtar/images/blob/main/angurvad/github/sesstion7/commit-good.png?raw=true
+headerImage: https://github.com/danqth/images/blob/main/angurvad/github/sesstion7/commit-good.png?raw=true
 headerMask: rgba(39, 77, 61, 0.61)
 permalinkPattern: /ebook/git/:slug/
 tags:
@@ -16,7 +16,7 @@ tags:
 
 <!-- # Bài 6 Viết commits chuyên nghiệp -->
 
-![](https://github.com/theanishtar/images/blob/main/angurvad/github/sesstion7/list/1.png?raw=true)
+![](https://github.com/danqth/images/blob/main/angurvad/github/sesstion7/list/1.png?raw=true)
 
 
 ## Một câu chuyện tại công ty nọ
@@ -81,14 +81,26 @@ Type là các kiểu commits phổ biến, bạn có thể tham khảo bảng sa
 
 
 - Type sẽ được viết bằng chữ in thường, trước dấu hai chấm
-
 > [!TIP]
 > Nếu bạn dùng **lint-commit** *(husky + commitlint)*, bạn cần cấu hình thêm từ khóa `enhance` vào `commitlint.config.js` để không bị lỗi khi commit.
-> ```js
-> module.exports = {
->   types: ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore', 'build', 'ci', 'revert', 'enhance'],
-> };
-> ```
+
+<!-- ```js
+module.exports = {
+  types: ['feat', 'fix', 'docs', 'style', 'refactor','perf', 'test', 'chore', 'build', 'ci', 'revert', 'enhance' ],
+};
+```  -->
+
+```js
+module.exports = {
+  types: ['feat', 'fix', 'docs', 
+          'style', 'refactor', 'perf', 
+          'test', 'chore', 'build', 
+          'ci', 'revert', 'enhance'
+  ],
+};
+```
+
+
 
 >[!INFO]Một số ví dụ:
 >
@@ -112,7 +124,7 @@ Không sử dụng dấu chấm ở cuối câu
 
 
 
-
+<!-- 
 >[!INFO] Một số ví dụ:
 >
 >- **feat**: add Facebook login feature.
@@ -125,7 +137,7 @@ Không sử dụng dấu chấm ở cuối câu
 >- **fix**: Sửa lỗi không thể đăng nhập khi mật khẩu sai.
 >- **refactor**: Tối ưu hóa mã nguồn cho việc xử lý đăng nhập.
 >- **perf**: Cải thiện tốc độ tải trang chính.
-
+ -->
 
 ## Body
 

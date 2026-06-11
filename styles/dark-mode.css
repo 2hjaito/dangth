@@ -53,12 +53,6 @@
   color: #e06c75;
 }
 
-.dark pre {
-  background: #1e1e1e;
-  border-radius: 8px;
-  padding: 16px;
-}
-
 .dark .hljs-operator {
   color: #56b6c2;
 }
