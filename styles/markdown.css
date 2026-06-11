@@ -221,6 +221,34 @@ main:not(.post) a.header-anchor {
   font-size: 0.9rem;
 }
 
+/* Copy button */
+.prose .copy-code-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+
+  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, .85);
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  transition: all .2s ease;
+}
+
+.prose .copy-code-btn:hover {
+  background: white;
+}
+
+html.dark .prose .copy-code-btn {
+  background: rgba(55, 65, 81, .9);
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
 .prose pre::before {
   content: "";
   position: absolute;
@@ -252,8 +280,44 @@ main:not(.post) a.header-anchor {
 .prose pre:has(code.language-js)::after {
   content: "js";
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+  top: 0.55rem;
+  right: 3.25rem;
+  /* chừa chỗ cho icon copy */
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.prose pre:has(code.language-js)::after {
+  content: "js";
+}
+
+.prose pre:has(code.language-java)::after {
+  content: "java";
+}
+
+.prose pre:has(code.language-cpp)::after,
+.prose pre:has(code.language-c\+\+)::after {
+  content: "c++";
+}
+
+.prose pre:has(code.language-c)::after {
+  content: "c";
+}
+
+.prose pre:has(code.language-ts)::after,
+.prose pre:has(code.language-typescript)::after {
+  content: "ts";
+}
+
+.prose pre:has(code.language-bash)::after,
+.prose pre:has(code.language-sh)::after {
+  content: "bash";
+}
+
+.prose pre:has(code[class*="language-"])::after {
+  position: absolute;
+  top: 0.55rem;
+  right: 3.25rem;
   font-size: 0.75rem;
   color: #888;
 }
