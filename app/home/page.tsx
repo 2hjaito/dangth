@@ -2,7 +2,7 @@ import Image from "next/image";
 import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
 import GithubContributionsLazy from "@/components/home/GithubContributionsLazy";
-import { FiGithub, FiYoutube } from "react-icons/fi";
+import { FiGithub, FiYoutube, FiAward } from "react-icons/fi";
 import { LuLinkedin, LuFacebook } from "react-icons/lu";
 import { SiLeetcode, SiAngular, SiMongodb, SiRedis } from "react-icons/si";
 import { TbBrandHackerrank, TbBrandTiktok, TbBrandNextjs } from "react-icons/tb";
@@ -73,7 +73,7 @@ export default function Home() {
             <p className="text-[#2b2c2f] dark:text-[#E5E7EB] font-semibold">Fullstack developer</p>
           </div>
 
-          <div className="md:static mx-auto mb-[50px] ml-[30%] md:ml-0 md:mb-0 md:mx-0">
+          <div className="md:static self-center md:self-auto mb-8 md:mb-0">
             <AvatarStack />
           </div>
 
@@ -164,6 +164,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* EXPERIENCE */}
       <section className="mt-12 fade-in">
         <h2 className="text-[32px] font-semibold mb-4">Experience</h2>
 
@@ -284,6 +285,53 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+
+      {/* AWARDS & INNOVATIONS */}
+      <section className="mt-12 fade-in">
+        <div className="flex items-center gap-2 mb-4">
+          <h2 className="text-[32px] font-semibold">Awards & Innovations</h2>
+        </div>
+
+        <ExpandItem
+          title="First Prize in Enterprise Innovation & Improvement"
+          subtitle="Large-scale Manufacturing Corporation"
+          time="Nov 2025"
+        >
+          Designed and developed the "AI-integrated Digitized Office & Workflow Automation Suite"
+          connected with ZaloOA. Streamlined cross-departmental operations and optimized internal
+          business communication workflows[cite: 2].
+        </ExpandItem>
+
+        <ExpandItem
+          title="Enterprise Innovation Award (Consolidation Prize)"
+          subtitle="Large-scale Manufacturing Corporation"
+          time="Nov 2025"
+        >
+          Built and deployed the "Corporate Web Platform Integrated with Conversational AI Chatbot"
+          to fully automate partner support, real-time engagement, and inquiry classification[cite: 2].
+        </ExpandItem>
+
+        <ExpandItem
+          title="Outstanding Employee of Q3/2025"
+          subtitle="Unanimous Executive Board Selection"
+          time="Oct 2025"
+        >
+          Unanimously voted by the Executive Board (including the Deputy General Directors
+          and the General Director's Assistant) with a perfect 5/5 score for breakthrough
+          performance and critical tech contributions[cite: 1].
+        </ExpandItem>
+
+        <ExpandItem
+          title="Special Recognition by the General Director"
+          subtitle="Digital Transformation Sponsorship"
+          time="Mar 2026"
+        >
+          Honored for exceptional contributions to enterprise digital transformation and rewarded
+          with 100% corporate sponsorship for a MacBook Pro M5 Pro (^^ hí hí) to drive long-term corporate
+          R&D initiatives.
+        </ExpandItem>
       </section>
     </div>
   );

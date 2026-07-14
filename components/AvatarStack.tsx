@@ -15,6 +15,7 @@ const avatars = [
 
 export default function AvatarStack() {
   const [images, setImages] = useState(avatars);
+  const maxVisible = 6;
 
   const handleDragEnd = () => {
     const updated = [...images.slice(1), images[0]];
@@ -25,12 +26,11 @@ export default function AvatarStack() {
     <div className="relative w-[120px] h-[120px]">
       {images.map((img, idx) => {
         const zIndex = images.length - idx;
-
-
-        const offsetX = idx * 8;
-        const offsetY = idx * 4;
-        const rotate = idx * 3;
-        const scale = 0.95;
+        const layer = Math.min(idx, maxVisible);
+        const offsetX = layer * 8;
+        const offsetY = layer * 4;
+        const rotate = layer * 2.5;
+        const scale = Math.max(1 - layer * 0.04, 0.8);
 
         return idx === 0 ? (
           <DraggableImage
@@ -42,13 +42,14 @@ export default function AvatarStack() {
         ) : (
           <motion.div
             key={img.id}
+            initial={false}
             animate={{
               x: offsetX,
               y: offsetY,
               rotate,
               scale,
             }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             className="absolute top-0 left-0 w-full h-full rounded-lg pointer-events-none shadow-md overflow-hidden"
             style={{ zIndex }}
           >
@@ -85,13 +86,15 @@ function DraggableImage({
   return (
     <motion.div
       drag
+      dragMomentum={false}
+      whileDrag={{ scale: 1.03 }}
       dragElastic={0.5}
       onDragEnd={(_, info) => {
-        if (Math.abs(info.offset.x) > 30 || Math.abs(info.offset.y) > 30) {
+        if (Math.abs(info.offset.x) > 40 || Math.abs(info.offset.y) > 40) {
           onDragEnd();
         }
       }}
-      className="absolute top-0 left-0 w-full h-full rounded-lg cursor-grab shadow-lg overflow-hidden"
+      className="absolute top-0 left-0 w-full h-full rounded-lg cursor-grab active:cursor-grabbing shadow-lg overflow-hidden"
       style={{
         x,
         y,
@@ -109,6 +112,7 @@ function DraggableImage({
         sizes="120px"
         quality={60}
         priority
+        draggable={false}
         className="object-cover"
       />
     </motion.div>
