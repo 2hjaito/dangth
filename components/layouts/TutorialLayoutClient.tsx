@@ -20,19 +20,58 @@ export default function TutorialLayoutClient({
   isContentLoading?: boolean
 }) {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
+  const [stickyTitle, setStickyTitle] = useState('')
+  const [isStickyVisible, setIsStickyVisible] = useState(false)
+
+  useEffect(() => {
+    const container = document.getElementById('tutorial-main-content')
+    if (!container) return
+
+    const heading = container.querySelector('h1, h2') as HTMLElement | null
+    if (!heading) return
+
+    setStickyTitle((heading.textContent || '').trim())
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsStickyVisible(!entry.isIntersecting)
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: '-80px 0px 0px 0px',
+      }
+    )
+
+    observer.observe(heading)
+    return () => observer.disconnect()
+  }, [activeSlug])
 
   return (
     <div className="flex justify-center px-4 md:px-8 lg:px-12 relative">
+      <div
+        className={`hidden lg:block fixed top-3 left-1/2 z-[60] w-[min(760px,calc(100vw-2rem))] -translate-x-1/2 transition-all duration-300 ease-out ${isStickyVisible && stickyTitle
+            ? 'translate-y-0 scale-100 opacity-100'
+            : '-translate-y-6 scale-95 opacity-0 pointer-events-none'
+          }`}
+      >
+        <div className="rounded-xl border border-gray-200/70 bg-[var(--background-color)]/88 px-4 py-2.5 shadow-md backdrop-blur-sm dark:border-gray-700/70 dark:bg-[var(--background-color-dark)]/88">
+          <p className="truncate text-sm font-semibold text-gray-800 dark:text-gray-100">
+            {stickyTitle}
+          </p>
+        </div>
+      </div>
+
       <div className="flex w-full max-w-[1280px] min-h-screen relative">
         <div className="hidden lg:block w-[260px]" />
-        <aside className="hidden lg:block fixed top-0 left-[max(1rem,calc(50%-640px))] h-screen w-[260px] mt-[30px] rounded-[10px] border-r border-gray-200 dark:border-gray-800 overflow-y-auto px-6 py-8 bg-white dark:bg-[var(--background-color-dark)]">
+        <aside className="hidden lg:block fixed top-0 left-[max(1rem,calc(50%-640px))] h-[calc(100vh-48px)] w-[260px] mt-[24px] rounded-2xl border border-gray-200/70 dark:border-gray-700/70 overflow-y-auto px-6 py-8 bg-white/82 dark:bg-[var(--background-color-dark)]/82 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_32px_rgba(0,0,0,0.35)]">
           <TutorialSidebar activeSlug={activeSlug} tree={tree} />
         </aside>
 
         {isMobileSidebarOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 bg-white dark:bg-[var(--background-color-dark)] overflow-y-auto pt-[60px]">
+          <div className="lg:hidden fixed inset-0 z-50 bg-white/86 dark:bg-[var(--background-color-dark)]/86 backdrop-blur-md overflow-y-auto pt-[60px]">
             <button
-              className="fixed top-0 left-0 w-full px-4 py-3 bg-white dark:bg-gray-800 text-left border-b border-gray-200 dark:border-gray-700 shadow"
+              className="fixed top-0 left-0 w-full px-4 py-3 bg-white/86 dark:bg-[var(--background-color-dark)]/86 backdrop-blur-md text-left border-b border-gray-200/70 dark:border-gray-700/70 shadow"
               onClick={() => setIsMobileSidebarOpen(false)}
             >
               <p className="flex items-start gap-2 font-semibold text-2xl dark:text-[var(--text-color-dark)] ">
@@ -45,10 +84,10 @@ export default function TutorialLayoutClient({
           </div>
         )}
 
-        <main className="flex-1 px-0 lg:px-[100px] py-10 mx-auto pt-20 lg:w-full w-full">
+        <main id="tutorial-main-content" className="flex-1 px-0 lg:px-[100px] py-10 mx-auto pt-20 lg:w-full w-full">
           {!isMobileSidebarOpen && (
             <button
-              className="lg:hidden fixed top-0 left-0 w-full z-50 px-4 py-3 bg-white dark:bg-gray-800 text-left border-b border-gray-200 dark:border-gray-700 shadow"
+              className="lg:hidden fixed top-0 left-0 w-full z-50 px-4 py-3 bg-white/86 dark:bg-[var(--background-color-dark)]/86 backdrop-blur-md text-left border-b border-gray-200/70 dark:border-gray-700/70 shadow"
               onClick={() => setIsMobileSidebarOpen(true)}
             >
               <p className="flex items-start gap-2 font-semibold text-2xl dark:text-[var(--text-color-dark)] ">
