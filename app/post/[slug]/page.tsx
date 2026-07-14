@@ -41,11 +41,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="post relative flex gap-6 mt-12 px-4 text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)]">
+    <div className="post relative mt-12  xl:px-[320px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)]">
 
       {/* TOC giữ nguyên */}
       {headings.length > 0 && (
-        <aside className="hidden xl:block fixed top-[100px] right-8 min-w-[200px] max-h-[calc(100vh-120px)] overflow-y-auto text-sm text-gray-500 dark:text-gray-400">
+        <aside className="hidden xl:block fixed top-[100px] right-8 z-40 min-w-[220px] max-h-[calc(100vh-120px)] overflow-y-auto rounded-lg border border-gray-200/70 bg-[var(--background-color)]/90 p-4 text-sm text-gray-500 shadow-sm backdrop-blur-sm dark:border-gray-700/70 dark:bg-[var(--background-color-dark)]/90 dark:text-gray-400">
           <strong className="block text-base mb-4">Mục lục</strong>
           <ul className="space-y-1">
             {headings.map((heading, idx) => (
@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </aside>
       )}
 
-      <article className="prose lg:prose-lg dark:prose-invert max-w-4xl mx-auto w-full">
+      <article className="prose lg:prose-lg dark:prose-invert mx-auto w-full max-w-3xl px-4 sm:px-8 lg:px-12">
 
         {Array.isArray(post.tags) && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
