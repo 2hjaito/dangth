@@ -9,6 +9,7 @@ import { MdDateRange, MdHistory, MdRebaseEdit } from "react-icons/md"
 import { IoTimerOutline } from "react-icons/io5"
 import type { Metadata } from "next";
 import FloatingTOC from '@/components/post/FloatingTOC'
+import StickyPostHeader from '@/components/post/StickyPostHeader'
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -44,6 +45,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="post relative mt-12  xl:px-[320px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)]">
 
+      <StickyPostHeader title={post.title} targetId="post-main-title" />
+
       {headings.length > 0 && <FloatingTOC slug={slug} headings={headings} />}
 
       <article className="prose lg:prose-lg dark:prose-invert mx-auto w-full max-w-3xl px-4 sm:px-8 lg:px-12">
@@ -60,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             ))}
           </div>
         )}
-        <h2 >
+        <h2 id="post-main-title">
           {post.title}
         </h2>
 
