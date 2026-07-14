@@ -221,6 +221,56 @@ main:not(.post) a.header-anchor {
   font-size: 0.9rem;
 }
 
+.prose pre.has-window-controls::before {
+  display: none;
+}
+
+.prose .code-window-controls {
+  position: absolute;
+  top: 0.875rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.prose .cw-btn {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.prose .cw-btn span {
+  font-size: 8px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.prose .cw-btn:hover span {
+  opacity: 1;
+}
+
+.prose .cw-close {
+  background: #fd5f57;
+}
+
+.prose .cw-minimize {
+  background: #febb2f;
+}
+
+.prose .cw-zoom {
+  background: #2ec841;
+}
+
 /* Copy button */
 .prose .copy-code-btn {
   position: absolute;
@@ -247,6 +297,70 @@ html.dark .prose .copy-code-btn {
   background: rgba(55, 65, 81, .9);
   border-color: #4b5563;
   color: #e5e7eb;
+}
+
+.prose .code-restore-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 3.25rem;
+  display: none;
+  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, .85);
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 6;
+}
+
+html.dark .prose .code-restore-btn {
+  background: rgba(55, 65, 81, .9);
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.prose pre.code-collapsed {
+  min-height: 52px;
+  height: 52px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.prose pre.code-collapsed code {
+  display: none;
+}
+
+.prose pre.code-collapsed .copy-code-btn {
+  display: none;
+}
+
+.prose pre.code-collapsed .code-restore-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prose pre.code-zoomed {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(960px, calc(100vw - 4rem));
+  max-width: none;
+  max-height: calc(100vh - 120px);
+  margin: 0;
+  z-index: 60;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.code-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
 }
 
 .prose pre::before {

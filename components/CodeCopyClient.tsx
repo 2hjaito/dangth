@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Check, Copy } from 'lucide-react'
-import { createRoot } from 'react-dom/client'
 
 function iconSvg(type: 'copy' | 'check') {
   return type === 'copy'
@@ -12,9 +10,92 @@ function iconSvg(type: 'copy' | 'check') {
 
 export default function CodeCopyClient() {
   useEffect(() => {
+    let zoomOverlay: HTMLDivElement | null = null
+
+    const closeZoom = () => {
+      document.querySelectorAll<HTMLPreElement>('.prose pre.code-zoomed').forEach((pre) => {
+        pre.classList.remove('code-zoomed')
+      })
+      if (zoomOverlay) {
+        zoomOverlay.remove()
+        zoomOverlay = null
+      }
+    }
+
+    const openZoom = (pre: HTMLPreElement) => {
+      closeZoom()
+      pre.classList.remove('code-collapsed')
+      pre.classList.add('code-zoomed')
+
+      zoomOverlay = document.createElement('div')
+      zoomOverlay.className = 'code-zoom-overlay'
+      zoomOverlay.onclick = closeZoom
+      document.body.appendChild(zoomOverlay)
+    }
+
+    const toggleCollapse = (pre: HTMLPreElement) => {
+      const isCollapsed = pre.classList.toggle('code-collapsed')
+      if (isCollapsed) {
+        pre.classList.remove('code-zoomed')
+        if (zoomOverlay) {
+          zoomOverlay.remove()
+          zoomOverlay = null
+        }
+      }
+    }
+
     const addButtons = () => {
       document.querySelectorAll<HTMLPreElement>('.prose pre').forEach((pre) => {
         if (pre.querySelector('.copy-code-btn')) return
+
+        pre.classList.add('has-window-controls')
+
+        const controls = document.createElement('div')
+        controls.className = 'code-window-controls'
+
+        const closeBtn = document.createElement('button')
+        closeBtn.type = 'button'
+        closeBtn.className = 'cw-btn cw-close'
+        closeBtn.setAttribute('aria-label', 'Thu nhỏ block code')
+        closeBtn.setAttribute('title', 'Thu nhỏ block code')
+        closeBtn.innerHTML = '<span>x</span>'
+        closeBtn.onclick = () => toggleCollapse(pre)
+
+        const minimizeBtn = document.createElement('button')
+        minimizeBtn.type = 'button'
+        minimizeBtn.className = 'cw-btn cw-minimize'
+        minimizeBtn.setAttribute('aria-label', 'Thu nhỏ block code')
+        minimizeBtn.setAttribute('title', 'Thu nhỏ block code')
+        minimizeBtn.innerHTML = '<span>-</span>'
+        minimizeBtn.onclick = () => toggleCollapse(pre)
+
+        const zoomBtn = document.createElement('button')
+        zoomBtn.type = 'button'
+        zoomBtn.className = 'cw-btn cw-zoom'
+        zoomBtn.setAttribute('aria-label', 'Phóng to block code')
+        zoomBtn.setAttribute('title', 'Phóng to block code')
+        zoomBtn.innerHTML = '<span>+</span>'
+        zoomBtn.onclick = () => {
+          if (pre.classList.contains('code-zoomed')) {
+            closeZoom()
+            return
+          }
+          openZoom(pre)
+        }
+
+        controls.appendChild(closeBtn)
+        controls.appendChild(minimizeBtn)
+        controls.appendChild(zoomBtn)
+        pre.appendChild(controls)
+
+        const restoreBtn = document.createElement('button')
+        restoreBtn.type = 'button'
+        restoreBtn.className = 'code-restore-btn'
+        restoreBtn.setAttribute('aria-label', 'Mở lại block code')
+        restoreBtn.setAttribute('title', 'Mở lại block code')
+        restoreBtn.innerHTML = '</>'
+        restoreBtn.onclick = () => pre.classList.remove('code-collapsed')
+        pre.appendChild(restoreBtn)
 
         const btn = document.createElement('button')
         btn.type = 'button'
@@ -48,7 +129,10 @@ export default function CodeCopyClient() {
       subtree: true,
     })
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      closeZoom()
+    }
   }, [])
 
   return null
