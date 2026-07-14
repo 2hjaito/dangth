@@ -135,14 +135,12 @@ Mở bảng quản lý Cron:
 
 ```bash
 crontab -e
-
 ```
 
 Thêm dòng sau vào cuối file:
 
 ```cron
 0 2 * * * /root/backup/backup.sh >> /root/backup/logs/cron.log 2>&1
-
 ```
 
 Cấu hình này sẽ thực thi script vào 2 giờ sáng và ghi toàn bộ kết quả xuất ra vào file `cron.log`.
@@ -158,7 +156,6 @@ Mở Command Prompt hoặc PowerShell trên máy tính của bạn và chạy l�
 ```powershell
 # Tải toàn bộ thư mục backup về thư mục hiện hành
 scp -r "root@IP_VPS:/root/backup" .
-
 ```
 
 ![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.png)
@@ -173,7 +170,6 @@ Khi có sự cố xảy ra, bạn có thể khôi phục dữ liệu bằng các
 
 ```bash
 mongorestore --gzip /root/backup/mongodb/mongo_YYYY-MM-DD_HH-MM
-
 ```
 
 **Đối với File Upload:**
