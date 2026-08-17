@@ -8,7 +8,7 @@ services:
       - NODE_ENV=production
       - PORT=1210
     ports:
-      - "1210:1210"
+      - "127.0.0.1:1210:1210"
     restart: unless-stopped
     networks:
       - webnet
