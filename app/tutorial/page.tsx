@@ -49,7 +49,7 @@ export default function TutorialsHomePage() {
             Mình là <strong>Trần Hữu Đang</strong> — lập trình viên trẻ, thích làm đồ đẹp, thích chia sẻ và tôn trọng UX.
           </p>
           <ul>
-            <li>📮 Email: <a href="mailto:dangtt135@gmail.com">dangtt135@gmail.com</a></li>
+            <li>📮 Email: <a href="mailto:me@dangth.dev">me@dangth.dev</a></li>
             <li>🌐 GitHub: <Link href="https://github.com/dangtranhuu" target="_blank">dangtranhuu</Link></li>
           </ul>
         </section>
