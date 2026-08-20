@@ -24,7 +24,7 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
   }, [activeSlug, tree])
 
   const renderItems = (items: TutorialConfigItem[], level = 0) => (
-    <ul className={`space-y-1 ${level > 1 ? 'ml-2 mt-2 pl-3 border-l border-gray-500 dark:border-gray-900' : ''}`}>
+    <ul className={`space-y-1 ${level > 1 ? 'ml-2 mt-2 border-l border-gray-200 pl-2.5 dark:border-gray-800' : ''}`}>
       {items.map((item, idx) => {
         const key = `${item.text}-${idx}`
         const isOpen = openMap[key]
@@ -36,14 +36,14 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
             <li key={key}>
               <div
                 onClick={() => toggle(key)}
-                className="cursor-pointer flex justify-between items-center text-xs font-semibold uppercase text-gray-600 dark:text-gray-300 mt-4 hover:text-black dark:hover:text-white"
+                className="mt-3 flex cursor-pointer items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-500 transition hover:bg-gray-100/80 hover:text-black dark:text-gray-400 dark:hover:bg-gray-800/70 dark:hover:text-white"
               >
-                <div className="flex items-center gap-2">
+                <div className="flex min-w-0 items-center gap-2">
                   <SidebarIcon icon={item.icon} />
-                  {item.text}
+                  <span className="truncate">{item.text}</span>
                 </div>
                 <svg
-                  className={`w-3 h-3 transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+                  className={`h-3 w-3 shrink-0 transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
         if (hasChildren) {
           return (
             <li key={key}>
-              <div className="ml-[-0.5rem] mt-4 mb-1 text-xs uppercase text-gray-500 dark:text-gray-400 font-semibold">
+              <div className="mb-1 mt-4 truncate px-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-400 dark:text-gray-500">
                 {item.text}
               </div>
               {renderItems(item.children!, level + 1)}
@@ -71,13 +71,16 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
           <li key={key}>
             <Link
               href={item.link ?? '#'}
-              className={`flex items-center gap-2 text-sm px-2 py-1 rounded transition-all ${activeSlug === item.link?.replace('/tutorial/', '')
-                ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-900'
-                : 'text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white'
+              title={item.text}
+              className={`group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] leading-5 transition-all ${activeSlug === item.link?.replace('/tutorial/', '')
+                ? 'bg-blue-50 font-semibold text-blue-600 dark:bg-blue-950/70 dark:text-blue-300'
+                : 'text-gray-700 hover:bg-gray-100/80 hover:text-black dark:text-gray-300 dark:hover:bg-gray-800/70 dark:hover:text-white'
                 }`}
             >
-              <SidebarIcon icon={item.icon} />
-              {item.text}
+              <span className="shrink-0">
+                <SidebarIcon icon={item.icon} />
+              </span>
+              <span className="min-w-0 flex-1 truncate">{item.text}</span>
             </Link>
           </li>
         )
@@ -85,7 +88,7 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
     </ul>
   )
 
-  return <nav className="p-4">{renderItems(tree)}</nav>
+  return <nav className="px-2 py-2">{renderItems(tree)}</nav>
 }
 
 function findOpenKeysForSlug(

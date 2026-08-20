@@ -53,8 +53,9 @@ export default function TutorialsHomePage() {
             <li>🌐 GitHub: <Link href="https://github.com/dangtranhuu" target="_blank">dangtranhuu</Link></li>
           </ul>
         </section>
-        <div className='mt-[5rem]' />
-        <GiscusComments />
+        <div id="comments" className='mt-[5rem]'>
+          <GiscusComments />
+        </div>
       </div>
     </TutorialLayout>
   )

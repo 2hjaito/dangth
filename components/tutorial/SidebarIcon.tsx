@@ -1,4 +1,4 @@
-import { FaJava, FaGitAlt } from 'react-icons/fa'
+import { FaJava, FaGitAlt, FaJs } from 'react-icons/fa'
 import { RiJavaLine } from 'react-icons/ri'
 import { TbBrandNodejs } from 'react-icons/tb'
 import { DiMsqlServer, DiRedis } from 'react-icons/di'
@@ -6,6 +6,7 @@ import { IconType } from 'react-icons'
 
 const ICON_MAP: Record<string, IconType> = {
   FaJava,
+  FaJs,
   RiJavaLine,
   TbBrandNodejs,
   DiMsqlServer,

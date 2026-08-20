@@ -43,6 +43,12 @@ export async function getMarkdownContent(
 
   const raw = fs.readFileSync(filePath, 'utf-8')
   const { content, data } = matter(raw)
+  const firstHeadingMatch = content.match(/^#\s+(.+)$/m)
+  const fallbackTitle = firstHeadingMatch?.[1]?.trim() ?? ''
+  const normalizedContent = data.title
+    ? content
+    : content.replace(/^#\s+.+\n+(?:\n)*/m, '')
+  const resolvedTitle = data.title ?? fallbackTitle
 
   const processed = await remark()
     .use(remarkGfm)
@@ -55,10 +61,10 @@ export async function getMarkdownContent(
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(content)
+    .process(normalizedContent)
 
   const contentHtml = processed.toString().replace(/<img([^>]+?)>/g, '<img class="zoom-img"$1>')
-  const contentText = content.replace(/[#_*>\-\n`]/g, '')
+  const contentText = normalizedContent.replace(/[#_*>\-\n`]/g, '')
   const readingTime = estimateReadingTime(contentText)
   const stat = fs.statSync(filePath)
 
@@ -67,7 +73,7 @@ export async function getMarkdownContent(
 
   return {
     slug,
-    title: data.title ?? '',
+    title: resolvedTitle,
     subtitle: data.subtitle ?? '',
     author: data.author ?? '',
     date: typeof data.date === 'string' ? data.date : undefined,

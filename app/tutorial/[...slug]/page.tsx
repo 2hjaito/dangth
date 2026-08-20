@@ -112,7 +112,7 @@ export default async function Page({
         </div>
 
         {/* COMMENTS */}
-        <div className="mt-[5rem]">
+        <div id="comments" className="mt-[5rem]">
           <GiscusComments />
         </div>
       </div>

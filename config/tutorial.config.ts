@@ -40,6 +40,39 @@ export const tutorialSidebar: TutorialConfigItem[] = [
           { text: "Những câu hỏi phỏng vấn", link: "/tutorial/programing/java-oop/interview" },
         ]
       },
+      {
+        text: "JavaScript",
+        icon: "FaJs",
+        collapsible: true, // dropdown tiếp
+        children: [
+          // { text: "Tìm hiểu về JavaScript", link: "/tutorial/programing/javascript-basic/overview" },
+          { text: "Tìm hiểu về JavaScript", link: "/tutorial/programing/javascript-basic/javascript-overview" },
+          { text: "Bắt đầu với JavaScript", link: "/tutorial/programing/javascript-basic/getting-started-with-javascript" },
+          // { text: "Biến, toán tử và các kiểu dữ liệu", link: "/tutorial/programing/javascript-basic/variable" },
+          { text: "Biến, toán tử và các kiểu dữ liệu", link: "/tutorial/programing/javascript-basic/variables-data-types-and-type-conversion" },
+          { text: "Toán tử, biểu thức và luồng điều khiển", link: "/tutorial/programing/javascript-basic/operators-expressions-and-control-flow" },
+          // { text: "Sự kiện", link: "/tutorial/programing/javascript-basic/event" },
+          { text: "Cấu trúc điều khiển, vòng lặp và hàm", link: "/tutorial/programing/javascript-basic/control-flow-loops-and-functions" },
+          { text: "Sự kiện và bộ hẹn giờ", link: "/tutorial/programing/javascript-basic/events-and-timers" },
+          // { text: "Vòng lặp", link: "/tutorial/programing/javascript-basic/loop" },
+          { text: "Đối tượng và lập trình hướng đối tượng", link: "/tutorial/programing/javascript-basic/objects-and-oop" },
+          { text: "BOM", link: "/tutorial/programing/javascript-basic/browser-object-model" },
+          // { text: "BOM", link: "/tutorial/programing/javascript-basic/bom" },
+          { text: "DOM cơ bản", link: "/tutorial/programing/javascript-basic/dom-fundamentals" },
+          { text: "DOM Manipulation và Sự kiện", link: "/tutorial/programing/javascript-basic/dom-manipulation-and-events" },
+          // { text: "DOM", link: "/tutorial/programing/javascript-basic/dom" },
+          // { text: "Animation", link: "/tutorial/programing/javascript-basic/animation" },
+          { text: "Hiệu ứng và slideshow", link: "/tutorial/programing/javascript-basic/javascript-effects-and-slideshow" },
+          { text: "Form controls và validation", link: "/tutorial/programing/javascript-basic/form-controls-and-validation" },
+
+          { text: "AngularJS cơ bản", link: "/tutorial/programing/javascript-basic/angularjs-fundamentals" },
+          { text: "Firebase Realtime Database với AngularJS", link: "/tutorial/programing/javascript-basic/firebase-realtime-database-with-angularjs" },
+          // { text: "AngularJS", link: "/tutorial/programing/javascript-basic/angularjs" },
+          { text: "AngularJS Directives, Data Binding và Filters", link: "/tutorial/programing/javascript-basic/angularjs-directives-data-binding-and-filters" },
+          { text: "AngularJS Forms và Validation", link: "/tutorial/programing/javascript-basic/angularjs-forms-and-validation" },
+          // { text: "Sử dụng AngularJS", link: "/tutorial/programing/javascript-basic/using-angularjs" },
+        ]
+      },
     ]
   },
   {
