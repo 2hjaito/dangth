@@ -695,6 +695,24 @@ history
 ---
 
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <button type="button" id="js-bom-button">Đọc thông tin BOM</button>
+    <pre id="js-bom-result">Chưa có dữ liệu.</pre>
+
+    <script>
+        document.getElementById('js-bom-button').addEventListener('click', () => {
+            document.getElementById('js-bom-result').textContent = [
+                `URL: ${window.location.href}`,
+                `Viewport: ${window.innerWidth} x ${window.innerHeight}`,
+                `History length: ${window.history.length}`,
+                `User agent: ${navigator.userAgent}`,
+            ].join('\n');
+        });
+    </script>
+</div>
+
 ## 11. Lỗi thường gặp
 
 ### 11.1. Nhầm `screen.width` và `window.innerWidth`

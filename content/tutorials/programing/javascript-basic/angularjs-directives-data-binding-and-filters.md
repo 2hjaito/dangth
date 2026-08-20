@@ -1018,6 +1018,30 @@ View
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <div ng-app="tutorialDirectiveDemo" ng-controller="TutorialDirectiveController">
+        <label for="ng-filter-keyword">Từ khóa:</label>
+        <input id="ng-filter-keyword" type="text" ng-model="keyword" placeholder="Lọc dữ liệu">
+
+        <ul>
+            <li ng-repeat="item in items | filter:keyword">{{ item | uppercase }}</li>
+        </ul>
+    </div>
+
+    <script>
+        angular
+            .module('tutorialDirectiveDemo', [])
+            .controller('TutorialDirectiveController', function ($scope) {
+                $scope.keyword = '';
+                $scope.items = ['html', 'css', 'javascript', 'angularjs'];
+            });
+    </script>
+</div>
+
 ## 10. Bài tập
 
 ### Bài 1. Binding

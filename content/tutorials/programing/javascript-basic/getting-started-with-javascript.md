@@ -52,6 +52,21 @@ tích và thực thi.
 Kết quả:
 ![](/tutorials/programing/javascript-basic/hello-world-alert.jpeg)
 
+### Demo trực tiếp
+
+Bạn có thể bấm nút dưới đây để xem đúng hiệu ứng `alert("Hello World")`
+ngay trên trang:
+
+<div style="margin-top: 12px; margin-bottom: 16px;">
+    <button
+        type="button"
+        onclick="alert('Hello World')"
+        style="border: none; border-radius: 999px; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 10px 18px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 24px rgba(34, 197, 94, 0.28);"
+    >
+        Chạy Hello World
+    </button>
+</div>
+
 ---
 
 ## 3. Cú pháp JavaScript cơ bản
@@ -180,6 +195,24 @@ Khi dùng file JavaScript bên ngoài, có thể đặt trong `<head>` và thêm
 
 `defer` cho phép tải script mà không chặn việc phân tích HTML và thực
 thi script sau khi HTML đã được phân tích.
+
+### Demo trực tiếp
+
+Ví dụ dưới đây mô phỏng cách một nút HTML gọi JavaScript khi người dùng
+click:
+
+<div style="margin-top: 12px; margin-bottom: 16px; display: grid; gap: 10px;">
+    <div>
+        <button
+            type="button"
+            onclick="this.nextElementSibling.textContent = 'Xin chào! JavaScript vừa chạy từ sự kiện click.'"
+            style="border: 1px solid rgba(34, 197, 94, 0.35); border-radius: 12px; background: rgba(34, 197, 94, 0.08); color: #166534; padding: 10px 16px; font-weight: 600; cursor: pointer;"
+        >
+            Click để chạy JavaScript
+        </button>
+        <p style="margin-top: 10px; margin-bottom: 0; color: #4b5563;">Chưa có hành động nào được chạy.</p>
+    </div>
+</div>
 
 ---
 

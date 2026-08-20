@@ -74,6 +74,7 @@ export default async function Page({
         {/* CONTENT */}
         <div
           className="prose lg:prose-lg dark:prose-invert max-w-none"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: tutorial.contentHtml }}
         />
 

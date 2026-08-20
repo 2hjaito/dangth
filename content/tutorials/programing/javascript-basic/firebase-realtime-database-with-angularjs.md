@@ -457,6 +457,34 @@ Bài dùng `$scope.$apply()` khi callback Firebase thay đổi dữ liệu bên 
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <input id="firebase-demo-name" type="text" placeholder="Name">
+    <input id="firebase-demo-message" type="text" placeholder="Message">
+    <button type="button" id="firebase-demo-send">Gửi</button>
+    <div id="firebase-demo-messages"></div>
+
+    <script>
+        const firebaseDemoName = document.getElementById('firebase-demo-name');
+        const firebaseDemoMessage = document.getElementById('firebase-demo-message');
+        const firebaseDemoSend = document.getElementById('firebase-demo-send');
+        const firebaseDemoMessages = document.getElementById('firebase-demo-messages');
+
+        firebaseDemoSend.addEventListener('click', () => {
+            const name = firebaseDemoName.value.trim() || 'davi';
+            const text = firebaseDemoMessage.value.trim();
+
+            if (text === '') return;
+
+            const item = document.createElement('div');
+            item.textContent = `${name}: ${text}`;
+            firebaseDemoMessages.appendChild(item);
+            firebaseDemoMessage.value = '';
+        });
+    </script>
+</div>
+
 ## 8. Bài tập
 
 ### Bài 1. Phân biệt `set()` và `push()`

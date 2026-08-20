@@ -24,20 +24,13 @@ Sau bài này, bạn cần:
 ### 5.1. Toán tử số học
 
 | Toán tử | Ý nghĩa |
-
 |---|---|
-
 | `+` | Cộng |
-
 | `-` | Trừ |
-
-| `\*` | Nhân |
-
+| `*` | Nhân |
 | `/` | Chia |
-
 | `%` | Chia lấy dư |
-
-| `\**` | Lũy thừa |
+| `**` | Lũy thừa |
 
 Ví dụ:
 
@@ -51,13 +44,13 @@ console.log(a + b); // 13
 
 console.log(a - b); // 7
 
-console.log(a \* b); // 30
+console.log(a * b); // 30
 
 console.log(a / b); // 3.333...
 
 console.log(a % b); // 1
 
-console.log(a \** b); // 1000
+console.log(a ** b); // 1000
 
 ```
 
@@ -100,13 +93,9 @@ Cần phân biệt hai nhóm.
 #### Toán tử logic
 
 | Toán tử | Ý nghĩa |
-
 |---|---|
-
 | `&&` | AND |
-
-| `||` | OR |
-
+| `<code>||</code>` | OR |
 | `!` | NOT |
 
 Ví dụ:
@@ -167,7 +156,7 @@ Các toán tử:
 
 ```
 
-cũng tồn tại trong JavaScript nhưng là **\*****\*bitwise operator\*****\*, không nên
+cũng tồn tại trong JavaScript nhưng là **bitwise operator**, không nên
 
 nhầm với `&&` và `||`.
 
@@ -239,12 +228,9 @@ Slide đề cập:
 
 ```text
 
-\\+
-
++
 -
-
-++
-
+++ 
 --
 
 ```
@@ -333,11 +319,11 @@ Vì:
 
 ```text
 
-1\\. tăng x
+1. tăng x
 
-2\\. lấy giá trị mới của x
+2. lấy giá trị mới của x
 
-3\\. gán vào y
+3. gán vào y
 
 ```
 
@@ -369,9 +355,9 @@ Vì:
 
 ```text
 
-1\\. lấy giá trị hiện tại của x để gán cho y
+1. lấy giá trị hiện tại của x để gán cho y
 
-2\\. sau đó mới tăng x
+2. sau đó mới tăng x
 
 ```
 
@@ -485,11 +471,11 @@ thay vì:
 
 Slide chia thành:
 
-1\\.  Cấu trúc tuần tự.
+1. Cấu trúc tuần tự.
 
-2\\.  Cấu trúc lựa chọn.
+2. Cấu trúc lựa chọn.
 
-3\\.  Cấu trúc lặp.
+3. Cấu trúc lặp.
 
 ### Tuần tự
 
@@ -862,9 +848,9 @@ Slide cũ đề cập:
 
 Các công cụ này phản ánh môi trường web ở thời điểm slide được biên
 
-soạn. \**Firebug đã ngừng phát triển và Internet Explorer cũng không còn
+soạn. **Firebug đã ngừng phát triển và Internet Explorer cũng không còn
 
-là môi trường nên dùng cho việc học JavaScript hiện đại.\**
+là môi trường nên dùng cho việc học JavaScript hiện đại.**
 
 Hiện nay, trình duyệt phổ biến có DevTools tích hợp sẵn:
 
@@ -1055,13 +1041,13 @@ Không nên để `debugger` không cần thiết trong code production.
 
 Yêu cầu:
 
-1\\.  Người dùng nhập điểm.
+1. Người dùng nhập điểm.
 
-2\\.  Chuyển dữ liệu sang số.
+2. Chuyển dữ liệu sang số.
 
-3\\.  Kiểm tra dữ liệu hợp lệ.
+3. Kiểm tra dữ liệu hợp lệ.
 
-4\\.  Phân loại kết quả.
+4. Phân loại kết quả.
 
 ```javascript
 
@@ -1171,9 +1157,8 @@ if (
 
 ```
 
-**> Đây chỉ là ví dụ học điều kiện. Không dùng cách lưu mật khẩu trực tiếp\**
-
-**> như trên trong ứng dụng thực tế.\**
+> [!WARNING]
+> Đây chỉ là ví dụ học điều kiện. Không dùng cách lưu mật khẩu trực tiếp như trên trong ứng dụng thực tế.
 
 
 ---
@@ -1209,6 +1194,39 @@ if (fullName === null || fullName.trim() === "") {
 ---
 
 
+
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <label for="js-score-input">Nhập điểm từ 0 đến 10:</label>
+    <input id="js-score-input" type="number" min="0" max="10" step="0.1" placeholder="Ví dụ: 7.5">
+    <button type="button" id="js-score-button">Phân loại</button>
+    <p id="js-score-result">Chưa có kết quả.</p>
+
+    <script>
+        const scoreInput = document.getElementById('js-score-input');
+        const scoreButton = document.getElementById('js-score-button');
+        const scoreResult = document.getElementById('js-score-result');
+
+        scoreButton.addEventListener('click', () => {
+            const score = Number(scoreInput.value);
+
+            if (Number.isNaN(score)) {
+                scoreResult.textContent = 'Bạn cần nhập một số hợp lệ.';
+            } else if (score < 0 || score > 10) {
+                scoreResult.textContent = 'Điểm phải nằm trong khoảng từ 0 đến 10.';
+            } else if (score >= 8) {
+                scoreResult.textContent = 'Kết quả: Giỏi';
+            } else if (score >= 6.5) {
+                scoreResult.textContent = 'Kết quả: Khá';
+            } else if (score >= 5) {
+                scoreResult.textContent = 'Kết quả: Trung bình';
+            } else {
+                scoreResult.textContent = 'Kết quả: Chưa đạt';
+            }
+        });
+    </script>
+</div>
 
 ## 6. Lưu ý và lỗi thường gặp
 

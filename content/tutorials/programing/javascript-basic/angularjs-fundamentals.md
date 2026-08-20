@@ -640,6 +640,18 @@ Bài tiếp theo sẽ áp dụng đúng ý tưởng này với Firebase Realtime
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <div ng-app>
+        <label for="ng-basic-name">Bạn tên là:</label>
+        <input id="ng-basic-name" type="text" ng-model="name" placeholder="Nhập tên của bạn">
+        <p>Xin chào <strong>{{ name || 'bạn' }}</strong></p>
+    </div>
+</div>
+
 ## 11. Bài tập
 
 ### Bài 1. Hello AngularJS

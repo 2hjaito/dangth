@@ -139,7 +139,7 @@ Sai:
 
 ```
 
-Nên dùng **\*****\*camelCase\*****\*:
+Nên dùng **camelCase**:
 
 ```javascript
 
@@ -291,7 +291,7 @@ const c = 0xD;
 
         const i = 0x2;
 
-        const j = h \* i;
+        const j = h * i;
 
         alert(j);
 
@@ -422,7 +422,7 @@ JavaScript hiện đại cũng hỗ trợ toán tử lũy thừa:
 
 ```javascript
 
-console.log(2 \** 3); // 8
+console.log(2 ** 3); // 8
 
 ```
 
@@ -430,7 +430,7 @@ console.log(2 \** 3); // 8
 
 ```javascript
 
-const randomNumber = Math.floor(Math.random() \* 10) + 1;
+const randomNumber = Math.floor(Math.random() * 10) + 1;
 
 console.log(randomNumber);
 
@@ -478,17 +478,11 @@ Một số escape sequence:
 | Ký tự | Ý nghĩa |
 
 |---|---|
-
-| `\\\\'` | Dấu `'` |
-
-| `\\\\"` | Dấu `"` |
-
-| `\\\\\\` | Dấu `\\` |
-
+| `\'` | Dấu `'` |
+| `\"` | Dấu `"` |
+| `\\` | Dấu `\` |
 | `\t` | Tab |
-
 | `\n` | Xuống dòng |
-
 | `\b` | Backspace |
 
 Ví dụ từ slide:
@@ -742,7 +736,7 @@ Cách cũ:
 
 ```javascript
 
-var animals = \****new***\* Array();
+var animals = new Array();
 
 animals[0] = "meo";
 
@@ -756,7 +750,7 @@ Hoặc:
 
 ```javascript
 
-var animals = \****new***\* Array("meo", "ho", "voi");
+var animals = new Array("meo", "ho", "voi");
 
 ```
 
@@ -826,7 +820,7 @@ hiểu hơn.
 
 #### `null`
 
-`null` thường được dùng để biểu diễn việc **\*****\*chủ động không có giá trị\*****\*.
+`null` thường được dùng để biểu diễn việc **chủ động không có giá trị**.
 
 ```javascript
 
@@ -1064,6 +1058,33 @@ Sử dụng dữ liệu đúng mục đích
 
 ---
 
+
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <label for="js-type-input">Nhập một giá trị:</label>
+    <input id="js-type-input" type="text" placeholder="Ví dụ: 123 hoặc true">
+    <button type="button" id="js-type-button">Xem kiểu dữ liệu</button>
+    <pre id="js-type-result">Kết quả sẽ hiển thị ở đây.</pre>
+
+    <script>
+        const typeInput = document.getElementById('js-type-input');
+        const typeButton = document.getElementById('js-type-button');
+        const typeResult = document.getElementById('js-type-result');
+
+        typeButton.addEventListener('click', () => {
+            const rawValue = typeInput.value;
+            const numberValue = Number(rawValue);
+
+            typeResult.textContent = [
+                `Giá trị gốc: ${rawValue || '(rỗng)'}`,
+                `typeof giá trị gốc: ${typeof rawValue}`,
+                `Number(value): ${numberValue}`,
+                `Boolean(value): ${Boolean(rawValue)}`,
+            ].join('\n');
+        });
+    </script>
+</div>
 
 ## 6. Bài tập
 

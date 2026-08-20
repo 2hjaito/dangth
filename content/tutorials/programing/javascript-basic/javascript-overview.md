@@ -233,6 +233,22 @@ JavaScript phía client có thể:
 ---
 
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <p id="js-overview-status">Nội dung ban đầu.</p>
+    <button type="button" id="js-overview-button">Thử thay đổi nội dung</button>
+
+    <script>
+        const overviewButton = document.getElementById('js-overview-button');
+        const overviewStatus = document.getElementById('js-overview-status');
+
+        overviewButton.addEventListener('click', () => {
+            overviewStatus.textContent = 'JavaScript vừa thay đổi nội dung ngay trên trang.';
+        });
+    </script>
+</div>
+
 ## 7. Bài tập
 
 ### Câu hỏi tự kiểm tra

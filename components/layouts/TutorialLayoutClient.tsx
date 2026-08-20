@@ -166,6 +166,64 @@ export default function TutorialLayoutClient({
     }
   }, [headings, pathname])
 
+  useEffect(() => {
+    const container = document.getElementById('tutorial-main-content')
+    if (!container) return
+
+    const scripts = Array.from(
+      container.querySelectorAll<HTMLScriptElement>(
+        '.tutorial-live-demo script[data-live-script="true"]:not([data-live-executed="true"])'
+      )
+    )
+
+    let cancelled = false
+
+    const executeScripts = async () => {
+      for (const script of scripts) {
+        if (cancelled) return
+
+        script.setAttribute('data-live-executed', 'true')
+
+        if (script.src) {
+          await new Promise<void>((resolve) => {
+            const nextScript = document.createElement('script')
+
+            Array.from(script.attributes).forEach((attribute) => {
+              if (attribute.name === 'data-live-script' || attribute.name === 'type') {
+                return
+              }
+
+              nextScript.setAttribute(attribute.name, attribute.value)
+            })
+
+            nextScript.async = false
+            nextScript.onload = () => resolve()
+            nextScript.onerror = () => resolve()
+
+            script.replaceWith(nextScript)
+          })
+
+          continue
+        }
+
+        try {
+          const globalEval = window.eval
+          globalEval(script.textContent ?? '')
+        } catch (error) {
+          console.error('Tutorial live demo execution failed:', error)
+        }
+
+        script.remove()
+      }
+    }
+
+    void executeScripts()
+
+    return () => {
+      cancelled = true
+    }
+  }, [pathname, isContentLoading])
+
   return (
     <div className="flex justify-center px-4 md:px-8 lg:px-12 relative">
       <div className="fixed inset-x-0 top-0 z-[90] h-1 bg-emerald-500/15 dark:bg-blue-500/15">

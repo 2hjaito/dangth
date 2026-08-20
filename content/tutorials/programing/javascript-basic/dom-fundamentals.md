@@ -650,6 +650,20 @@ Nếu chỉ cần DOM, không nhất thiết chờ `load`.
 ---
 
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <p id="js-dom-status">Đây là đoạn văn bản gốc.</p>
+    <button type="button" id="js-dom-button">Đổi nội dung bằng DOM</button>
+
+    <script>
+        document.getElementById('js-dom-button').addEventListener('click', () => {
+            const status = document.getElementById('js-dom-status');
+            status.textContent = 'DOM vừa được truy cập và cập nhật thành công.';
+        });
+    </script>
+</div>
+
 ## 9. Lỗi thường gặp
 
 ### `Cannot read properties of null`

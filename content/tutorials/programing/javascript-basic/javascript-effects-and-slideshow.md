@@ -667,6 +667,46 @@ Stop → clearInterval()
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <div id="js-slideshow-stage">Slide 1</div>
+    <button type="button" id="js-slideshow-prev">Prev</button>
+    <button type="button" id="js-slideshow-next">Next</button>
+
+    <script>
+        const slides = [
+            { text: 'Slide 1', color: '#d1fae5' },
+            { text: 'Slide 2', color: '#bfdbfe' },
+            { text: 'Slide 3', color: '#fde68a' },
+        ];
+
+        const stage = document.getElementById('js-slideshow-stage');
+        let currentSlide = 0;
+
+        function renderSlide() {
+            const slide = slides[currentSlide];
+            stage.textContent = slide.text;
+            stage.style.padding = '16px';
+            stage.style.marginBottom = '12px';
+            stage.style.borderRadius = '12px';
+            stage.style.backgroundColor = slide.color;
+        }
+
+        document.getElementById('js-slideshow-prev').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            renderSlide();
+        });
+
+        document.getElementById('js-slideshow-next').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            renderSlide();
+        });
+
+        renderSlide();
+    </script>
+</div>
+
 ## 9. Lỗi thường gặp
 
 ### Sai camelCase của CSS property

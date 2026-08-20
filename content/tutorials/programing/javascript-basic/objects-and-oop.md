@@ -569,6 +569,31 @@ for...of
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <button type="button" id="js-object-button">Tạo object Student</button>
+    <pre id="js-object-result">Chưa tạo object.</pre>
+
+    <script>
+        class Student {
+            constructor(name, score) {
+                this.name = name;
+                this.score = score;
+            }
+
+            introduce() {
+                return `${this.name} có điểm ${this.score}.`;
+            }
+        }
+
+        document.getElementById('js-object-button').addEventListener('click', () => {
+            const student = new Student('Trần Hữu Đang', 9);
+            document.getElementById('js-object-result').textContent = student.introduce();
+        });
+    </script>
+</div>
+
 ## 7. Lỗi thường gặp
 
 ### Nhầm property với method

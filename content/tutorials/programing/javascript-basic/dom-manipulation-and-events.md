@@ -474,6 +474,33 @@ Object + Function + DOM
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <button type="button" id="js-dom-add">Thêm item</button>
+    <button type="button" id="js-dom-remove">Xóa item cuối</button>
+    <ul id="js-dom-list">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('js-dom-list');
+
+        document.getElementById('js-dom-add').addEventListener('click', () => {
+            const item = document.createElement('li');
+            item.textContent = `JavaScript ${list.children.length + 1}`;
+            list.appendChild(item);
+        });
+
+        document.getElementById('js-dom-remove').addEventListener('click', () => {
+            if (list.lastElementChild) {
+                list.lastElementChild.remove();
+            }
+        });
+    </script>
+</div>
+
 ## 8. Lỗi thường gặp và an toàn
 
 ### Đưa dữ liệu người dùng vào `innerHTML`

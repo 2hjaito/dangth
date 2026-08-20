@@ -1002,6 +1002,46 @@ Thông báo lỗi
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <div ng-app="tutorialFormDemo" ng-controller="TutorialFormController">
+        <form name="demoForm" novalidate>
+            <input
+                type="email"
+                name="email"
+                ng-model="form.email"
+                placeholder="Nhập email"
+                required
+            >
+
+            <button type="button" ng-click="submit()">Kiểm tra</button>
+        </form>
+
+        <p>{{ message }}</p>
+    </div>
+
+    <script>
+        angular
+            .module('tutorialFormDemo', [])
+            .controller('TutorialFormController', function ($scope) {
+                $scope.form = { email: '' };
+                $scope.message = 'Chưa kiểm tra.';
+
+                $scope.submit = function () {
+                    if (!$scope.form.email) {
+                        $scope.message = 'Bạn cần nhập email.';
+                        return;
+                    }
+
+                    $scope.message = 'Dữ liệu hợp lệ: ' + $scope.form.email;
+                };
+            });
+    </script>
+</div>
+
 ## 10. Bài tập
 
 ### Bài 1. Form cơ bản

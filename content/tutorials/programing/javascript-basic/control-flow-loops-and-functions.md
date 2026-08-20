@@ -1429,6 +1429,31 @@ console.log(found);
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <label for="js-loop-input">Nhập số lượng:</label>
+    <input id="js-loop-input" type="number" min="1" max="10" value="5">
+    <button type="button" id="js-loop-button">Chạy vòng lặp</button>
+    <pre id="js-loop-result">Kết quả sẽ hiển thị ở đây.</pre>
+
+    <script>
+        function generateSequence(limit) {
+            const numbers = [];
+            for (let index = 1; index <= limit; index++) {
+                numbers.push(index);
+            }
+            return numbers.join(' - ');
+        }
+
+        document.getElementById('js-loop-button').addEventListener('click', () => {
+            const limit = Number(document.getElementById('js-loop-input').value);
+            document.getElementById('js-loop-result').textContent =
+                `Xin chào! Dãy số là: ${generateSequence(limit)}`;
+        });
+    </script>
+</div>
+
 ## 8. Lỗi thường gặp
 
 ### Quên `break` trong `switch`

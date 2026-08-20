@@ -1060,6 +1060,29 @@ Event
 ---
 
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <label for="js-form-name">Họ tên:</label>
+    <input id="js-form-name" type="text" placeholder="Nhập họ tên">
+    <button type="button" id="js-form-submit">Kiểm tra</button>
+    <p id="js-form-message">Chưa kiểm tra.</p>
+
+    <script>
+        document.getElementById('js-form-submit').addEventListener('click', () => {
+            const name = document.getElementById('js-form-name').value.trim();
+            const message = document.getElementById('js-form-message');
+
+            if (name === '') {
+                message.textContent = 'Bạn cần nhập họ tên trước khi gửi.';
+                return;
+            }
+
+            message.textContent = `Dữ liệu hợp lệ. Xin chào ${name}!`;
+        });
+    </script>
+</div>
+
 ## 12. Lỗi thường gặp
 
 ### 12.1. Dùng `id` trùng nhau

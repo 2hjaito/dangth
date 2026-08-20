@@ -31,6 +31,10 @@ export interface MarkdownContent {
   lastUpdated: string
 }
 
+function toInertTutorialScripts(html: string) {
+  return html.replace(/<script(\s|>)/g, '<script data-live-script="true" type="text/plain"$1')
+}
+
 export async function getMarkdownContent(
   type: MarkdownType,
   slug: string
@@ -63,7 +67,10 @@ export async function getMarkdownContent(
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(normalizedContent)
 
-  const contentHtml = processed.toString().replace(/<img([^>]+?)>/g, '<img class="zoom-img"$1>')
+  const contentHtml = (type === 'tutorials'
+    ? toInertTutorialScripts(processed.toString())
+    : processed.toString()
+  ).replace(/<img([^>]+?)>/g, '<img class="zoom-img"$1>')
   const contentText = normalizedContent.replace(/[#_*>\-\n`]/g, '')
   const readingTime = estimateReadingTime(contentText)
   const stat = fs.statSync(filePath)

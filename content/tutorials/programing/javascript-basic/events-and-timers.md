@@ -970,6 +970,35 @@ Kiến thức kết hợp:
 
 ---
 
+### Demo trực tiếp
+
+<div class="tutorial-live-demo">
+    <p id="js-timer-value">Đếm: 0</p>
+    <button type="button" id="js-timer-start">Bắt đầu</button>
+    <button type="button" id="js-timer-stop">Dừng</button>
+
+    <script>
+        const timerLabel = document.getElementById('js-timer-value');
+        const startButton = document.getElementById('js-timer-start');
+        const stopButton = document.getElementById('js-timer-stop');
+        let timerCount = 0;
+        let timerId = null;
+
+        startButton.addEventListener('click', () => {
+            if (timerId) return;
+            timerId = setInterval(() => {
+                timerCount += 1;
+                timerLabel.textContent = `Đếm: ${timerCount}`;
+            }, 1000);
+        });
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(timerId);
+            timerId = null;
+        });
+    </script>
+</div>
+
 ## 6. Lỗi thường gặp
 
 ### Tạo nhiều interval khi click nhiều lần
