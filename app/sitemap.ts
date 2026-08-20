@@ -1,5 +1,8 @@
-export default function sitemap() {
+import { getAllPostsMeta } from '@/lib/content/post';
+
+export default async function sitemap() {
   const baseUrl = "https://dangth.dev";
+  const posts = await getAllPostsMeta();
 
   return [
     // Static pages
@@ -34,36 +37,13 @@ export default function sitemap() {
       priority: 0.7,
     },
 
-    // Posts from existing RSS (you gave me this list)
-    {
-      url: `${baseUrl}/post/2023-10-20-greedy-algorithm`,
-      lastModified: new Date("2023-10-20"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/post/2023-10-20-auth-jwt-nodejs`,
-      lastModified: new Date("2023-10-20"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/post/2023-12-22-limit-requests-per-ip`,
-      lastModified: new Date("2023-12-22"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/post/2023-09-03-session-cookie-authentication`,
-      lastModified: new Date("2023-09-03"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/post/2023-10-27-jwt-springboot`,
-      lastModified: new Date("2023-10-27"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
+    ...posts
+      .filter((post) => post.published)
+      .map((post) => ({
+        url: `${baseUrl}/post/${post.slug}`,
+        lastModified: post.date ? new Date(post.date) : new Date(),
+        changeFrequency: "yearly" as const,
+        priority: 0.6,
+      })),
   ];
 }

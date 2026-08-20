@@ -84,6 +84,34 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://dangth.dev/#person',
+      name: 'Trần Hữu Đang',
+      url: 'https://dangth.dev',
+      jobTitle: 'Fullstack Developer',
+      sameAs: [
+        'https://github.com/2hjaito',
+        'https://www.linkedin.com/in/tranhuudang',
+        'https://www.facebook.com/dangth.dev/',
+        'https://www.youtube.com/@2hjaito',
+      ],
+      knowsAbout: ['Next.js', 'Spring Boot', 'DevOps', 'Microservices'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://dangth.dev/#website',
+      url: 'https://dangth.dev',
+      name: 'Trần Hữu Đang',
+      publisher: { '@id': 'https://dangth.dev/#person' },
+      inLanguage: 'vi-VN',
+    },
+  ],
+};
+
 export default async function RootLayout({
   children,
 }: {
@@ -94,7 +122,10 @@ export default async function RootLayout({
 
     <html className={cmuSansVi.variable} lang="vi">
       <head>
-        {/* ...existing code... */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
 
       </head>
       <body className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'>
