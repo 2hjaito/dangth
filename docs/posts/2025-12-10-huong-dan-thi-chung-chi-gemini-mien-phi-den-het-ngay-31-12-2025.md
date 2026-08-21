@@ -1,5 +1,6 @@
 ---
 title: Hướng Dẫn Chi Tiết Thi & Nhận Chứng Chỉ Gemini Google MIỄN PHÍ (Hạn chót 31/12/2025)
+slug: huong-dan-chi-tiet-thi-nhan-chung-chi-gemini-google-mien-phi-han-chot-31-12-2025
 subtitle: Nâng Cấp CV bằng Certificate Gemini Educator/Student & Bộ Đáp Án Mới Nhất
 author: [Trần Hữu Đang] 
 date: "2025-12-10"

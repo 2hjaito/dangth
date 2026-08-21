@@ -1,5 +1,6 @@
 ---
 title: Tìm hiểu về Session, Cookie trong Xác thực người dùng
+slug: tim-hieu-ve-session-cookie-trong-xac-thuc-nguoi-dung
 subtitle: Session, Cookie là gì?
 author: Trần Hữu Đang
 date: "2023-09-03"

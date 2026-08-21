@@ -1,5 +1,6 @@
 ---
 title: "Triển khai mã hóa đầu-cuối với Diffie-Hellman và AES bằng Java"
+slug: trien-khai-ma-hoa-dau-cuoi-voi-diffie-hellman-va-aes-bang-java
 subtitle: "Xây dựng cơ chế trao đổi khóa và mã hóa tin nhắn cho dự án mạng xã hội Destiny"
 author: Trần Hữu Đang
 date: 2025-07-14

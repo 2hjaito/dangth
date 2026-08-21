@@ -1,6 +1,7 @@
 ---
 layout: Post
 title: Xử lý dữ liệu thời gian thực với Laravel và NodeJS
+slug: xu-ly-du-lieu-thoi-gian-thuc-voi-laravel-va-nodejs
 subtitle: Cách dùng Socket.io trong Laravel để tạo ứng dụng realtime
 author: Trần Hữu Đang
 date: "2024-04-11"

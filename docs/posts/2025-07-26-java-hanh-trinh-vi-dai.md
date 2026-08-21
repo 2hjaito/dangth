@@ -1,5 +1,6 @@
 ---
 title: Java – Hành Trình Vĩ Đại Của Một Đứa Con Bị Ruồng Bỏ
+slug: java-hanh-trinh-vi-dai-cua-mot-dua-con-bi-ruong-bo
 subtitle: Từ thiết bị TV thất bại đến nền tảng thống trị doanh nghiệp và di động
 author: Trần Hữu Đang
 date: "2025-07-26"
