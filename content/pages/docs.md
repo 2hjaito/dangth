@@ -143,6 +143,39 @@ type CertificationBlock = {
 };
 ```
 
+## davi:cert-groups
+
+Dùng cho trang cert đầy đủ, khi cần nhóm nhiều chứng chỉ theo tổ chức.
+
+````md
+:::davi:cert-groups Certification Gallery
+[org] Udemy
+[logo] /images/cert/udemy/udemy.png
+[cert] AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
+[cert] Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
+
+[org] Data Camp
+[logo] /images/cert/datacamp/datacamp-logo.png
+[cert] Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
+:::
+````
+
+Schema:
+
+```ts
+type CertGroupBlock = {
+  org: string;
+  logo: string;
+  certs: Array<{
+    title: string;
+    image: string;
+    level?: string;
+  }>;
+};
+```
+
+Mỗi dòng `[cert]` dùng dạng `title | image | level`. Field `level` hiện được parse để dành cho UI sau này.
+
 ## davi:github-repositories
 
 Dùng cho trang project để render danh sách repository GitHub theo topic đã cấu hình.

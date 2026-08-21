@@ -13,6 +13,7 @@ export type PageBlock =
   | { type: 'github-contributions'; title?: string; data: Record<string, never> }
   | { type: 'github-repositories'; title?: string; data: GithubRepositoriesBlock }
   | { type: 'certifications'; title?: string; data: CertificationBlock[] }
+  | { type: 'cert-groups'; title?: string; data: CertGroupBlock[] }
   | { type: 'tools'; title?: string; data: ToolBlock[] }
 
 export interface PageContent {
@@ -52,6 +53,18 @@ export interface CertificationBlock {
   title: string
   org: string
   date: string
+}
+
+export interface CertGroupBlock {
+  org: string
+  logo: string
+  certs: CertItemBlock[]
+}
+
+export interface CertItemBlock {
+  title: string
+  image: string
+  level?: string
 }
 
 export interface GithubRepositoriesBlock {
@@ -190,6 +203,15 @@ function parseDaviBlock(type: string, content: string) {
         org: toText(fields.org),
         date: toText(fields.date),
       })) satisfies CertificationBlock[]
+    case 'cert-groups':
+      return parseFieldGroups(content, 'org').map((fields) => ({
+        org: toText(fields.org),
+        logo: toText(fields.logo),
+        certs: toArray(fields.cert).map((value) => {
+          const [title, image, level] = parseDelimited(value)
+          return { title, image, level: level || undefined }
+        }),
+      })) satisfies CertGroupBlock[]
     case 'tools':
       return parseFieldGroups(content, 'title').map((fields) => ({
         icon: toText(fields.icon),
@@ -285,6 +307,8 @@ export async function getPage(slug: string): Promise<PageContent | null> {
           return { type: 'github-repositories', title: block.title, data: parseBlock<GithubRepositoriesBlock>(block.type, block.content) }
         case 'certifications':
           return { type: 'certifications', title: block.title, data: parseBlock<CertificationBlock[]>(block.type, block.content) }
+        case 'cert-groups':
+          return { type: 'cert-groups', title: block.title, data: parseBlock<CertGroupBlock[]>(block.type, block.content) }
         case 'tools':
           return { type: 'tools', title: block.title, data: parseBlock<ToolBlock[]>(block.type, block.content) }
         default:
