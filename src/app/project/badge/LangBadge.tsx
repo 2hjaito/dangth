@@ -17,7 +17,6 @@ export const LangBadge = ({ lang }: LangBadgeProps) => {
   const IconComponent = iconEntry?.icon;
 
   if (!IconComponent) {
-    console.log(lang);
     return (
       <span
         className="repo-lang"

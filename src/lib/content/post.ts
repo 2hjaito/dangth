@@ -1,10 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { getMarkdownContent } from '../core/mdx'
+import { getMarkdownBaseDir, getMarkdownContent } from '../core/mdx'
+import { DEFAULT_LOCALE, type SupportedLocale } from '@/lib/i18n'
 import 'katex/dist/katex.min.css'
-
-const postsDir = path.join(process.cwd(), 'docs/posts')
 
 export interface PostData {
   slug: string
@@ -17,6 +16,8 @@ export interface PostData {
   tags?: string[]
   readingTime?: number
   lastUpdated?: string
+  locale?: SupportedLocale
+  sourcePath?: string
 }
 
 
@@ -39,8 +40,11 @@ function safeDate(value: any): string {
 }
 
 // Lấy tất cả slug từ thư mục posts
-export function getAllPostSlugs(): { slug: string }[] {
-  return fs.readdirSync(postsDir)
+export function getAllPostSlugs(locale: string = DEFAULT_LOCALE): { slug: string }[] {
+  const { dirPath } = getMarkdownBaseDir('posts', locale)
+  if (!fs.existsSync(dirPath)) return []
+
+  return fs.readdirSync(dirPath)
     .filter(file => file.endsWith('.md'))
     .map(file => ({
       slug: file.replace(/\.md$/, '')
@@ -49,18 +53,22 @@ export function getAllPostSlugs(): { slug: string }[] {
 
 
 // Load nội dung bài viết từ slug
-export function getPost(slug: string) {
-  return getMarkdownContent('posts', slug)
+export function getPost(slug: string, locale: string = DEFAULT_LOCALE) {
+  return getMarkdownContent('posts', slug, locale)
 }
 
-export async function getAllPostsMeta() {
-  const files = fs.readdirSync(postsDir)
+export async function getAllPostsMeta(locale: string = DEFAULT_LOCALE) {
+  const { dirPath } = getMarkdownBaseDir('posts', locale)
+  if (!fs.existsSync(dirPath)) return []
+
+  const files = fs.readdirSync(dirPath)
 
   return files
     .filter((file) => file.endsWith('.md'))
     .map((filename) => {
       const slug = filename.replace(/\.md$/, '')
-      const fileContent = fs.readFileSync(path.join(postsDir, filename), 'utf-8')
+      const filePath = path.join(dirPath, filename)
+      const fileContent = fs.readFileSync(filePath, 'utf-8')
       const { data } = matter(fileContent)
 
       return {
@@ -72,7 +80,9 @@ export async function getAllPostsMeta() {
         image: data.image ?? null,
         tags: data.tags ?? [],
         arxiv: data.arxiv ?? null,
-        published: data.published ?? true
+        published: data.published ?? true,
+        locale,
+        sourcePath: path.relative(process.cwd(), filePath).replace(/\\/g, '/')
       }
     })
 }

@@ -1,34 +1,34 @@
 ---
-title: Block Docs
-subtitle: Markdown blocks used by this site
+title: Block 文档
+subtitle: 本站使用的 Markdown 内容块说明
 ---
 
-# Block Docs
+# Block 文档
 
-Trang này ghi lại cách viết nội dung trong `docs/pages`. Những đoạn markdown thường sẽ được convert sang HTML như post/tutorial: `#` thành `h1`, `##` thành `h2`, paragraph thành `p`, list thành `ul/ol`, code fence thành `pre > code`, bảng GitHub Flavored Markdown vẫn dùng được.
+本页说明如何在 `docs/pages` 中编写内容。普通 markdown 会像 post/tutorial 一样转换为 HTML：`#` 转为 `h1`，`##` 转为 `h2`，段落转为 `p`，列表转为 `ul/ol`，代码块转为 `pre > code`，并支持 GitHub Flavored Markdown 表格。
 
-Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block dùng field `[key] value` để renderer trong `src/app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với cú pháp JSON cũ, nhưng nên dùng `:::davi:*` cho dễ đọc và dễ sửa.
+需要更丰富 UI 的区域可使用 `:::davi:<type>` 容器块。块内使用 `[key] value` 字段，供 `src/app/home/page.tsx` 中的渲染器转换为组件。解析器仍兼容旧的 JSON 语法，但建议优先使用 `:::davi:*`，可读性与维护性更好。
 
-## Markdown cơ bản
+## 基础 Markdown
 
 ````md
-# Tiêu đề chính
+# 主标题
 
-## Tiêu đề section
+## 小节标题
 
-Đây là một đoạn văn bình thường.
+这是一段普通文字。
 
-- Item một
-- Item hai
+- 项目一
+- 项目二
 
 ```ts
 const message = "hello";
 ```
 ````
 
-### davi:hero
+## davi:hero
 
-Dùng cho phần mở đầu trang home: tên, vai trò, avatar stack và social links.
+用于首页开场区：姓名、角色、头像堆叠和社交链接。
 
 ````md
 :::davi:hero
@@ -55,13 +55,13 @@ type HeroBlock = {
 };
 ```
 
-### davi:skills
+## davi:skills
 
-Dùng cho hàng icon kỹ năng.
+用于技能图标行。
 
 ````md
 :::davi:skills
-[label] Core skills:
+[label] 核心技能：
 [items] angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
 :::
 ````
@@ -75,9 +75,9 @@ type SkillsBlock = {
 };
 ```
 
-### davi:expand-list
+## davi:expand-list
 
-Dùng cho các danh sách có thể mở ra như Experience, Education, Awards.
+用于可展开列表，如 Experience、Education、Awards。
 
 ````md
 :::davi:expand-list Experience
@@ -94,7 +94,7 @@ Dùng cho các danh sách có thể mở ra như Experience, Education, Awards.
 :::
 ````
 
-Phần sau `:::davi:expand-list` là tiêu đề section tuỳ chọn. Nếu không muốn renderer tự tạo heading, bỏ phần tiêu đề đó và viết `##` bằng markdown thường ở phía trên.
+`:::davi:expand-list` 后面的文本是可选的小节标题。如果你不希望渲染器自动创建标题，可以省略该标题，并在上方用普通 markdown 写 `##` 标题。
 
 Schema:
 
@@ -108,20 +108,20 @@ type ExpandItemBlock = {
 };
 ```
 
-### davi:github-contributions
+## davi:github-contributions
 
-Dùng để nhúng component GitHub contributions.
+用于嵌入 GitHub contributions 组件。
 
 ````md
 :::davi:github-contributions Github Contributions
 :::
 ````
 
-Block này hiện chưa cần field cấu hình. Tiêu đề sau tên block là tuỳ chọn.
+此 block 目前不需要额外字段。block 名后的标题可选。
 
-### davi:certifications
+## davi:certifications
 
-Dùng cho danh sách chứng chỉ có ảnh trong `public/images/cert`.
+用于简洁证书列表，图片位于 `public/images/cert`。
 
 ````md
 :::davi:certifications Certifications
@@ -143,9 +143,9 @@ type CertificationBlock = {
 };
 ```
 
-### davi:cert-groups
+## davi:cert-groups
 
-Dùng cho trang cert đầy đủ, khi cần nhóm nhiều chứng chỉ theo tổ chức.
+用于完整证书页面，可按机构分组展示多项证书。
 
 ````md
 :::davi:cert-groups Certification Gallery
@@ -174,11 +174,11 @@ type CertGroupBlock = {
 };
 ```
 
-Mỗi dòng `[cert]` dùng dạng `title | image | level`. Field `level` hiện được parse để dành cho UI sau này.
+每行 `[cert]` 使用 `title | image | level` 格式。`level` 字段当前已被解析，可供后续 UI 使用。
 
-### davi:github-repositories
+## davi:github-repositories
 
-Dùng cho trang project để render danh sách repository GitHub theo topic đã cấu hình.
+用于 project 页面，根据配置 topic 渲染 GitHub 仓库列表。
 
 ````md
 :::davi:github-repositories Projects
@@ -196,23 +196,23 @@ type GithubRepositoriesBlock = {
 };
 ```
 
-Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `src/config/config.ts`.
-Các giá trị `sort` hỗ trợ: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
+如果未声明 `username` 或 `topic`，将使用 `src/config/config.ts` 中的默认值。
+支持的 `sort`：`updated-desc`、`updated-asc`、`stars-desc`、`stars-asc`、`name-asc`、`name-desc`。
 
-### davi:tools
+## davi:tools
 
-Dùng cho danh sách công cụ ở trang project. Field `icon` là key được renderer map sang icon React.
+用于 project 页面工具列表。`icon` 字段会被 renderer 映射为 React 图标。
 
 ````md
 :::davi:tools Tools
 [title] Photoshop 2023
 [icon] photoshop
-[description] Phần mềm thiết kế
+[description] 设计软件
 [href] https://example.com/photoshop
 
 [title] MS Office 2016
 [icon] windows
-[description] Phần mềm văn phòng Microsoft.
+[description] Microsoft 办公软件。
 [href] https://example.com/office
 :::
 ````
@@ -228,11 +228,11 @@ type ToolBlock = {
 };
 ```
 
-## Cách thêm block mới
+## 如何新增 block
 
-1. Thêm type mới vào `PageBlock` trong `src/lib/content/page.ts`.
-2. Thêm case parse field trong `parseDaviBlock` và `getPage`.
-3. Thêm component render trong trang cần dùng, ví dụ `src/app/home/page.tsx`.
-4. Viết block mới trong file markdown dưới `docs/pages` bằng `:::davi:<type>`.
+1. 在 `src/lib/content/page.ts` 的 `PageBlock` 中新增 type。
+2. 在 `parseDaviBlock` 和 `getPage` 中新增解析分支。
+3. 在需要的页面里新增渲染组件，例如 `src/app/home/page.tsx`。
+4. 在 `docs/pages` 下的 markdown 中使用 `:::davi:<type>` 编写新 block。
 
-Tên block nên ngắn, rõ nghĩa, viết bằng kebab-case, ví dụ `davi:feature-grid` hoặc `davi:timeline`.
+block 名建议简短明确，使用 kebab-case，例如 `davi:feature-grid` 或 `davi:timeline`。

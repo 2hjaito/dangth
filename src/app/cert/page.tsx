@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPage, type PageBlock } from "@/lib/content/page";
+import { getRequestLocale } from "@/lib/i18n";
 
 function MarkdownBlock({ html }: { html: string }) {
   return (
@@ -66,7 +67,8 @@ function renderBlock(block: PageBlock, index: number) {
 }
 
 export default async function CertPage() {
-  const page = await getPage("cert");
+  const locale = await getRequestLocale();
+  const page = await getPage("cert", locale);
   if (!page) notFound();
 
   return (

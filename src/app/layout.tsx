@@ -5,6 +5,7 @@ import { ReactNode } from 'react'
 import { cmuSansVi } from './fonts'
 import Navbar from '@/components/Navbar'
 import CodeCopyClient from '@/components/CodeCopyClient'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { layoutMetadata, structuredData } from '@/config/layout.config'
 
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
         className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'
         suppressHydrationWarning
       >
+        <LanguageSwitcher />
         <Navbar />
         <CodeCopyClient />
 

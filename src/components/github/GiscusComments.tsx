@@ -13,7 +13,7 @@ export default function GiscusComments() {
       : GISCUS.light
 
   // Bỏ locale ('/en', '/vi') khỏi pathname
-  const pathWithoutLocale = pathname.replace(/^\/(en|vi)/, '')
+  const pathWithoutLocale = pathname.replace(/^\/(en|vi|zh)/, '')
 
   // Normalize path: fallback thành '/' nếu rỗng
   const normalizedPath = pathWithoutLocale === '' ? '/' : pathWithoutLocale

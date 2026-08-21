@@ -7,9 +7,10 @@ import GiscusComments from "@/components/github/GiscusComments"; // client
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { getRequestLocale, localizePath } from "@/lib/i18n";
 
 export async function generateStaticParams() {
-  return getAllTutorialSlugs().map((i) => ({ slug: i.slug }));
+  return getAllTutorialSlugs("vi").map((i) => ({ slug: i.slug }));
 }
 
 export async function generateMetadata(props: {
@@ -17,8 +18,9 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { slug } = await props.params;
   const slugStr = slug.join("/");
+  const locale = await getRequestLocale();
 
-  const tutorial = await getTutorial(slugStr);
+  const tutorial = await getTutorial(slugStr, locale);
   if (!tutorial) return { title: "Not found" };
 
   return {
@@ -45,7 +47,8 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const slugStr = slug.join("/");
-  const tutorial = await getTutorial(slugStr);
+  const locale = await getRequestLocale();
+  const tutorial = await getTutorial(slugStr, locale);
 
   if (!tutorial) notFound();
 
@@ -82,7 +85,7 @@ export default async function Page({
         <div className="mt-10 flex flex-wrap justify-between items-center text-[18px] 
                         text-gray-500 dark:text-gray-400 border-t pt-6 gap-4">
           <a
-            href={`${SITE_CONFIG.githubRepo}/edit/${SITE_CONFIG.githubBranch}/${SITE_CONFIG.tutorialDir}/${tutorial.slug}.md`}
+            href={`${SITE_CONFIG.githubRepo}/edit/${SITE_CONFIG.githubBranch}/${tutorial.sourcePath ?? `${SITE_CONFIG.tutorialDir}/${tutorial.slug}.md`}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-blue-500 hover:underline"
@@ -98,7 +101,7 @@ export default async function Page({
         {/* NAVIGATION */}
         <div className="mt-10 flex justify-between text-[18px] text-blue-600 dark:text-blue-400">
           {navContext?.previous && (
-            <Link href={navContext.previous.link || "#"}>
+            <Link href={navContext.previous.link ? localizePath(navContext.previous.link, locale) : "#"}>
               ← {navContext.previous.text}
             </Link>
           )}
@@ -106,7 +109,7 @@ export default async function Page({
           <div className="flex-1" />
 
           {navContext?.next && (
-            <Link href={navContext.next.link || "#"}>
+            <Link href={navContext.next.link ? localizePath(navContext.next.link, locale) : "#"}>
               {navContext.next.text} →
             </Link>
           )}

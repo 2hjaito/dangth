@@ -5,30 +5,30 @@ subtitle: Markdown blocks used by this site
 
 # Block Docs
 
-Trang này ghi lại cách viết nội dung trong `docs/pages`. Những đoạn markdown thường sẽ được convert sang HTML như post/tutorial: `#` thành `h1`, `##` thành `h2`, paragraph thành `p`, list thành `ul/ol`, code fence thành `pre > code`, bảng GitHub Flavored Markdown vẫn dùng được.
+This page documents how content is written inside `docs/pages`. Regular markdown is converted to HTML similarly to post/tutorial pages: `#` becomes `h1`, `##` becomes `h2`, paragraphs become `p`, lists become `ul/ol`, code fences become `pre > code`, and GitHub Flavored Markdown tables are supported.
 
-Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block dùng field `[key] value` để renderer trong `src/app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với cú pháp JSON cũ, nhưng nên dùng `:::davi:*` cho dễ đọc và dễ sửa.
+Sections that require richer UI are defined with container blocks using the `:::davi:<type>` format. Inside each block, use `[key] value` fields so the renderer in `src/app/home/page.tsx` can map data into components. The parser still supports legacy JSON blocks, but `:::davi:*` is recommended for readability and easier maintenance.
 
-## Markdown cơ bản
+## Basic markdown
 
 ````md
-# Tiêu đề chính
+# Main title
 
-## Tiêu đề section
+## Section title
 
-Đây là một đoạn văn bình thường.
+This is a normal paragraph.
 
-- Item một
-- Item hai
+- Item one
+- Item two
 
 ```ts
 const message = "hello";
 ```
 ````
 
-### davi:hero
+## davi:hero
 
-Dùng cho phần mở đầu trang home: tên, vai trò, avatar stack và social links.
+Used for the home page intro section: name, role, avatar stack, and social links.
 
 ````md
 :::davi:hero
@@ -55,9 +55,9 @@ type HeroBlock = {
 };
 ```
 
-### davi:skills
+## davi:skills
 
-Dùng cho hàng icon kỹ năng.
+Used for the skills icon row.
 
 ````md
 :::davi:skills
@@ -75,9 +75,9 @@ type SkillsBlock = {
 };
 ```
 
-### davi:expand-list
+## davi:expand-list
 
-Dùng cho các danh sách có thể mở ra như Experience, Education, Awards.
+Used for expandable sections such as Experience, Education, and Awards.
 
 ````md
 :::davi:expand-list Experience
@@ -94,7 +94,7 @@ Dùng cho các danh sách có thể mở ra như Experience, Education, Awards.
 :::
 ````
 
-Phần sau `:::davi:expand-list` là tiêu đề section tuỳ chọn. Nếu không muốn renderer tự tạo heading, bỏ phần tiêu đề đó và viết `##` bằng markdown thường ở phía trên.
+The text after `:::davi:expand-list` is an optional section title. If you do not want the renderer to auto-create a heading, omit that title and write a normal markdown `##` heading above.
 
 Schema:
 
@@ -108,20 +108,20 @@ type ExpandItemBlock = {
 };
 ```
 
-### davi:github-contributions
+## davi:github-contributions
 
-Dùng để nhúng component GitHub contributions.
+Used to embed the GitHub contributions component.
 
 ````md
 :::davi:github-contributions Github Contributions
 :::
 ````
 
-Block này hiện chưa cần field cấu hình. Tiêu đề sau tên block là tuỳ chọn.
+This block currently does not require configuration fields. The trailing title is optional.
 
-### davi:certifications
+## davi:certifications
 
-Dùng cho danh sách chứng chỉ có ảnh trong `public/images/cert`.
+Used for a simple certification list with images in `public/images/cert`.
 
 ````md
 :::davi:certifications Certifications
@@ -143,9 +143,9 @@ type CertificationBlock = {
 };
 ```
 
-### davi:cert-groups
+## davi:cert-groups
 
-Dùng cho trang cert đầy đủ, khi cần nhóm nhiều chứng chỉ theo tổ chức.
+Used for the full certification page when grouping many certificates by organization.
 
 ````md
 :::davi:cert-groups Certification Gallery
@@ -174,11 +174,11 @@ type CertGroupBlock = {
 };
 ```
 
-Mỗi dòng `[cert]` dùng dạng `title | image | level`. Field `level` hiện được parse để dành cho UI sau này.
+Each `[cert]` line uses the `title | image | level` format. The `level` field is currently parsed for future UI use.
 
-### davi:github-repositories
+## davi:github-repositories
 
-Dùng cho trang project để render danh sách repository GitHub theo topic đã cấu hình.
+Used on the project page to render GitHub repositories by configured topic.
 
 ````md
 :::davi:github-repositories Projects
@@ -196,23 +196,23 @@ type GithubRepositoriesBlock = {
 };
 ```
 
-Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `src/config/config.ts`.
-Các giá trị `sort` hỗ trợ: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
+If `username` or `topic` is omitted, defaults in `src/config/config.ts` are used.
+Supported `sort` values: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
 
-### davi:tools
+## davi:tools
 
-Dùng cho danh sách công cụ ở trang project. Field `icon` là key được renderer map sang icon React.
+Used for the tools list on the project page. The `icon` field is mapped by the renderer to a React icon.
 
 ````md
 :::davi:tools Tools
 [title] Photoshop 2023
 [icon] photoshop
-[description] Phần mềm thiết kế
+[description] Design software
 [href] https://example.com/photoshop
 
 [title] MS Office 2016
 [icon] windows
-[description] Phần mềm văn phòng Microsoft.
+[description] Microsoft office software.
 [href] https://example.com/office
 :::
 ````
@@ -228,11 +228,11 @@ type ToolBlock = {
 };
 ```
 
-## Cách thêm block mới
+## How to add a new block
 
-1. Thêm type mới vào `PageBlock` trong `src/lib/content/page.ts`.
-2. Thêm case parse field trong `parseDaviBlock` và `getPage`.
-3. Thêm component render trong trang cần dùng, ví dụ `src/app/home/page.tsx`.
-4. Viết block mới trong file markdown dưới `docs/pages` bằng `:::davi:<type>`.
+1. Add a new type to `PageBlock` in `src/lib/content/page.ts`.
+2. Add parsing cases in `parseDaviBlock` and `getPage`.
+3. Add a render component in the target page, for example `src/app/home/page.tsx`.
+4. Write the new block in a markdown file under `docs/pages` using `:::davi:<type>`.
 
-Tên block nên ngắn, rõ nghĩa, viết bằng kebab-case, ví dụ `davi:feature-grid` hoặc `davi:timeline`.
+Block names should be short, descriptive, and kebab-case, for example `davi:feature-grid` or `davi:timeline`.

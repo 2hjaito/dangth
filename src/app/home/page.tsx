@@ -4,6 +4,7 @@ import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
 import GithubContributionsLazy from "@/components/home/GithubContributionsLazy";
 import { getPage, type PageBlock } from "@/lib/content/page";
+import { getRequestLocale } from "@/lib/i18n";
 import { FiGithub, FiYoutube } from "react-icons/fi";
 import { LuLinkedin, LuFacebook } from "react-icons/lu";
 import { SiLeetcode, SiAngular, SiMongodb, SiRedis } from "react-icons/si";
@@ -208,7 +209,8 @@ function renderBlock(block: PageBlock, index: number) {
 }
 
 export default async function Home() {
-  const page = await getPage("home");
+  const locale = await getRequestLocale();
+  const page = await getPage("home", locale);
   if (!page) notFound();
 
   return (
