@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { TutorialConfigItem } from '../../config/tutorial.config'
+import { TutorialConfigItem } from '@/config/tutorial.config'
 import { getMarkdownContent } from '../core/mdx'
 
 

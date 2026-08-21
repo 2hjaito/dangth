@@ -11,7 +11,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
-import remarkAdmonition from '../plugins/remarkAdmonition'
+import remarkAdmonition from '@/lib/plugins/remarkAdmonition'
 import { estimateReadingTime } from '@/utils/readingTime'
 import 'katex/dist/katex.min.css'
 
