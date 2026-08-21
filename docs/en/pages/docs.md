@@ -32,11 +32,11 @@ Used for the home page intro section: name, role, avatar stack, and social links
 
 ````md
 :::davi:hero
-[title] Tran Huu Dang
-[description] Fullstack developer
-[srTitle] Trần Hữu Đang – Fullstack Developer
-[social] github | https://github.com/2hjaito | GitHub
-[social] linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
+title: Tran Huu Dang
+description: Fullstack developer
+srTitle: Trần Hữu Đang – Fullstack Developer
+social: github | https://github.com/2hjaito | GitHub
+social: linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
 :::
 ````
 
@@ -61,8 +61,8 @@ Used for the skills icon row.
 
 ````md
 :::davi:skills
-[label] Core skills:
-[items] angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
+label: Core skills:
+items: angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
 :::
 ````
 
@@ -81,16 +81,16 @@ Used for expandable sections such as Experience, Education, and Awards.
 
 ````md
 :::davi:expand-list Experience
-[title] Fullstack Development
-[subtitle] Web Applications & Internal Platforms
-[meta] 2023 – Present
-[content] Built and maintained web-based systems used by hundreds of users.
+title: Fullstack Development
+subtitle: Web Applications & Internal Platforms
+meta: 2023 – Present
+content: Built and maintained web-based systems used by hundreds of users.
 
-[title] Can Tho University
-[subtitle] Information Technology
-[meta] Sep 2025 – Jan 2027
-[logo] /images/education/ctu.png
-[content] Studying programming, databases, system analysis, and software engineering.
+title: Can Tho University
+subtitle: Information Technology
+meta: Sep 2025 – Jan 2027
+logo: /images/education/ctu.png
+content: Studying programming, databases, system analysis, and software engineering.
 :::
 ````
 
@@ -125,10 +125,10 @@ Used for a simple certification list with images in `public/images/cert`.
 
 ````md
 :::davi:certifications Certifications
-[title] Master Microservices with Spring Boot & Spring Cloud
-[img] udemy.png
-[org] Udemy
-[date] Feb 08, 2024
+title: Master Microservices with Spring Boot & Spring Cloud
+img: udemy.png
+org: Udemy
+date: Feb 08, 2024
 :::
 ````
 
@@ -149,14 +149,14 @@ Used for the full certification page when grouping many certificates by organiza
 
 ````md
 :::davi:cert-groups Certification Gallery
-[org] Udemy
-[logo] /images/cert/udemy/udemy.png
-[cert] AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
-[cert] Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
+org: Udemy
+logo: /images/cert/udemy/udemy.png
+cert: AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
+cert: Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
 
-[org] Data Camp
-[logo] /images/cert/datacamp/datacamp-logo.png
-[cert] Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
+org: Data Camp
+logo: /images/cert/datacamp/datacamp-logo.png
+cert: Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
 :::
 ````
 
@@ -182,7 +182,7 @@ Used on the project page to render GitHub repositories by configured topic.
 
 ````md
 :::davi:github-repositories Projects
-[sort] updated-desc
+sort: updated-desc
 :::
 ````
 
@@ -205,15 +205,15 @@ Used for the tools list on the project page. The `icon` field is mapped by the r
 
 ````md
 :::davi:tools Tools
-[title] Photoshop 2023
-[icon] photoshop
-[description] Design software
-[href] https://example.com/photoshop
+title: Photoshop 2023
+icon: photoshop
+description: Design software
+href: https://example.com/photoshop
 
-[title] MS Office 2016
-[icon] windows
-[description] Microsoft office software.
-[href] https://example.com/office
+title: MS Office 2016
+icon: windows
+description: Microsoft office software.
+href: https://example.com/office
 :::
 ````
 

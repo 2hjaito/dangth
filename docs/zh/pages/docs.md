@@ -32,11 +32,11 @@ const message = "hello";
 
 ````md
 :::davi:hero
-[title] Tran Huu Dang
-[description] Fullstack developer
-[srTitle] Trần Hữu Đang – Fullstack Developer
-[social] github | https://github.com/2hjaito | GitHub
-[social] linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
+title: Tran Huu Dang
+description: Fullstack developer
+srTitle: Trần Hữu Đang – Fullstack Developer
+social: github | https://github.com/2hjaito | GitHub
+social: linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
 :::
 ````
 
@@ -61,8 +61,8 @@ type HeroBlock = {
 
 ````md
 :::davi:skills
-[label] 核心技能：
-[items] angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
+label: 核心技能：
+items: angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
 :::
 ````
 
@@ -81,16 +81,16 @@ type SkillsBlock = {
 
 ````md
 :::davi:expand-list Experience
-[title] Fullstack Development
-[subtitle] Web Applications & Internal Platforms
-[meta] 2023 – Present
-[content] Built and maintained web-based systems used by hundreds of users.
+title: Fullstack Development
+subtitle: Web Applications & Internal Platforms
+meta: 2023 – Present
+content: Built and maintained web-based systems used by hundreds of users.
 
-[title] Can Tho University
-[subtitle] Information Technology
-[meta] Sep 2025 – Jan 2027
-[logo] /images/education/ctu.png
-[content] Studying programming, databases, system analysis, and software engineering.
+title: Can Tho University
+subtitle: Information Technology
+meta: Sep 2025 – Jan 2027
+logo: /images/education/ctu.png
+content: Studying programming, databases, system analysis, and software engineering.
 :::
 ````
 
@@ -125,10 +125,10 @@ type ExpandItemBlock = {
 
 ````md
 :::davi:certifications Certifications
-[title] Master Microservices with Spring Boot & Spring Cloud
-[img] udemy.png
-[org] Udemy
-[date] Feb 08, 2024
+title: Master Microservices with Spring Boot & Spring Cloud
+img: udemy.png
+org: Udemy
+date: Feb 08, 2024
 :::
 ````
 
@@ -149,14 +149,14 @@ type CertificationBlock = {
 
 ````md
 :::davi:cert-groups Certification Gallery
-[org] Udemy
-[logo] /images/cert/udemy/udemy.png
-[cert] AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
-[cert] Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
+org: Udemy
+logo: /images/cert/udemy/udemy.png
+cert: AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
+cert: Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
 
-[org] Data Camp
-[logo] /images/cert/datacamp/datacamp-logo.png
-[cert] Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
+org: Data Camp
+logo: /images/cert/datacamp/datacamp-logo.png
+cert: Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
 :::
 ````
 
@@ -182,7 +182,7 @@ type CertGroupBlock = {
 
 ````md
 :::davi:github-repositories Projects
-[sort] updated-desc
+sort: updated-desc
 :::
 ````
 
@@ -205,15 +205,15 @@ type GithubRepositoriesBlock = {
 
 ````md
 :::davi:tools Tools
-[title] Photoshop 2023
-[icon] photoshop
-[description] 设计软件
-[href] https://example.com/photoshop
+title: Photoshop 2023
+icon: photoshop
+description: 设计软件
+href: https://example.com/photoshop
 
-[title] MS Office 2016
-[icon] windows
-[description] Microsoft 办公软件。
-[href] https://example.com/office
+title: MS Office 2016
+icon: windows
+description: Microsoft 办公软件。
+href: https://example.com/office
 :::
 ````
 
