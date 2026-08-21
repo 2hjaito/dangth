@@ -27,8 +27,7 @@ const RepoCard = ({
 }: RepoCardProps) => {
   return (
     <div className="w-full">
-      <div className="border-b border-border/40" />
-      <div className="hover:bg-muted transition-colors duration-200 rounded-lg overflow-hidden">
+      <div className="group border border-border/60 rounded-none hover:bg-muted transition-colors duration-200 overflow-hidden">
         <div className="px-4 md:px-6 py-6">
           <div className="flex flex-col gap-2">
             {/* Header */}
@@ -41,8 +40,8 @@ const RepoCard = ({
               >
                 {name}
               </a>
-              <span className="text-sm flex items-center gap-1 text-muted-foreground shrink-0">
-                <FaRegStar className="text-base" /> {stars}
+              <span className="text-sm flex items-center gap-1 text-muted-foreground shrink-0 transition-colors duration-200 group-hover:text-yellow-400">
+                <FaRegStar className="text-base transition-colors duration-200 group-hover:drop-shadow-[0_0_6px_rgba(250,204,21,0.85)]" /> {stars}
               </span>
             </div>
 
@@ -80,6 +79,9 @@ export default async function Projects() {
     GITHUB.topic,
     process.env.GITHUB_TOKEN!
   );
+  const sortedRepos = [...repos].sort(
+    (a, b) => new Date(b.lastUpdate).getTime() - new Date(a.lastUpdate).getTime()
+  );
 
   return (
     <div className="container mx-auto max-w-3xl px-4 md:px-0 py-12">
@@ -88,7 +90,7 @@ export default async function Projects() {
       </h1>
 
       <div className="flex flex-col gap-4">
-        {repos.map((repo) => (
+        {sortedRepos.map((repo) => (
           <RepoCard key={repo.name} {...repo} />
         ))}
       </div>

@@ -79,7 +79,7 @@ export function ToolsSection() {
   return (
     <div className="mt-10">
       {/* Dùng details/summary để làm dropdown không cần hook */}
-      <details className="group rounded-lg border border-gray-300 dark:border-gray-600">
+      <details className="group rounded-none border border-gray-300 dark:border-gray-600">
         <summary className="cursor-pointer list-none px-4 md:px-6 py-4 flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-[#E5E7EB]">
             Tools
@@ -96,10 +96,10 @@ export function ToolsSection() {
           {TOOL_ITEMS.map((tool) => (
             <div
               key={tool.name}
-              className="flex items-stretch gap-4 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-muted transition-colors"
+              className="flex items-stretch gap-4 rounded-none border border-gray-300 dark:border-gray-600 hover:bg-muted transition-colors"
             >
               {/* Cột icon bên trái: cao bằng card */}
-              <div className="flex items-center justify-center px-4 bg-muted/0 border-r border-gray-300 dark:border-gray-600 rounded-l-lg text-gray-800 dark:text-[#dadada]">
+              <div className="flex items-center justify-center px-4 bg-muted/0 border-r border-gray-300 dark:border-gray-600 rounded-none text-gray-800 dark:text-[#dadada]">
                 {tool.icon}
               </div>
 

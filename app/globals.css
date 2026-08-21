@@ -12,18 +12,18 @@
   --primary-color: #0074e4;
   --primary-color-dark: #d41d45;
   --secondary-color: #ff6600;
-  --background-color: #f0f0f0;
+  --background-color: #ffffff;
   --background-color-dark: #374151;
-  --secondary-background: #dbdfe7;
+  --secondary-background: #ffffff;
   --text-color: #1F2937;
   --text-color-dark: #e5e7eb;
-  --contact-bc: #dbdfe7;
+  --contact-bc: #ffffff;
   --contact-bc-dark: #4A5363;
 
   --c-brand: #377bb5;
   --c-bg: #fff;
-  --c-bg-light: #fafafa;
-  --c-bg-lighter: #f6f6f6;
+  --c-bg-light: #ffffff;
+  --c-bg-lighter: #ffffff;
   --c-bg-transparent: rgba(255, 255, 255, .9);
   --c-bg-navbar: var(--c-bg-transparent);
   --c-bg-sidebar: var(--c-bg);
