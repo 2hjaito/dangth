@@ -1,7 +1,7 @@
 import './globals.css'
 import '@/styles/global.css'
 
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 import { cmuSansVi } from './fonts'
 import Navbar from '@/components/Navbar'
 import CodeCopyClient from '@/components/CodeCopyClient'
@@ -35,7 +35,9 @@ export default async function RootLayout({
         className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'
         suppressHydrationWarning
       >
-        <LanguageSwitcher />
+        <Suspense fallback={null}>
+          <LanguageSwitcher />
+        </Suspense>
         <Navbar />
         <CodeCopyClient />
 
