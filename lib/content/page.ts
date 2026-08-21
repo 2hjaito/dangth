@@ -11,7 +11,9 @@ export type PageBlock =
   | { type: 'skills'; data: SkillsBlock }
   | { type: 'expand-list'; title?: string; data: ExpandItemBlock[] }
   | { type: 'github-contributions'; title?: string; data: Record<string, never> }
+  | { type: 'github-repositories'; title?: string; data: GithubRepositoriesBlock }
   | { type: 'certifications'; title?: string; data: CertificationBlock[] }
+  | { type: 'tools'; title?: string; data: ToolBlock[] }
 
 export interface PageContent {
   slug: string
@@ -50,6 +52,19 @@ export interface CertificationBlock {
   title: string
   org: string
   date: string
+}
+
+export interface GithubRepositoriesBlock {
+  username?: string
+  topic?: string
+  sort?: 'updated-desc' | 'updated-asc' | 'stars-desc' | 'stars-asc' | 'name-asc' | 'name-desc'
+}
+
+export interface ToolBlock {
+  icon: string
+  title: string
+  description: string
+  href?: string
 }
 
 type ParsedMarkdownBlock =
@@ -158,6 +173,16 @@ function parseDaviBlock(type: string, content: string) {
       })) satisfies ExpandItemBlock[]
     case 'github-contributions':
       return {}
+    case 'github-repositories': {
+      const fields = parseFieldGroups(content)[0] ?? {}
+      const sort = toText(fields.sort)
+      const supportedSorts = ['updated-desc', 'updated-asc', 'stars-desc', 'stars-asc', 'name-asc', 'name-desc']
+      return {
+        username: toText(fields.username) || undefined,
+        topic: toText(fields.topic) || undefined,
+        sort: supportedSorts.includes(sort) ? sort as GithubRepositoriesBlock['sort'] : 'updated-desc',
+      } satisfies GithubRepositoriesBlock
+    }
     case 'certifications':
       return parseFieldGroups(content, 'title').map((fields) => ({
         img: toText(fields.img),
@@ -165,6 +190,13 @@ function parseDaviBlock(type: string, content: string) {
         org: toText(fields.org),
         date: toText(fields.date),
       })) satisfies CertificationBlock[]
+    case 'tools':
+      return parseFieldGroups(content, 'title').map((fields) => ({
+        icon: toText(fields.icon),
+        title: toText(fields.title),
+        description: toText(fields.description),
+        href: toText(fields.href) || undefined,
+      })) satisfies ToolBlock[]
     default:
       throw new Error(`Unknown davi block: ${type}`)
   }
@@ -249,8 +281,12 @@ export async function getPage(slug: string): Promise<PageContent | null> {
           return { type: 'expand-list', title: block.title, data: parseBlock<ExpandItemBlock[]>(block.type, block.content) }
         case 'github-contributions':
           return { type: 'github-contributions', title: block.title, data: {} }
+        case 'github-repositories':
+          return { type: 'github-repositories', title: block.title, data: parseBlock<GithubRepositoriesBlock>(block.type, block.content) }
         case 'certifications':
           return { type: 'certifications', title: block.title, data: parseBlock<CertificationBlock[]>(block.type, block.content) }
+        case 'tools':
+          return { type: 'tools', title: block.title, data: parseBlock<ToolBlock[]>(block.type, block.content) }
         default:
           throw new Error('Unknown page block')
       }

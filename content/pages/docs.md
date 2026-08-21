@@ -143,6 +143,58 @@ type CertificationBlock = {
 };
 ```
 
+## davi:github-repositories
+
+Dùng cho trang project để render danh sách repository GitHub theo topic đã cấu hình.
+
+````md
+:::davi:github-repositories Projects
+[sort] updated-desc
+:::
+````
+
+Schema:
+
+```ts
+type GithubRepositoriesBlock = {
+  username?: string;
+  topic?: string;
+  sort?: "updated-desc" | "updated-asc" | "stars-desc" | "stars-asc" | "name-asc" | "name-desc";
+};
+```
+
+Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `config/config.ts`.
+Các giá trị `sort` hỗ trợ: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
+
+## davi:tools
+
+Dùng cho danh sách công cụ ở trang project. Field `icon` là key được renderer map sang icon React.
+
+````md
+:::davi:tools Tools
+[title] Photoshop 2023
+[icon] photoshop
+[description] Phần mềm thiết kế
+[href] https://example.com/photoshop
+
+[title] MS Office 2016
+[icon] windows
+[description] Phần mềm văn phòng Microsoft.
+[href] https://example.com/office
+:::
+````
+
+Schema:
+
+```ts
+type ToolBlock = {
+  title: string;
+  icon: "photoshop" | "illustrator" | "aftereffects" | "premierepro" | "lightroom" | "audition" | "adobe" | "antivirus" | "windows";
+  description: string;
+  href?: string;
+};
+```
+
 ## Cách thêm block mới
 
 1. Thêm type mới vào `PageBlock` trong `lib/content/page.ts`.

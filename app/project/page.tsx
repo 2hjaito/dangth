@@ -1,9 +1,12 @@
 import React from "react";
+import { notFound } from "next/navigation";
 import { searchReposByTopicAndUser } from "@/lib/utils/github";
 import { GITHUB } from "@/config/config";
 import { LangBadge } from "./badge/LangBadge";
 import { FaRegStar } from "react-icons/fa";
 import { ToolsSection } from "./Tools";
+import { getPage, type PageBlock } from "@/lib/content/page";
+import type { ProcessedRepo } from "@/lib/utils/github";
 
 type RepoCardProps = {
   url: string;
@@ -15,6 +18,15 @@ type RepoCardProps = {
   stars: number;
   commitCount: number;
 };
+
+function MarkdownBlock({ html }: { html: string }) {
+  return (
+    <section
+      className="project-markdown mb-6 text-[18px] leading-[1.55] [&_h1]:text-[32px] [&_h1]:font-semibold [&_h1]:mb-6 [&_h1]:mt-0 [&_p]:my-0"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
 
 const RepoCard = ({
   url,
@@ -71,34 +83,77 @@ const RepoCard = ({
   );
 };
 
+function sortRepositories(repos: ProcessedRepo[], sort: Extract<PageBlock, { type: "github-repositories" }>["data"]["sort"] = "updated-desc") {
+  return [...repos].sort((a, b) => {
+    switch (sort) {
+      case "updated-asc":
+        return new Date(a.lastUpdate).getTime() - new Date(b.lastUpdate).getTime();
+      case "stars-desc":
+        return b.stars - a.stars;
+      case "stars-asc":
+        return a.stars - b.stars;
+      case "name-asc":
+        return a.name.localeCompare(b.name);
+      case "name-desc":
+        return b.name.localeCompare(a.name);
+      case "updated-desc":
+      default:
+        return new Date(b.lastUpdate).getTime() - new Date(a.lastUpdate).getTime();
+    }
+  });
+}
 
-
-export default async function Projects() {
+async function GithubRepositoriesBlock({ block }: { block: Extract<PageBlock, { type: "github-repositories" }> }) {
+  const username = block.data.username ?? GITHUB.username;
+  const topic = block.data.topic ?? GITHUB.topic;
   const repos = await searchReposByTopicAndUser(
-    GITHUB.username,
-    GITHUB.topic,
+    username,
+    topic,
     process.env.GITHUB_TOKEN!
   );
-  const sortedRepos = [...repos].sort(
-    (a, b) => new Date(b.lastUpdate).getTime() - new Date(a.lastUpdate).getTime()
-  );
+  const sortedRepos = sortRepositories(repos, block.data.sort);
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 md:px-0 py-12">
-      <h1 className="text-[32px] font-semibold mb-6 dark:text-[#E5E7EB]">
-        Projects
-      </h1>
+    <section>
+      {block.title && (
+        <h2 className="text-[28px] font-semibold mb-4 dark:text-[#E5E7EB]">
+          {block.title}
+        </h2>
+      )}
 
       <div className="flex flex-col gap-4">
         {sortedRepos.map((repo) => (
           <RepoCard key={repo.name} {...repo} />
         ))}
       </div>
+    </section>
+  );
+}
 
-      <div id="tools">
-        {/* Tools (tĩnh) */}
-        <ToolsSection />
-      </div>
+
+
+export default async function Projects() {
+  const page = await getPage("project");
+  if (!page) notFound();
+
+  return (
+    <div className="container mx-auto max-w-3xl px-4 md:px-0 py-12">
+      {await Promise.all(page.blocks.map(async (block, index) => {
+        switch (block.type) {
+          case "markdown":
+            return <MarkdownBlock key={index} html={block.html} />;
+          case "github-repositories":
+            return <GithubRepositoriesBlock key={index} block={block} />;
+          case "tools":
+            return (
+              <div key={index} id="tools">
+                <ToolsSection title={block.title} items={block.data} />
+              </div>
+            );
+          default:
+            return null;
+        }
+      }))}
     </div>
   );
 }
