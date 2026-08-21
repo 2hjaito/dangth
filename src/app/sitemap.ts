@@ -1,8 +1,22 @@
 import { getAllPostsMeta } from '@/lib/content/post';
+import { SUPPORTED_LOCALES } from '@/lib/i18n';
 
 export default async function sitemap() {
   const baseUrl = "https://dangth.dev";
-  const posts = await getAllPostsMeta();
+  const posts = await getAllPostsMeta('vi');
+
+  const localizedStaticPaths = ['/project', '/cert', '/tutorial', '/post'];
+
+  const localizedStatics = SUPPORTED_LOCALES
+    .filter((locale) => locale !== 'vi')
+    .flatMap((locale) =>
+      localizedStaticPaths.map((pathname) => ({
+        url: `${baseUrl}/${locale}${pathname}`,
+        lastModified: new Date(),
+        changeFrequency: pathname === '/post' ? 'weekly' : 'monthly',
+        priority: pathname === '/post' ? 0.7 : 0.6,
+      }))
+    );
 
   return [
     // Static pages
@@ -37,13 +51,21 @@ export default async function sitemap() {
       priority: 0.7,
     },
 
+    ...localizedStatics,
+
     ...posts
       .filter((post) => post.published)
-      .map((post) => ({
-        url: `${baseUrl}/post/${post.slug}`,
-        lastModified: post.date ? new Date(post.date) : new Date(),
-        changeFrequency: "yearly" as const,
-        priority: 0.6,
-      })),
+      .flatMap((post) => {
+        const lastModified = post.date ? new Date(post.date) : new Date();
+
+        return SUPPORTED_LOCALES.map((locale) => ({
+          url: locale === 'vi'
+            ? `${baseUrl}/${post.slug}`
+            : `${baseUrl}/${locale}/${post.slug}`,
+          lastModified,
+          changeFrequency: "yearly" as const,
+          priority: 0.6,
+        }));
+      }),
   ];
 }

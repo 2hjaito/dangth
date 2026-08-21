@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { MdOutlineFormatListBulleted } from "react-icons/md";
 
 type Heading = {
@@ -15,6 +16,7 @@ type FloatingTOCProps = {
 };
 
 export default function FloatingTOC({ slug, headings }: FloatingTOCProps) {
+  const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const isCenterZoom = zoomed && !collapsed;
@@ -38,10 +40,10 @@ export default function FloatingTOC({ slug, headings }: FloatingTOCProps) {
       >
         <div
           className={`transition-all duration-300 ease-out ${collapsed
-              ? "h-12 w-12 rounded-full"
-              : zoomed
-                ? "w-[min(760px,calc(100vw-4rem))] rounded-2xl"
-                : "w-[260px] rounded-lg"
+            ? "h-12 w-12 rounded-full"
+            : zoomed
+              ? "w-[min(760px,calc(100vw-4rem))] rounded-2xl"
+              : "w-[260px] rounded-lg"
             } ${isCenterZoom ? "origin-top" : "origin-top-right"}`}
         >
           {collapsed ? (
@@ -57,8 +59,8 @@ export default function FloatingTOC({ slug, headings }: FloatingTOCProps) {
           ) : (
             <aside
               className={`overflow-y-auto border border-gray-200/70 p-4 text-sm text-gray-700 shadow-sm dark:border-gray-700/70 dark:text-gray-200 ${zoomed
-                  ? "max-h-[calc(100vh-160px)] rounded-2xl p-6 bg-[var(--background-color)]/90 dark:bg-[var(--background-color-dark)]/90 backdrop-blur-sm shadow-xl"
-                  : "max-h-[calc(100vh-120px)] rounded-lg bg-[var(--background-color)]/90 dark:bg-[var(--background-color-dark)]/90 backdrop-blur-sm"
+                ? "max-h-[calc(100vh-160px)] rounded-2xl p-6 bg-[var(--background-color)]/90 dark:bg-[var(--background-color-dark)]/90 backdrop-blur-sm shadow-xl"
+                : "max-h-[calc(100vh-120px)] rounded-lg bg-[var(--background-color)]/90 dark:bg-[var(--background-color-dark)]/90 backdrop-blur-sm"
                 }`}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -115,9 +117,13 @@ export default function FloatingTOC({ slug, headings }: FloatingTOCProps) {
               <strong className="mb-4 block text-base text-gray-800 dark:text-gray-100">Mục lục</strong>
               <ul className="space-y-1">
                 {headings.map((heading, idx) => (
-                  <li key={idx} className={`toc-item level-${heading.level}`}>
+                  <li
+                    key={idx}
+                    className={`toc-item level-${heading.level}`}
+                    style={{ marginLeft: `${Math.max(0, heading.level - 2) * 16}px` }}
+                  >
                     <a
-                      href={`/post/${slug}#${heading.id}`}
+                      href={`${pathname}#${heading.id}`}
                       className={`block truncate text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 ${zoomed ? "max-w-[680px]" : "max-w-[220px]"
                         }`}
                     >
@@ -126,7 +132,7 @@ export default function FloatingTOC({ slug, headings }: FloatingTOCProps) {
                   </li>
                 ))}
                 <li className="toc-item level-2">
-                  <a href={`/post/${slug}#comments`}>Thảo luận</a>
+                  <a href={`${pathname}#comments`}>Thảo luận</a>
                 </li>
               </ul>
             </aside>

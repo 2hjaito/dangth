@@ -1,6 +1,7 @@
 ---
 layout: Post
 title: Hạn chế Request nhận được từ một IP trong khoảng thời gian nhất định
+slug: han-che-request-nhan-duoc-tu-mot-ip-trong-khoang-thoi-gian-nhat-dinh
 subtitle: Xây dựng server SpringBoot hạn chế Spam Request từ người dùng
 author: Trần Hữu Đang
 date: "2023-12-22"

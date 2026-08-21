@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getMarkdownContent } from '@/lib/core/mdx'
+import { normalizeLocale } from '@/lib/i18n'
 
 export async function GET(
   req: NextRequest,
@@ -12,7 +13,9 @@ export async function GET(
   }
 
   const slugString = slug.join('/')
-  const data = await getMarkdownContent(type as 'posts' | 'tutorials', slugString)
+  const localeFromQuery = req.nextUrl.searchParams.get('locale')
+  const locale = normalizeLocale(localeFromQuery)
+  const data = await getMarkdownContent(type as 'posts' | 'tutorials', slugString, locale)
 
   if (!data) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })

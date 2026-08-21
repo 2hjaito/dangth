@@ -8,6 +8,7 @@ import { FaUser, FaCertificate, FaSun, FaMoon, FaSpinner } from 'react-icons/fa'
 import { GiMagicPortal, GiEvilBook, GiSpellBook } from 'react-icons/gi';
 import { Projects } from './icons';
 import { navbarConfig } from '@/config/navbar.config';
+import { localizePath, parseLocaleFromPathname } from '@/lib/i18n';
 
 import useDarkMode from '@/hooks/useDarkMode';
 
@@ -23,6 +24,7 @@ const navIconMap = {
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const { locale } = parseLocaleFromPathname(pathname);
 
   const { isDark, toggleDarkMode } = useDarkMode();
   const [isLoadingTheme, setIsLoadingTheme] = useState(false);
@@ -81,9 +83,9 @@ export default function Navbar() {
           return (
             <div className="nav-item relative" key={href}>
               <Link
-                href={href}
+                href={localizePath(href, locale)}
                 prefetch={false}
-                onClick={() => setActiveNav(href)}
+                onClick={() => setActiveNav(localizePath(href, locale))}
                 title={label}
                 className="
                   group w-11 h-11 rounded-xl 

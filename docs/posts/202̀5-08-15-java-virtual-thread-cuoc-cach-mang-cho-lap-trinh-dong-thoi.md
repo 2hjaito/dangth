@@ -1,6 +1,7 @@
 ---
 layout: Post
 title: Java Virtual Thread - Cuộc cách mạng cho lập trình đồng thời
+slug: java-virtual-thread-cuoc-cach-mang-cho-lap-trinh-dong-thoi
 subtitle: Đa luồng trong Java
 author: Trần Hữu Đang
 date: "2025-08-15"

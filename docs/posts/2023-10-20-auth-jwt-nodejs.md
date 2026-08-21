@@ -1,5 +1,6 @@
 ---
 title: Xây dựng Json Web Token trong NodeJS
+slug: xay-dung-json-web-token-trong-nodejs
 subtitle: Phân quyền và đăng nhập trong NodeJS
 author: Trần Hữu Đang
 date: "2023-10-20"

@@ -1,6 +1,7 @@
 ---
 layout: Post
 title: 8 Xu hướng thiết kế website nổi bật năm 2025
+slug: 8-xu-huong-thiet-ke-website-noi-bat-nam-2025
 subtitle: Tối ưu trải nghiệm người dùng & nhận diện thương hiệu
 author: Trần Hữu Đang
 date: "2025-07-02"

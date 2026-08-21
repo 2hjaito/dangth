@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { TutorialConfigItem } from '@/config/tutorial.config'
 import { SidebarIcon } from './SidebarIcon'
 import { useEffect, useState } from 'react'
+import { localizePath, parseLocaleFromPathname } from '@/lib/i18n'
+import { usePathname } from 'next/navigation'
 
 interface Props {
   activeSlug: string
@@ -11,7 +13,9 @@ interface Props {
 }
 
 export default function TutorialSidebar({ activeSlug, tree }: Props) {
+  const pathname = usePathname()
   const [openMap, setOpenMap] = useState<Record<string, boolean>>({})
+  const [locale, setLocale] = useState('vi')
 
   const toggle = (key: string) => {
     setOpenMap(prev => ({ ...prev, [key]: !prev[key] }))
@@ -22,6 +26,11 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
     const initialMap = Object.fromEntries(openKeys.map((key) => [key, true]))
     setOpenMap(initialMap)
   }, [activeSlug, tree])
+
+  useEffect(() => {
+    const parsed = parseLocaleFromPathname(pathname)
+    setLocale(parsed.locale)
+  }, [pathname])
 
   const renderItems = (items: TutorialConfigItem[], level = 0) => (
     <ul className={`space-y-1 ${level > 1 ? 'ml-2 mt-2 border-l border-gray-200 pl-2.5 dark:border-gray-800' : ''}`}>
@@ -70,7 +79,7 @@ export default function TutorialSidebar({ activeSlug, tree }: Props) {
         return (
           <li key={key}>
             <Link
-              href={item.link ?? '#'}
+              href={item.link ? localizePath(item.link, locale) : '#'}
               title={item.text}
               className={`group flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] leading-5 transition-all ${activeSlug === item.link?.replace('/tutorial/', '')
                 ? 'bg-blue-50 font-semibold text-blue-600 dark:bg-blue-950/70 dark:text-blue-300'

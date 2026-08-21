@@ -24,7 +24,7 @@ export async function generateRssFeed() {
     feed.item({
       title: post.title,
       description: post.subtitle || '',
-      url: `${siteUrl}/post/${post.slug}`,
+      url: `${siteUrl}/${post.slug}`,
       date: post.date,
     });
   });

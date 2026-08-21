@@ -1,6 +1,7 @@
 ---
 layout: Post
 title: Xây dựng Json Web Token trong Spring Boot
+slug: xay-dung-json-web-token-trong-spring-boot
 subtitle: Phân quyền và đăng nhập trong Spring Boot
 author: Trần Hữu Đang
 date: "2023-10-27"

@@ -4,6 +4,7 @@ import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
 import GithubContributionsLazy from "@/components/home/GithubContributionsLazy";
 import { getPage, type PageBlock } from "@/lib/content/page";
+import { getRequestLocale } from "@/lib/i18n";
 import { FiGithub, FiYoutube } from "react-icons/fi";
 import { LuLinkedin, LuFacebook } from "react-icons/lu";
 import { SiLeetcode, SiAngular, SiMongodb, SiRedis } from "react-icons/si";
@@ -91,7 +92,7 @@ function HeroBlock({ block }: { block: Extract<PageBlock, { type: "hero" }> }) {
               aria-label={`Mở ${social.label}`}
               title={social.label}
               key={social.label}
-              className="group relative inline-flex h-9 w-9 items-center justify-center overflow-visible rounded bg-[#e2e6ee] text-[var(--contact-bc-dark)] transition-colors duration-200 ease-out hover:bg-[#d8dee8] dark:bg-[var(--contact-bc-dark)] dark:text-[var(--contact-bc)] dark:hover:bg-[#566174]"
+              className="group relative inline-flex h-8 w-8 items-center justify-center overflow-visible rounded bg-[#e2e6ee] text-[var(--contact-bc-dark)] transition-colors duration-200 ease-out hover:bg-[#d8dee8] dark:bg-[var(--contact-bc-dark)] dark:text-[var(--contact-bc)] dark:hover:bg-[#566174]"
             >
               <Icon size={20} className="relative z-10 origin-bottom transition-transform duration-200 ease-out group-hover:scale-150" />
             </a>
@@ -172,7 +173,7 @@ function CertificationsBlock({ block }: { block: Extract<PageBlock, { type: "cer
             </div>
 
             <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">
-              Issued {cert.date}
+              Cấp ngày {cert.date}
             </div>
           </article>
         ))}
@@ -208,7 +209,8 @@ function renderBlock(block: PageBlock, index: number) {
 }
 
 export default async function Home() {
-  const page = await getPage("home");
+  const locale = await getRequestLocale();
+  const page = await getPage("home", locale);
   if (!page) notFound();
 
   return (

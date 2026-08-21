@@ -1,107 +1,98 @@
 ---
-title: Home
+title: Trang chủ
 ---
 
 :::davi:hero
-[title] Tran Huu Dang
-[description] Fullstack developer
-[social] github | https://github.com/2hjaito | GitHub
-[social] leetcode | https://leetcode.com/tranhuudang | LeetCode
-[social] hackerrank | https://www.hackerrank.com/tranhuudang | HackerRank
-[social] linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
-[social] youtube | https://www.youtube.com/@2hjaito | YouTube
-[social] facebook | https://www.facebook.com/dangth.dev/ | Facebook
-[social] tiktok | https://www.tiktok.com/@2hjato | TikTok
+title: Trần Hữu Đang
+description: Lập trình viên Fullstack
+social: github | https://github.com/2hjaito | GitHub
+social: leetcode | https://leetcode.com/tranhuudang | LeetCode
+social: hackerrank | https://www.hackerrank.com/tranhuudang | HackerRank
+social: linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
+social: youtube | https://www.youtube.com/@2hjaito | YouTube
+social: facebook | https://www.facebook.com/dangth.dev/ | Facebook
+social: tiktok | https://www.tiktok.com/@2hjato | TikTok
 :::
 
-I'm Tran Huu Dang, a Fullstack Developer focused on building modern web applications with React, Next.js, Angular, Node.js, Spring Boot, PostgreSQL, MongoDB, and Redis.
+Mình là Trần Hữu Đang, một lập trình viên Fullstack tập trung xây dựng các sản phẩm web thực tế và dễ sử dụng. Mình quan tâm đến cách công nghệ có thể đơn giản hóa công việc và tạo ra trải nghiệm tốt hơn cho người dùng.
 
-Over the past few years, I have worked on internal business systems, management platforms, and web applications serving hundreds of active users. My experience covers both frontend and backend development, from designing responsive user interfaces to building scalable APIs and database architectures.
+Mình từng tham gia phát triển các hệ thống nghiệp vụ nội bộ, nền tảng quản lý và ứng dụng web phục vụ hàng trăm người dùng. Hiện tại, mình đặc biệt quan tâm đến việc ứng dụng AI vào tự động hóa quy trình và giải quyết những vấn đề trong công việc hằng ngày.
 
-I regularly work with real-time technologies such as WebSocket, Server-Sent Events (SSE), webhooks, background jobs, caching strategies, and database optimization techniques to improve performance and reliability.
+Ngoài công việc, mình thích học hỏi, thử nghiệm những ý tưởng mới và xây dựng các dự án cá nhân. Bạn có thể xem thêm [một vài dự án mình đã thực hiện](/project) trên trang Projects.
 
-Recently, I have been exploring AI-powered applications, including RAG pipelines, semantic search, vector databases, document processing, and LLM integrations. I enjoy finding practical ways to incorporate AI into real-world workflows and products.
+:::davi:expand-list Kinh nghiệm
+title: Phát triển Fullstack
+subtitle: Ứng dụng web và nền tảng nội bộ
+meta: 2023 – Hiện tại
+content: Xây dựng và duy trì các hệ thống web được hàng trăm người dùng sử dụng. Làm việc trên toàn bộ stack, bao gồm phát triển frontend, thiết kế API, mô hình hóa cơ sở dữ liệu, xác thực, phân quyền, tối ưu hiệu năng và quy trình triển khai.
 
-Besides software development, I have hands-on experience with Docker, Linux servers, Nginx, CI/CD pipelines, and cloud deployment. I value clean code, maintainable architecture, and continuous learning.
+title: AI và tự động hóa
+subtitle: Tích hợp LLM và hệ thống RAG
+meta: 2024 – Hiện tại
+content: Phát triển các tính năng hỗ trợ bởi AI bằng mô hình ngôn ngữ hiện đại, tìm kiếm vector, sinh tăng cường truy xuất, xử lý tài liệu, tìm kiếm ngữ nghĩa, phản hồi streaming và tự động hóa quy trình.
 
-:::davi:skills
-[label] Core skills:
-[items] angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
+title: Thời gian thực và hạ tầng
+subtitle: Hiệu năng và khả năng mở rộng
+meta: Đang thực hiện
+content: Làm việc với WebSocket, SSE, Redis, bộ nhớ đệm, hàng đợi, Docker, máy chủ Linux, Nginx, pipeline CI/CD và các công cụ giám sát để cải thiện hiệu năng, độ tin cậy và khả năng bảo trì của ứng dụng.
 :::
 
-:::davi:expand-list Experience
-[title] Fullstack Development
-[subtitle] Web Applications & Internal Platforms
-[meta] 2023 – Present
-[content] Built and maintained web-based systems used by hundreds of users. Worked across the entire stack, including frontend development, API design, database modeling, authentication, authorization, performance optimization, and deployment workflows.
+:::davi:expand-list Học vấn
+title: Đại học Cần Thơ
+subtitle: Công nghệ thông tin
+meta: Tháng 09/2025 – Tháng 01/2027
+logo: /images/education/ctu.png
+content: Học lập trình, cơ sở dữ liệu, phân tích hệ thống, nền tảng kỹ nghệ phần mềm và các khái niệm cốt lõi về công nghệ thông tin.
 
-[title] AI & Automation
-[subtitle] LLM Integration and RAG Systems
-[meta] 2024 – Present
-[content] Developed AI-assisted features using modern language models, vector search, retrieval-augmented generation, document processing, semantic search, streaming responses, and workflow automation.
-
-[title] Realtime & Infrastructure
-[subtitle] Performance and Scalability
-[meta] Ongoing
-[content] Worked with WebSocket, SSE, Redis, caching, queues, Docker, Linux servers, Nginx, CI/CD pipelines, and monitoring tools to improve application performance, reliability, and maintainability.
+title: Cao đẳng FPT Polytechnic
+subtitle: Phát triển phần mềm
+meta: Tháng 09/2021 – Tháng 01/2024
+logo: /images/education/fpoly.jpg
+content: Tập trung vào phát triển phần mềm thực tế, bao gồm lập trình hướng đối tượng, phát triển web, phát triển backend, kiểm thử và xây dựng các ứng dụng thực tế.
 :::
 
-:::davi:expand-list Education
-[title] Can Tho University
-[subtitle] Information Technology
-[meta] Sep 2025 – Jan 2027
-[logo] /images/education/ctu.png
-[content] Studying programming, databases, system analysis, software engineering fundamentals, and core information technology concepts.
-
-[title] FPT Polytechnic
-[subtitle] Software Development
-[meta] Sep 2021 – Jan 2024
-[logo] /images/education/fpoly.jpg
-[content] Focused on practical software development, including object-oriented programming, web development, backend development, testing, and building real-world applications.
+:::davi:github-contributions Hoạt động GitHub
 :::
 
-:::davi:github-contributions Github Contributions
-:::
+## Chứng chỉ
 
-## Certifications
-
-I have completed several certifications that strengthen my foundation in backend development, cloud computing, and data handling.
+Mình đã hoàn thành một số chứng chỉ giúp củng cố nền tảng về phát triển backend, điện toán đám mây và xử lý dữ liệu.
 
 :::davi:certifications
-[title] Master Microservices with Spring Boot & Spring Cloud
-[img] udemy.png
-[org] Udemy
-[date] Feb 08, 2024
+title: Master Microservices with Spring Boot & Spring Cloud
+img: udemy.png
+org: Udemy
+date: Feb 08, 2024
 
-[title] AWS Academy Cloud Foundations
-[img] aws-cloudfoundations.png
-[org] AWS Academy
-[date] Jul 03, 2022
+title: AWS Academy Cloud Foundations
+img: aws-cloudfoundations.png
+org: AWS Academy
+date: Jul 03, 2022
 
-[title] Intermediate SQL Queries
-[img] datacamp/statement-of-accomplishment.png
-[org] DataCamp
-[date] Apr 15, 2022
+title: Intermediate SQL Queries
+img: datacamp/statement-of-accomplishment.png
+org: DataCamp
+date: Apr 15, 2022
 :::
 
-:::davi:expand-list Awards & Innovations
-[title] First Prize in Enterprise Innovation & Improvement
-[subtitle] Large-scale Manufacturing Corporation
-[meta] Nov 2025
-[content] Designed and developed the "AI-integrated Digitized Office & Workflow Automation Suite" connected with ZaloOA. Streamlined cross-departmental operations and optimized internal business communication workflows[cite: 2].
+:::davi:expand-list Giải thưởng và sáng kiến
+title: Giải Nhất về Đổi mới và Cải tiến doanh nghiệp
+subtitle: Tập đoàn sản xuất quy mô lớn
+meta: Nov 2025
+content: Thiết kế và phát triển "Bộ giải pháp Văn phòng số và Tự động hóa quy trình tích hợp AI" kết nối với ZaloOA. Tối ưu hoạt động liên phòng ban và quy trình giao tiếp nội bộ của doanh nghiệp.
 
-[title] Enterprise Innovation Award (Consolidation Prize)
-[subtitle] Large-scale Manufacturing Corporation
-[meta] Nov 2025
-[content] Built and deployed the "Corporate Web Platform Integrated with Conversational AI Chatbot" to fully automate partner support, real-time engagement, and inquiry classification[cite: 2].
+title: Giải thưởng Đổi mới doanh nghiệp (Giải thưởng tổng hợp)
+subtitle: Tập đoàn sản xuất quy mô lớn
+meta: Nov 2025
+content: Xây dựng và triển khai "Nền tảng web doanh nghiệp tích hợp chatbot AI hội thoại" nhằm tự động hóa hoàn toàn việc hỗ trợ đối tác, tương tác thời gian thực và phân loại yêu cầu.
 
-[title] Outstanding Employee of Q3/2025
-[subtitle] Unanimous Executive Board Selection
-[meta] Oct 2025
-[content] Unanimously voted by the Executive Board (including the Deputy General Directors and the General Director's Assistant) with a perfect 5/5 score for breakthrough performance and critical tech contributions[cite: 1].
+title: Nhân viên xuất sắc quý 3/2025
+subtitle: Được hội đồng quản trị nhất trí bình chọn
+meta: Oct 2025
+content: Được hội đồng quản trị, bao gồm các Phó Tổng Giám đốc nhất trí bình chọn với điểm số tuyệt đối 5/5 nhờ thành tích đột phá và những đóng góp quan trọng về công nghệ[cite: 1].
 
-[title] Special Recognition by the General Director
-[subtitle] Digital Transformation Sponsorship
-[meta] Mar 2026
-[content] Honored for exceptional contributions to enterprise digital transformation and rewarded with 100% corporate sponsorship for a MacBook Pro M5 Pro (^^ hí hí) to drive long-term corporate R&D initiatives.
+title: Được Tổng Giám đốc ghi nhận đặc biệt
+subtitle: Tài trợ cho chuyển đổi số
+meta: Mar 2026
+content: Được ghi nhận vì những đóng góp nổi bật cho quá trình chuyển đổi số của doanh nghiệp và nhận được tài trợ 100% từ công ty cho một chiếc MacBook Pro M5 Pro (^^ hí hí) để phục vụ các sáng kiến nghiên cứu và phát triển dài hạn.
 :::

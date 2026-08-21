@@ -2,8 +2,30 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { markdownToHtml } from '../core/mdx'
+import { DEFAULT_LOCALE, normalizeLocale } from '@/lib/i18n'
 
-const pagesDir = path.join(process.cwd(), 'docs/pages')
+function resolvePageFilePath(slug: string, locale: string = DEFAULT_LOCALE) {
+  const requestedLocale = normalizeLocale(locale)
+
+  const localizedPath = path.join(process.cwd(), 'docs', requestedLocale, 'pages', `${slug}.md`)
+  if (fs.existsSync(localizedPath)) {
+    return localizedPath
+  }
+
+  if (requestedLocale !== DEFAULT_LOCALE) {
+    const viPath = path.join(process.cwd(), 'docs', DEFAULT_LOCALE, 'pages', `${slug}.md`)
+    if (fs.existsSync(viPath)) {
+      return viPath
+    }
+  }
+
+  const legacyPath = path.join(process.cwd(), 'docs', 'pages', `${slug}.md`)
+  if (fs.existsSync(legacyPath)) {
+    return legacyPath
+  }
+
+  return null
+}
 
 export type PageBlock =
   | { type: 'markdown'; html: string }
@@ -117,16 +139,36 @@ function addField(group: FieldGroup, key: string, value: string) {
   group[key] = Array.isArray(current) ? [...current, value] : [current, value]
 }
 
+function parseFieldLine(line: string) {
+  const bracketField = line.match(/^\[([a-zA-Z][\w-]*)\]\s*(.*)$/)
+  if (bracketField) {
+    return {
+      key: bracketField[1],
+      value: bracketField[2],
+    }
+  }
+
+  const colonField = line.match(/^([a-zA-Z][\w-]*)\s*:\s*(.*)$/)
+  if (colonField) {
+    return {
+      key: colonField[1],
+      value: colonField[2],
+    }
+  }
+
+  return null
+}
+
 function parseFieldGroups(content: string, splitKey?: string): FieldGroup[] {
   const groups: FieldGroup[] = []
   let current: FieldGroup = {}
   let activeKey: string | null = null
 
   for (const line of content.split('\n')) {
-    const field = line.match(/^\[([a-zA-Z][\w-]*)\]\s*(.*)$/)
+    const field = parseFieldLine(line)
 
     if (field) {
-      const [, key, value] = field
+      const { key, value } = field
 
       if (splitKey && key === splitKey && Object.keys(current).length > 0) {
         groups.push(current)
@@ -277,9 +319,9 @@ function splitPageBlocks(content: string): ParsedMarkdownBlock[] {
   return blocks
 }
 
-export async function getPage(slug: string): Promise<PageContent | null> {
-  const filePath = path.join(pagesDir, `${slug}.md`)
-  if (!fs.existsSync(filePath)) return null
+export async function getPage(slug: string, locale: string = DEFAULT_LOCALE): Promise<PageContent | null> {
+  const filePath = resolvePageFilePath(slug, locale)
+  if (!filePath) return null
 
   const raw = fs.readFileSync(filePath, 'utf-8')
   const { content, data } = matter(raw)

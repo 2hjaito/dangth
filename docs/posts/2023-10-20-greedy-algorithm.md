@@ -1,5 +1,6 @@
 ---
 title: Tìm hiểu về giải thuật tham lam
+slug: tim-hieu-ve-giai-thuat-tham-lam
 subtitle: Cấu trúc dữ liệu và giải thuật
 author: Trần Hữu Đang
 date: "2023-10-20"

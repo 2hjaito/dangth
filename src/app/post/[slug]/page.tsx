@@ -10,17 +10,18 @@ import { IoTimerOutline } from "react-icons/io5"
 import type { Metadata } from "next";
 import FloatingTOC from '@/components/post/FloatingTOC'
 import StickyPostHeader from '@/components/post/StickyPostHeader'
+import { getRequestLocale, localizePath } from '@/lib/i18n'
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
   // 🔥 MUST UNWRAP (Next.js App Router)
   const { slug } = await params;
+  const locale = await getRequestLocale();
 
-
-  const post = await getPost(slug);
+  const post = await getPost(slug, locale);
   if (!post) notFound();
 
-  const allPosts = await getAllPostsMeta();
+  const allPosts = await getAllPostsMeta(locale);
   allPosts.sort((a, b) => a.slug.localeCompare(b.slug));
 
   // 🔥 FIX: dùng slug chứ không dùng params.slug
@@ -80,7 +81,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-sm text-gray-500 dark:border-[hsl(0_0%_100%/0.33)] dark:text-gray-400">
           <a
-            href={`${SITE_CONFIG.githubRepo}/edit/${SITE_CONFIG.githubBranch}/${SITE_CONFIG.postDir}/${post.slug}.md`}
+            href={`${SITE_CONFIG.githubRepo}/edit/${SITE_CONFIG.githubBranch}/${post.sourcePath ?? `${SITE_CONFIG.postDir}/${post.slug}.md`}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-blue-500 hover:underline"
@@ -100,8 +101,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         {(previous || next) && (
           <div className="mt-10 pt-6 border-t flex justify-between text-blue-500 text-sm dark:border-[hsl(0_0%_100%/0.33)]">
-            <div className='pr-5'>{previous && <Link href={`/post/${previous.slug}`}>← {previous.title}</Link>}</div>
-            <div className='pl-5'>{next && <Link href={`/post/${next.slug}`}>{next.title} →</Link>}</div>
+            <div className='pr-5'>{previous && <Link href={localizePath(`/${previous.slug}`, locale)}>← {previous.title}</Link>}</div>
+            <div className='pl-5'>{next && <Link href={localizePath(`/${next.slug}`, locale)}>{next.title} →</Link>}</div>
           </div>
         )}
 
@@ -133,12 +134,13 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 
   const { slug } = await params;
+  const locale = await getRequestLocale();
 
-
-  const post = await getPost(slug);
+  const post = await getPost(slug, locale);
   if (!post) notFound();
 
-  const url = `https://dangth.dev/post/${slug}`;
+  const canonicalPath = localizePath(`/${slug}`, locale)
+  const url = `https://dangth.dev${canonicalPath}`;
   const title = post.title;
   const raw = post.contentText || post.contentHtml.replace(/<[^>]+>/g, " ");
   const description = raw.slice(0, 160).trim() + "...";

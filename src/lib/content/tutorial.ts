@@ -1,10 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import { TutorialConfigItem } from '../../config/tutorial.config'
-import { getMarkdownContent } from '../core/mdx'
-
-
-const tutorialsDir = path.join(process.cwd(), 'docs/tutorials')
+import { getMarkdownBaseDir, getMarkdownContent } from '../core/mdx'
+import { DEFAULT_LOCALE, type SupportedLocale } from '@/lib/i18n'
 
 export interface TutorialData {
   slug: string
@@ -13,6 +11,8 @@ export interface TutorialData {
   contentHtml: string,
   readingTime: number,
   lastUpdated: string
+  locale?: SupportedLocale
+  sourcePath?: string
 }
 
 export interface TutorialNavItem {
@@ -21,7 +21,10 @@ export interface TutorialNavItem {
   path: string[] // breadcrumb
 }
 
-export function getAllTutorialSlugs(): { slug: string[] }[] {
+export function getAllTutorialSlugs(locale: string = DEFAULT_LOCALE): { slug: string[] }[] {
+  const { dirPath } = getMarkdownBaseDir('tutorials', locale)
+  if (!fs.existsSync(dirPath)) return []
+
   const slugs: { slug: string[] }[] = []
 
   const walk = (dir: string) => {
@@ -33,19 +36,19 @@ export function getAllTutorialSlugs(): { slug: string[] }[] {
       if (stat.isDirectory()) {
         walk(fullPath)
       } else if (entry.endsWith('.md')) {
-        const relativePath = path.relative(tutorialsDir, fullPath)
+        const relativePath = path.relative(dirPath, fullPath)
         const slugParts = relativePath.replace(/\.md$/, '').split(path.sep)
         slugs.push({ slug: slugParts })
       }
     }
   }
 
-  walk(tutorialsDir)
+  walk(dirPath)
   return slugs
 }
 
-export function getTutorial(slug: string) {
-  return getMarkdownContent('tutorials', slug)
+export function getTutorial(slug: string, locale: string = DEFAULT_LOCALE) {
+  return getMarkdownContent('tutorials', slug, locale)
 }
 
 

@@ -13,6 +13,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import remarkAdmonition from '../plugins/remarkAdmonition'
 import { estimateReadingTime } from '@/utils/readingTime'
+import { DEFAULT_LOCALE, normalizeLocale, type SupportedLocale } from '@/lib/i18n'
 import 'katex/dist/katex.min.css'
 
 export type MarkdownType = 'posts' | 'tutorials' | 'pages'
@@ -29,6 +30,13 @@ export interface MarkdownContent {
   contentText: string
   readingTime: number
   lastUpdated: string
+  locale: SupportedLocale
+  sourcePath: string
+}
+
+export interface MarkdownFileLocation {
+  filePath: string
+  locale: SupportedLocale
 }
 
 function toInertTutorialScripts(html: string) {
@@ -52,15 +60,57 @@ export async function markdownToHtml(content: string) {
   return processed.toString()
 }
 
+export function getMarkdownBaseDir(type: MarkdownType, locale?: string) {
+  const requestedLocale = normalizeLocale(locale)
+  const localizedDir = path.resolve(process.cwd(), 'docs', requestedLocale, type)
+  if (fs.existsSync(localizedDir)) {
+    return { dirPath: localizedDir, locale: requestedLocale as SupportedLocale }
+  }
+
+  const defaultLocalizedDir = path.resolve(process.cwd(), 'docs', DEFAULT_LOCALE, type)
+  if (fs.existsSync(defaultLocalizedDir)) {
+    return { dirPath: defaultLocalizedDir, locale: DEFAULT_LOCALE }
+  }
+
+  const legacyDir = path.resolve(process.cwd(), 'docs', type)
+  return { dirPath: legacyDir, locale: DEFAULT_LOCALE }
+}
+
+export function resolveMarkdownFileLocation(
+  type: MarkdownType,
+  slug: string,
+  locale?: string
+): MarkdownFileLocation | null {
+  const requestedLocale = normalizeLocale(locale)
+  const localizedPath = path.resolve(process.cwd(), 'docs', requestedLocale, type, `${slug}.md`)
+  if (fs.existsSync(localizedPath)) {
+    return { filePath: localizedPath, locale: requestedLocale }
+  }
+
+  if (requestedLocale !== DEFAULT_LOCALE) {
+    const fallbackViPath = path.resolve(process.cwd(), 'docs', DEFAULT_LOCALE, type, `${slug}.md`)
+    if (fs.existsSync(fallbackViPath)) {
+      return { filePath: fallbackViPath, locale: DEFAULT_LOCALE }
+    }
+  }
+
+  const legacyPath = path.resolve(process.cwd(), 'docs', type, `${slug}.md`)
+  if (fs.existsSync(legacyPath)) {
+    return { filePath: legacyPath, locale: DEFAULT_LOCALE }
+  }
+
+  return null
+}
+
 export async function getMarkdownContent(
   type: MarkdownType,
-  slug: string
+  slug: string,
+  locale?: string
 ): Promise<MarkdownContent | null> {
-  const baseDir = path.resolve(process.cwd(), 'docs', type)
-  const filePath = path.join(baseDir, `${slug}.md`)
+  const location = resolveMarkdownFileLocation(type, slug, locale)
+  if (!location) return null
 
-  console.log("📁 Looking for:", filePath)
-  if (!fs.existsSync(filePath)) return null
+  const { filePath, locale: resolvedLocale } = location
 
   const raw = fs.readFileSync(filePath, 'utf-8')
   const { content, data } = matter(raw)
@@ -95,6 +145,8 @@ export async function getMarkdownContent(
     contentHtml,
     contentText,
     readingTime,
-    lastUpdated: stat.mtime.toISOString()
+    lastUpdated: stat.mtime.toISOString(),
+    locale: resolvedLocale,
+    sourcePath: path.relative(process.cwd(), filePath).replace(/\\/g, '/')
   }
 }

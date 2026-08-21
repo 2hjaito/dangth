@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { FaUserEdit, FaTags } from 'react-icons/fa'
 import { MdDateRange } from 'react-icons/md'
+import { localizePath, parseLocaleFromPathname } from '@/lib/i18n'
 
 interface Post {
   slug: string
@@ -18,6 +20,8 @@ interface Post {
 }
 
 export default function PostListClient({ posts }: { posts: Post[] }) {
+  const pathname = usePathname()
+  const { locale } = parseLocaleFromPathname(pathname)
   const [selectedTag, setSelectedTag] = useState<string>('')
 
   const tagCounts: Record<string, number> = {}
@@ -91,7 +95,7 @@ export default function PostListClient({ posts }: { posts: Post[] }) {
           {/* Post Info */}
           <div className="flex-1 flex flex-col gap-2">
             <Link
-              href={`/post/${post.slug}`}
+              href={localizePath(`/${post.slug}`, locale)}
               className="text-[20px] font-semibold text-blue-600 hover:underline"
             >
               {post.title}

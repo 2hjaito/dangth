@@ -1,13 +1,13 @@
 ---
-title: Block Docs
-subtitle: Markdown blocks used by this site
+title: Tài liệu Block
+subtitle: Các block Markdown được sử dụng trên trang này
 ---
 
-# Block Docs
+# Tài liệu Block
 
 Trang này ghi lại cách viết nội dung trong `docs/pages`. Những đoạn markdown thường sẽ được convert sang HTML như post/tutorial: `#` thành `h1`, `##` thành `h2`, paragraph thành `p`, list thành `ul/ol`, code fence thành `pre > code`, bảng GitHub Flavored Markdown vẫn dùng được.
 
-Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block dùng field `[key] value` để renderer trong `src/app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với cú pháp JSON cũ, nhưng nên dùng `:::davi:*` cho dễ đọc và dễ sửa.
+Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block, mỗi field dùng cú pháp `key: value` để renderer trong `src/app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với các block JSON cũ.
 
 ## Markdown cơ bản
 
@@ -26,17 +26,17 @@ const message = "hello";
 ```
 ````
 
-## davi:hero
+### davi:hero
 
-Dùng cho phần mở đầu trang home: tên, vai trò, avatar stack và social links.
+Dùng cho phần mở đầu trang chủ: tên, vai trò, nhóm avatar và liên kết mạng xã hội.
 
 ````md
 :::davi:hero
-[title] Tran Huu Dang
-[description] Fullstack developer
-[srTitle] Trần Hữu Đang – Fullstack Developer
-[social] github | https://github.com/2hjaito | GitHub
-[social] linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
+title: Tran Huu Dang
+description: Fullstack developer
+srTitle: Trần Hữu Đang – Fullstack Developer
+social: github | https://github.com/2hjaito | GitHub
+social: linkedin | https://www.linkedin.com/in/tranhuudang | LinkedIn
 :::
 ````
 
@@ -55,14 +55,14 @@ type HeroBlock = {
 };
 ```
 
-## davi:skills
+### davi:skills
 
-Dùng cho hàng icon kỹ năng.
+Dùng cho hàng biểu tượng kỹ năng.
 
 ````md
 :::davi:skills
-[label] Core skills:
-[items] angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
+label: Core skills:
+items: angular, nextjs, springboot, nodejs, mssql, postgresql, mongodb, redis, dockerfile
 :::
 ````
 
@@ -75,22 +75,22 @@ type SkillsBlock = {
 };
 ```
 
-## davi:expand-list
+### davi:expand-list
 
-Dùng cho các danh sách có thể mở ra như Experience, Education, Awards.
+Dùng cho các danh sách có thể mở ra như Kinh nghiệm, Học vấn và Giải thưởng.
 
 ````md
 :::davi:expand-list Experience
-[title] Fullstack Development
-[subtitle] Web Applications & Internal Platforms
-[meta] 2023 – Present
-[content] Built and maintained web-based systems used by hundreds of users.
+title: Fullstack Development
+subtitle: Web Applications & Internal Platforms
+meta: 2023 – Present
+content: Built and maintained web-based systems used by hundreds of users.
 
-[title] Can Tho University
-[subtitle] Information Technology
-[meta] Sep 2025 – Jan 2027
-[logo] /images/education/ctu.png
-[content] Studying programming, databases, system analysis, and software engineering.
+title: Can Tho University
+subtitle: Information Technology
+meta: Sep 2025 – Jan 2027
+logo: /images/education/ctu.png
+content: Studying programming, databases, system analysis, and software engineering.
 :::
 ````
 
@@ -108,27 +108,27 @@ type ExpandItemBlock = {
 };
 ```
 
-## davi:github-contributions
+### davi:github-contributions
 
-Dùng để nhúng component GitHub contributions.
+Dùng để nhúng component hoạt động GitHub.
 
 ````md
-:::davi:github-contributions Github Contributions
+:::davi:github-contributions Hoạt động GitHub
 :::
 ````
 
 Block này hiện chưa cần field cấu hình. Tiêu đề sau tên block là tuỳ chọn.
 
-## davi:certifications
+### davi:certifications
 
 Dùng cho danh sách chứng chỉ có ảnh trong `public/images/cert`.
 
 ````md
-:::davi:certifications Certifications
-[title] Master Microservices with Spring Boot & Spring Cloud
-[img] udemy.png
-[org] Udemy
-[date] Feb 08, 2024
+:::davi:certifications Chứng chỉ
+title: Master Microservices with Spring Boot & Spring Cloud
+img: udemy.png
+org: Udemy
+date: Feb 08, 2024
 :::
 ````
 
@@ -143,20 +143,20 @@ type CertificationBlock = {
 };
 ```
 
-## davi:cert-groups
+### davi:cert-groups
 
-Dùng cho trang cert đầy đủ, khi cần nhóm nhiều chứng chỉ theo tổ chức.
+Dùng cho trang chứng chỉ đầy đủ, khi cần nhóm nhiều chứng chỉ theo tổ chức.
 
 ````md
-:::davi:cert-groups Certification Gallery
-[org] Udemy
-[logo] /images/cert/udemy/udemy.png
-[cert] AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
-[cert] Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
+:::davi:cert-groups Thư viện chứng chỉ
+org: Udemy
+logo: /images/cert/udemy/udemy.png
+cert: AWS Cert Cloud Practitioner (CLF-02) | /images/cert/udemy/example.jpg | Certification
+cert: Master Microservices with Spring Boot & Spring Cloud | /images/cert/udemy/microservices.jpg | Intermediate
 
-[org] Data Camp
-[logo] /images/cert/datacamp/datacamp-logo.png
-[cert] Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
+org: Data Camp
+logo: /images/cert/datacamp/datacamp-logo.png
+cert: Intermediate SQL Queries | /images/cert/datacamp/sql.png | Intermediate
 :::
 ````
 
@@ -174,15 +174,15 @@ type CertGroupBlock = {
 };
 ```
 
-Mỗi dòng `[cert]` dùng dạng `title | image | level`. Field `level` hiện được parse để dành cho UI sau này.
+Mỗi dòng `cert` dùng dạng `title | image | level`. Field `level` hiện được parse để dành cho UI sau này.
 
-## davi:github-repositories
+### davi:github-repositories
 
-Dùng cho trang project để render danh sách repository GitHub theo topic đã cấu hình.
+Dùng cho trang dự án để render danh sách repository GitHub theo topic đã cấu hình.
 
 ````md
-:::davi:github-repositories Projects
-[sort] updated-desc
+:::davi:github-repositories Dự án
+sort: updated-desc
 :::
 ````
 
@@ -199,21 +199,21 @@ type GithubRepositoriesBlock = {
 Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `src/config/config.ts`.
 Các giá trị `sort` hỗ trợ: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
 
-## davi:tools
+### davi:tools
 
-Dùng cho danh sách công cụ ở trang project. Field `icon` là key được renderer map sang icon React.
+Dùng cho danh sách công cụ ở trang dự án. Field `icon` là key được renderer map sang icon React.
 
 ````md
-:::davi:tools Tools
-[title] Photoshop 2023
-[icon] photoshop
-[description] Phần mềm thiết kế
-[href] https://example.com/photoshop
+:::davi:tools Công cụ
+title: Photoshop 2023
+icon: photoshop
+description: Phần mềm thiết kế
+href: https://example.com/photoshop
 
-[title] MS Office 2016
-[icon] windows
-[description] Phần mềm văn phòng Microsoft.
-[href] https://example.com/office
+title: MS Office 2016
+icon: windows
+description: Phần mềm văn phòng Microsoft.
+href: https://example.com/office
 :::
 ````
 

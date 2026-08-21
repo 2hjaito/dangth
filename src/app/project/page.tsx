@@ -6,6 +6,7 @@ import { LangBadge } from "./badge/LangBadge";
 import { FaRegStar } from "react-icons/fa";
 import { ToolsSection } from "./Tools";
 import { getPage, type PageBlock } from "@/lib/content/page";
+import { getRequestLocale } from "@/lib/i18n";
 import type { ProcessedRepo } from "@/lib/utils/github";
 
 type RepoCardProps = {
@@ -133,7 +134,8 @@ async function GithubRepositoriesBlock({ block }: { block: Extract<PageBlock, { 
 
 
 export default async function Projects() {
-  const page = await getPage("project");
+  const locale = await getRequestLocale();
+  const page = await getPage("project", locale);
   if (!page) notFound();
 
   return (
