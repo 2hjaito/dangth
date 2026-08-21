@@ -1,45 +1,54 @@
 import React from 'react';
-import { SITE_CONFIG } from '@/config/config';
 import { FaCode, FaRss } from "react-icons/fa";
-import GoogleAdsenseBanner from "./GoogleAdsenseBanner";
+import { footerConfig } from '@/config/footer.config';
+
+const footerIconMap = {
+  source: FaCode,
+  rss: FaRss,
+};
 
 export default function Footer() {
   return (
     <>
       {/* <GoogleAdsenseBanner /> */}
-      <footer className="mt-[50px] pt-[20px] pb-[20px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)] border-t border-gray-200 dark:border-[#9a9a9a7c]">
-        <div className="max-w-[700px] mx-auto px-4 text-sm text-gray-700 dark:text-gray-300 flex justify-between items-center">
+      <footer className="relative z-10 mt-[50px] pt-[20px] pb-[28px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)] border-t border-gray-200 dark:border-[#9a9a9a7c]">
+        <div className="max-w-[700px] mx-auto px-4 text-sm text-gray-700 dark:text-gray-300 flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-start md:items-center">
 
           <p className="text-left">
-            <span>© Davis 2025</span>{" "}
-            <span className="hidden md:inline">
-              · Developer at{" "}
-              <a
-                href="https://devlands.io.vn"
-                className="underline hover:text-primary"
-              >
-                Devlands
-              </a>
-            </span>
+            <span>{footerConfig.copyright}</span>{" "}
+            {footerConfig.attribution && (
+              <span>
+                · {footerConfig.attribution.label}{" "}
+                <a
+                  href={footerConfig.attribution.href}
+                  target={footerConfig.attribution.external ? '_blank' : undefined}
+                  rel={footerConfig.attribution.external ? 'noopener noreferrer' : undefined}
+                  className="underline hover:text-primary"
+                >
+                  {footerConfig.attribution.text}
+                </a>
+              </span>
+            )}
           </p>
 
           <p className="flex items-center gap-4">
-            <a
-              href={SITE_CONFIG.githubRepo}
-              aria-label="Xem mã nguồn trên GitHub"
-              className="flex items-center gap-1 underline hover:text-primary"
-            >
-              <FaCode />
-              <span className="hidden md:inline">SRC</span>
-            </a>
-            <a
-              href='/rss.xml'
-              aria-label="Xem RSS feed"
-              className="flex items-center gap-1 underline hover:text-primary"
-            >
-              <FaRss />
-              <span className="hidden md:inline">RSS</span>
-            </a>
+            {footerConfig.links.map((link) => {
+              const Icon = footerIconMap[link.type];
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  aria-label={link.ariaLabel}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  className="flex items-center gap-1 underline hover:text-primary"
+                >
+                  <Icon />
+                  <span className="hidden md:inline">{link.label}</span>
+                </a>
+              );
+            })}
           </p>
 
         </div>

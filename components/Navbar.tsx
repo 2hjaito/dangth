@@ -7,8 +7,18 @@ import { usePathname } from "next/navigation";
 import { FaUser, FaCertificate, FaSun, FaMoon, FaSpinner } from 'react-icons/fa';
 import { GiMagicPortal, GiEvilBook, GiSpellBook } from 'react-icons/gi';
 import { Projects } from './icons';
+import { navbarConfig } from '@/config/navbar.config';
 
 import useDarkMode from '@/hooks/useDarkMode';
+
+const navIconMap = {
+  user: FaUser,
+  projects: Projects,
+  certificate: FaCertificate,
+  tutorials: GiEvilBook,
+  posts: GiMagicPortal,
+  docs: GiSpellBook,
+};
 
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
@@ -50,16 +60,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /** Nav items */
-  const navItems = [
-    { label: 'Home', href: '/', icon: <FaUser /> },
-    { label: 'Projects', href: '/project', icon: <Projects /> },
-    { label: 'Certs', href: '/cert', icon: <FaCertificate /> },
-    { label: 'Tutorials', href: '/tutorial', icon: <GiEvilBook /> },
-    { label: 'Posts', href: '/post', icon: <GiMagicPortal /> },
-    { label: 'Docs', href: '/docs', icon: <GiSpellBook /> },
-  ];
-
   return (
     <div className="fixed bottom-5 left-1/2 z-[9999] -translate-x-1/2 px-3">
 
@@ -75,36 +75,40 @@ export default function Navbar() {
       >
 
         {/* NAV ITEMS */}
-        {navItems.map(({ label, href, icon }) => (
-          <div className="nav-item relative" key={href}>
-            <Link
-              href={href}
-              prefetch={false}
-              onClick={() => setActiveNav(href)}
-              title={label}
-              className="
-                group w-11 h-11 rounded-xl 
-                bg-[#EAEAEA] text-[#9A9A9A] 
-                dark:bg-[#4A5363] dark:text-[#9A9A9A]
-                flex items-center justify-center 
-                transition-all ease-out duration-300
-                hover:scale-150 hover:mt-[-18px] hover:z-10 hover:mx-2
-              "
-            >
-              {/* Spinner chính chủ trở lại */}
-              {activeNav === href ? (
-                <FaSpinner className="animate-spin" />
-              ) : (
-                icon
-              )}
-            </Link>
-          </div>
-        ))}
+        {navbarConfig.items.map(({ label, href, icon }) => {
+          const Icon = navIconMap[icon];
+
+          return (
+            <div className="nav-item relative" key={href}>
+              <Link
+                href={href}
+                prefetch={false}
+                onClick={() => setActiveNav(href)}
+                title={label}
+                className="
+                  group w-11 h-11 rounded-xl 
+                  bg-[#EAEAEA] text-[#9A9A9A] 
+                  dark:bg-[#4A5363] dark:text-[#9A9A9A]
+                  flex items-center justify-center 
+                  transition-all ease-out duration-300
+                  hover:scale-150 hover:mt-[-18px] hover:z-10 hover:mx-2
+                "
+              >
+                {/* Spinner chính chủ trở lại */}
+                {activeNav === href ? (
+                  <FaSpinner className="animate-spin" />
+                ) : (
+                  <Icon />
+                )}
+              </Link>
+            </div>
+          );
+        })}
 
         {/* THEME TOGGLE */}
         <button
           onClick={handleToggleTheme}
-          title="Toggle theme"
+          title={navbarConfig.themeToggle.title}
           className="
             group w-11 h-11 rounded-xl 
             bg-[#EAEAEA] text-[#9A9A9A] 
