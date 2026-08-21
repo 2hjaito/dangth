@@ -128,7 +128,10 @@ export default async function RootLayout({
         />
 
       </head>
-      <body className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'>
+      <body
+        className='dark:bg-[var(--background-color-dark)] min-h-screen flex flex-col'
+        suppressHydrationWarning
+      >
         <Navbar />
 
         <main className='dark:bg-[var(--background-color-dark)]'>{children}</main>

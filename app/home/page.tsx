@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import ExpandItem from "@/components/home/ExpandItem";
 import AvatarStack from "@/components/AvatarStack";
 import GithubContributionsLazy from "@/components/home/GithubContributionsLazy";
-import { FiGithub, FiYoutube, FiAward } from "react-icons/fi";
+import { getPage, type PageBlock } from "@/lib/content/page";
+import { FiGithub, FiYoutube } from "react-icons/fi";
 import { LuLinkedin, LuFacebook } from "react-icons/lu";
 import { SiLeetcode, SiAngular, SiMongodb, SiRedis } from "react-icons/si";
 import { TbBrandHackerrank, TbBrandTiktok, TbBrandNextjs } from "react-icons/tb";
@@ -32,307 +34,186 @@ const skillIconMap = {
   dockerfile: { icon: FaDocker, color: "#2496ED" },
 } as const;
 
-export default function Home() {
-  const mySkills = [
-    "angular", "nextjs", "springboot", "nodejs",
-    "mssql", "postgresql", "mongodb", "redis", "dockerfile"
-  ];
+function MarkdownBlock({ html }: { html: string }) {
+  return (
+    <section
+      className="home-markdown mt-12 space-y-4 fade-in text-[18px] leading-[1.55] [&_h2]:text-[32px] [&_h2]:font-semibold [&_h2]:mb-4 [&_h2]:mt-0 [&_p]:my-0"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
 
-  const renderSkillIcons = (keys: string[]) =>
-    keys.map((key) => {
-      const entry = skillIconMap[key as keyof typeof skillIconMap];
-      if (!entry) return null;
-      const Icon = entry.icon;
-      return (
-        <span
-          key={key}
-          title={key}
-          style={{ color: entry.color, fontSize: "1.5rem", marginLeft: "0.5rem" }}
+function HeroBlock({ block }: { block: Extract<PageBlock, { type: "hero" }> }) {
+  return (
+    <div className="relative mt-10">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+        <div>
+          <h1
+            style={{
+              position: "absolute",
+              width: 1,
+              height: 1,
+              padding: 0,
+              margin: -1,
+              overflow: "hidden",
+              clip: "rect(0, 0, 0, 0)",
+              whiteSpace: "nowrap",
+              border: 0,
+            }}
+          >
+            {block.data.srTitle ?? block.data.title}
+          </h1>
+
+          <p className="text-[40px] md:text-[50px] font-bold leading-tight">
+            {block.data.title}
+          </p>
+
+          <p className="text-[#2b2c2f] dark:text-[#E5E7EB] font-semibold">
+            {block.data.description}
+          </p>
+        </div>
+
+        <div className="self-center sm:self-auto shrink-0">
+          <AvatarStack />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mt-6">
+        {block.data.socials.map((social) => {
+          const Icon = socialIconMap[social.icon as keyof typeof socialIconMap];
+          if (!Icon) return null;
+
+          return (
+            <a
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Mở ${social.label}`}
+              title={social.label}
+              key={social.label}
+              className="group relative inline-flex h-9 w-9 items-center justify-center overflow-visible rounded bg-[#e2e6ee] text-[var(--contact-bc-dark)] transition-colors duration-200 ease-out hover:bg-[#d8dee8] dark:bg-[var(--contact-bc-dark)] dark:text-[var(--contact-bc)] dark:hover:bg-[#566174]"
+            >
+              <Icon size={20} className="relative z-10 origin-bottom transition-transform duration-200 ease-out group-hover:scale-150" />
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function SkillsBlock({ block }: { block: Extract<PageBlock, { type: "skills" }> }) {
+  return (
+    <div className="mt-4 flex flex-wrap gap-2 fade-in">
+      <span>{block.data.label}</span>
+      {block.data.items.map((key) => {
+        const entry = skillIconMap[key as keyof typeof skillIconMap];
+        if (!entry) return null;
+        const Icon = entry.icon;
+
+        return (
+          <span
+            key={key}
+            title={key}
+            style={{ color: entry.color, fontSize: "1.5rem", marginLeft: "0.5rem" }}
+          >
+            <Icon />
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function ExpandListBlock({ block }: { block: Extract<PageBlock, { type: "expand-list" }> }) {
+  return (
+    <section className="mt-12 fade-in">
+      {block.title && (
+        <h2 className="text-[32px] font-semibold mb-4">{block.title}</h2>
+      )}
+      {block.data.map((item) => (
+        <ExpandItem
+          key={`${item.title}-${item.meta}`}
+          title={item.title}
+          subtitle={item.subtitle}
+          meta={item.meta}
+          logo={item.logo}
         >
-          <Icon />
-        </span>
+          {item.content}
+        </ExpandItem>
+      ))}
+    </section>
+  );
+}
+
+function CertificationsBlock({ block }: { block: Extract<PageBlock, { type: "certifications" }> }) {
+  return (
+    <section className="mt-8 fade-in text-center">
+      {block.title && (
+        <h2 className="text-[32px] font-semibold mb-4">{block.title}</h2>
+      )}
+      <div className="flex flex-wrap gap-10 justify-center">
+        {block.data.map((cert) => (
+          <article key={cert.title} className="w-[250px]">
+            <Image
+              src={`/images/cert/${cert.img}`}
+              alt={cert.title}
+              width={100}
+              height={100}
+              className="mx-auto object-contain"
+            />
+
+            <div className="font-bold mt-2 text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
+              {cert.title}
+            </div>
+
+            <div className="text-[14px] text-[#444] dark:text-gray-300">
+              {cert.org}
+            </div>
+
+            <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">
+              Issued {cert.date}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function renderBlock(block: PageBlock, index: number) {
+  switch (block.type) {
+    case "markdown":
+      return <MarkdownBlock key={index} html={block.html} />;
+    case "hero":
+      return <HeroBlock key={index} block={block} />;
+    case "skills":
+      return <SkillsBlock key={index} block={block} />;
+    case "expand-list":
+      return <ExpandListBlock key={index} block={block} />;
+    case "github-contributions":
+      return (
+        <section key={index} className="mt-12 fade-in">
+          {block.title && (
+            <h2 className="text-[32px] font-semibold mb-4">{block.title}</h2>
+          )}
+          <GithubContributionsLazy />
+        </section>
       );
-    });
+    case "certifications":
+      return <CertificationsBlock key={index} block={block} />;
+    default:
+      return null;
+  }
+}
+
+export default async function Home() {
+  const page = await getPage("home");
+  if (!page) notFound();
 
   return (
     <div className="pt-[50px] max-w-[700px] mx-auto px-4 pb-24 text-[var(--text-color)] dark:text-[var(--text-color-dark)]">
-
-      {/* HEADER */}
-      <div className={`relative mt-10`}>
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          {/* AvatarStack */}
-          <div className="order-2 md:order-none">
-            <h1 className="sr-only">
-              Trần Hữu Đang – Fullstack Developer
-            </h1>
-
-            <p className="text-[40px] md:text-[50px] font-bold">
-              Tran Huu Dang
-            </p>
-
-            <p className="text-[#2b2c2f] dark:text-[#E5E7EB] font-semibold">Fullstack developer</p>
-          </div>
-
-          <div className="md:static self-center md:self-auto mb-8 md:mb-0">
-            <AvatarStack />
-          </div>
-
-        </div>
-
-        {/* SOCIAL */}
-        <div className="flex flex-wrap gap-2 mt-6">
-          {[
-            { icon: "github", link: "https://github.com/2hjaito", label: "GitHub" },
-            { icon: "leetcode", link: "https://leetcode.com/tranhuudang", label: "LeetCode" },
-            { icon: "hackerrank", link: "https://www.hackerrank.com/tranhuudang", label: "HackerRank" },
-            { icon: "linkedin", link: "https://www.linkedin.com/in/tranhuudang", label: "LinkedIn" },
-            { icon: "youtube", link: "https://www.youtube.com/@2hjaito", label: "YouTube" },
-            { icon: "facebook", link: "https://www.facebook.com/dangth.dev/", label: "Facebook" },
-            { icon: "tiktok", link: "https://www.tiktok.com/@2hjato", label: "TikTok" },
-          ].map((s, i) => {
-            const Icon = socialIconMap[s.icon as keyof typeof socialIconMap];
-            return (
-              <a
-                href={s.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Mở ${s.label}`}
-                title={s.label}
-                key={i}
-                className="
-            bg-[var(--contact-bc)] 
-            dark:bg-[var(--contact-bc-dark)]
-
-            text-[var(--contact-bc-dark)] 
-            dark:text-[var(--contact-bc)]
-
-            inline-flex items-center justify-center
-            px-3 py-1 rounded text-[18px]
-
-            transition-all duration-200 ease-out
-            hover:scale-110 hover:-translate-y-[2px]
-            hover:shadow-lg hover:shadow-[var(--contact-bc)/50]
-            dark:hover:shadow-[var(--contact-bc-dark)/50]
-          "
-              >
-                <Icon size={20} />
-              </a>
-            );
-          })}
-        </div>
-
-      </div>
-
-      {/* ABOUT */}
-      <section className="mt-12 space-y-4 fade-in">
-        <p>
-          I'm Tran Huu Dang, a Fullstack Developer focused on building modern web
-          applications with React, Next.js, Angular, Node.js, Spring Boot,
-          PostgreSQL, MongoDB, and Redis.
-        </p>
-
-        <p>
-          Over the past few years, I have worked on internal business systems,
-          management platforms, and web applications serving hundreds of active users.
-          My experience covers both frontend and backend development, from designing
-          responsive user interfaces to building scalable APIs and database
-          architectures.
-        </p>
-
-        <p>
-          I regularly work with real-time technologies such as WebSocket, Server-Sent
-          Events (SSE), webhooks, background jobs, caching strategies, and database
-          optimization techniques to improve performance and reliability.
-        </p>
-
-        <p>
-          Recently, I have been exploring AI-powered applications, including RAG
-          pipelines, semantic search, vector databases, document processing, and LLM
-          integrations. I enjoy finding practical ways to incorporate AI into
-          real-world workflows and products.
-        </p>
-
-        <p>
-          Besides software development, I have hands-on experience with Docker, Linux
-          servers, Nginx, CI/CD pipelines, and cloud deployment. I value clean code,
-          maintainable architecture, and continuous learning.
-        </p>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span>Core skills:</span>
-          {renderSkillIcons(mySkills)}
-        </div>
-      </section>
-
-      {/* EXPERIENCE */}
-      <section className="mt-12 fade-in">
-        <h2 className="text-[32px] font-semibold mb-4">Experience</h2>
-
-        <ExpandItem
-          title="Fullstack Development"
-          subtitle="Web Applications & Internal Platforms"
-          time="2023 – Present"
-        >
-          Built and maintained web-based systems used by hundreds of users. Worked
-          across the entire stack, including frontend development, API design,
-          database modeling, authentication, authorization, performance optimization,
-          and deployment workflows.
-        </ExpandItem>
-
-        <ExpandItem
-          title="AI & Automation"
-          subtitle="LLM Integration and RAG Systems"
-          time="2024 – Present"
-        >
-          Developed AI-assisted features using modern language models, vector search,
-          retrieval-augmented generation, document processing, semantic search,
-          streaming responses, and workflow automation.
-        </ExpandItem>
-
-        <ExpandItem
-          title="Realtime & Infrastructure"
-          subtitle="Performance and Scalability"
-          time="Ongoing"
-        >
-          Worked with WebSocket, SSE, Redis, caching, queues, Docker, Linux servers,
-          Nginx, CI/CD pipelines, and monitoring tools to improve application
-          performance, reliability, and maintainability.
-        </ExpandItem>
-      </section>
-
-      {/* EDUCATION */}
-      <section className="mt-12 fade-in">
-        <h2 className="text-[32px] font-semibold mb-4">Education</h2>
-
-        <ExpandItem
-          title="Can Tho University"
-          subtitle="Information Technology"
-          time="Sep 2025 – Jan 2027"
-          logo="/images/education/ctu.png"
-        >
-          Studying programming, databases, system analysis, software engineering
-          fundamentals, and core information technology concepts.
-        </ExpandItem>
-
-        <ExpandItem
-          title="FPT Polytechnic"
-          subtitle="Software Development"
-          time="Sep 2021 – Jan 2024"
-          logo="/images/education/fpoly.jpg"
-        >
-          Focused on practical software development, including object-oriented
-          programming, web development, backend development, testing, and building
-          real-world applications.
-        </ExpandItem>
-      </section>
-
-      {/* GITHUB CONTRIBUTIONS */}
-      <section className="mt-12 fade-in">
-        <h2 className="text-[32px] font-semibold mb-4">Github Contributions</h2>
-        <GithubContributionsLazy />
-      </section>
-
-      {/* CERTIFICATIONS */}
-      <section className="mt-12 fade-in text-center">
-        <h2 className="text-[32px] font-semibold mb-4">Certifications</h2>
-
-        <p className="mb-8 text-gray-700 dark:text-gray-300">
-          I have completed several certifications that strengthen my foundation in
-          backend development, cloud computing, and data handling.
-        </p>
-
-        <div className="flex flex-wrap gap-10 justify-center">
-          {[
-            {
-              img: "udemy.png",
-              title: "Master Microservices with Spring Boot & Spring Cloud",
-              org: "Udemy",
-              date: "Feb 08, 2024",
-            },
-            {
-              img: "aws-cloudfoundations.png",
-              title: "AWS Academy Cloud Foundations",
-              org: "AWS Academy",
-              date: "Jul 03, 2022",
-            },
-            {
-              img: "datacamp/statement-of-accomplishment.png",
-              title: "Intermediate SQL Queries",
-              org: "DataCamp",
-              date: "Apr 15, 2022",
-            },
-          ].map((cert, idx) => (
-            <article key={idx} className="w-[250px]">
-              <Image
-                src={`/images/cert/${cert.img}`}
-                alt={cert.title}
-                width={100}
-                height={100}
-                className="mx-auto object-contain"
-              />
-
-              <div className="font-bold mt-2 text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
-                {cert.title}
-              </div>
-
-              <div className="text-[14px] text-[#444] dark:text-gray-300">
-                {cert.org}
-              </div>
-
-              <div className="text-[13px] text-[#666] dark:text-gray-300 mt-1">
-                Issued {cert.date}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-
-      {/* AWARDS & INNOVATIONS */}
-      <section className="mt-12 fade-in">
-        <div className="flex items-center gap-2 mb-4">
-          <h2 className="text-[32px] font-semibold">Awards & Innovations</h2>
-        </div>
-
-        <ExpandItem
-          title="First Prize in Enterprise Innovation & Improvement"
-          subtitle="Large-scale Manufacturing Corporation"
-          time="Nov 2025"
-        >
-          Designed and developed the "AI-integrated Digitized Office & Workflow Automation Suite"
-          connected with ZaloOA. Streamlined cross-departmental operations and optimized internal
-          business communication workflows[cite: 2].
-        </ExpandItem>
-
-        <ExpandItem
-          title="Enterprise Innovation Award (Consolidation Prize)"
-          subtitle="Large-scale Manufacturing Corporation"
-          time="Nov 2025"
-        >
-          Built and deployed the "Corporate Web Platform Integrated with Conversational AI Chatbot"
-          to fully automate partner support, real-time engagement, and inquiry classification[cite: 2].
-        </ExpandItem>
-
-        <ExpandItem
-          title="Outstanding Employee of Q3/2025"
-          subtitle="Unanimous Executive Board Selection"
-          time="Oct 2025"
-        >
-          Unanimously voted by the Executive Board (including the Deputy General Directors
-          and the General Director's Assistant) with a perfect 5/5 score for breakthrough
-          performance and critical tech contributions[cite: 1].
-        </ExpandItem>
-
-        <ExpandItem
-          title="Special Recognition by the General Director"
-          subtitle="Digital Transformation Sponsorship"
-          time="Mar 2026"
-        >
-          Honored for exceptional contributions to enterprise digital transformation and rewarded
-          with 100% corporate sponsorship for a MacBook Pro M5 Pro (^^ hí hí) to drive long-term corporate
-          R&D initiatives.
-        </ExpandItem>
-      </section>
+      {page.blocks.map(renderBlock)}
     </div>
   );
 }

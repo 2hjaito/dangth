@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { FaUser, FaCertificate, FaSun, FaMoon, FaSpinner } from 'react-icons/fa';
+import { FaUser, FaCertificate, FaSun, FaMoon, FaSpinner, FaBookOpen } from 'react-icons/fa';
 import { GiMagicPortal, GiEvilBook } from 'react-icons/gi';
 import { Projects } from './icons';
 
@@ -57,6 +57,7 @@ export default function Navbar() {
     { label: 'Certs', href: '/cert', icon: <FaCertificate /> },
     { label: 'Tutorials', href: '/tutorial', icon: <GiEvilBook /> },
     { label: 'Posts', href: '/post', icon: <GiMagicPortal /> },
+    { label: 'Docs', href: '/docs', icon: <FaBookOpen /> },
   ];
 
   return (

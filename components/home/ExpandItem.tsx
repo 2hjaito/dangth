@@ -6,7 +6,7 @@ import Image from "next/image";
 type ExpandItemProps = {
   title: string;
   subtitle: string;
-  time: string;
+  meta: string;
   logo?: string;
   children: React.ReactNode;
 };
@@ -14,7 +14,7 @@ type ExpandItemProps = {
 export default function ExpandItem({
   title,
   subtitle,
-  time,
+  meta,
   logo,
   children,
 }: ExpandItemProps) {
@@ -64,7 +64,7 @@ export default function ExpandItem({
           </div>
         </div>
 
-        <div className="times text-[15px] font-semibold">{time}</div>
+        <div className="times text-[15px] font-semibold">{meta}</div>
       </header>
 
       <div

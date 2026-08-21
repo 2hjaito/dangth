@@ -15,7 +15,7 @@ import remarkAdmonition from '../plugins/remarkAdmonition'
 import { estimateReadingTime } from '@/utils/readingTime'
 import 'katex/dist/katex.min.css'
 
-export type MarkdownType = 'posts' | 'tutorials'
+export type MarkdownType = 'posts' | 'tutorials' | 'pages'
 
 export interface MarkdownContent {
   slug: string
@@ -33,6 +33,23 @@ export interface MarkdownContent {
 
 function toInertTutorialScripts(html: string) {
   return html.replace(/<script(\s|>)/g, '<script data-live-script="true" type="text/plain"$1')
+}
+
+export async function markdownToHtml(content: string) {
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(remarkMath)
+    .use(remarkAdmonition)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeKatex, { strict: false })
+    .use(rehypeHighlight)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(content)
+
+  return processed.toString()
 }
 
 export async function getMarkdownContent(
@@ -54,22 +71,11 @@ export async function getMarkdownContent(
     : content.replace(/^#\s+.+\n+(?:\n)*/m, '')
   const resolvedTitle = data.title ?? fallbackTitle
 
-  const processed = await remark()
-    .use(remarkGfm)
-    .use(remarkMath)
-    .use(remarkAdmonition)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(rehypeKatex, { strict: false })
-    .use(rehypeHighlight)
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
-    .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(normalizedContent)
+  const processedHtml = await markdownToHtml(normalizedContent)
 
   const contentHtml = (type === 'tutorials'
-    ? toInertTutorialScripts(processed.toString())
-    : processed.toString()
+    ? toInertTutorialScripts(processedHtml)
+    : processedHtml
   ).replace(/<img([^>]+?)>/g, '<img class="zoom-img"$1>')
   const contentText = normalizedContent.replace(/[#_*>\-\n`]/g, '')
   const readingTime = estimateReadingTime(contentText)
