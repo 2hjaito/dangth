@@ -24,7 +24,7 @@
     ],
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
@@ -41,7 +41,7 @@
     ".next"
   ],
   "typeRoots": [
-    "./types",
+    "./src/types",
     "./node_modules/@types"
   ]
 }

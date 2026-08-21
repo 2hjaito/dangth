@@ -5,9 +5,9 @@ subtitle: Markdown blocks used by this site
 
 # Block Docs
 
-Trang này ghi lại cách viết nội dung trong `content/pages`. Những đoạn markdown thường sẽ được convert sang HTML như post/tutorial: `#` thành `h1`, `##` thành `h2`, paragraph thành `p`, list thành `ul/ol`, code fence thành `pre > code`, bảng GitHub Flavored Markdown vẫn dùng được.
+Trang này ghi lại cách viết nội dung trong `docs/pages`. Những đoạn markdown thường sẽ được convert sang HTML như post/tutorial: `#` thành `h1`, `##` thành `h2`, paragraph thành `p`, list thành `ul/ol`, code fence thành `pre > code`, bảng GitHub Flavored Markdown vẫn dùng được.
 
-Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block dùng field `[key] value` để renderer trong `app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với cú pháp JSON cũ, nhưng nên dùng `:::davi:*` cho dễ đọc và dễ sửa.
+Các phần cần UI hiện đại được viết bằng container block có dạng `:::davi:<type>`. Bên trong block dùng field `[key] value` để renderer trong `src/app/home/page.tsx` chuyển thành component. Parser vẫn giữ tương thích với cú pháp JSON cũ, nhưng nên dùng `:::davi:*` cho dễ đọc và dễ sửa.
 
 ## Markdown cơ bản
 
@@ -196,7 +196,7 @@ type GithubRepositoriesBlock = {
 };
 ```
 
-Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `config/config.ts`.
+Nếu không khai báo `username` hoặc `topic`, block sẽ dùng giá trị mặc định trong `src/config/config.ts`.
 Các giá trị `sort` hỗ trợ: `updated-desc`, `updated-asc`, `stars-desc`, `stars-asc`, `name-asc`, `name-desc`.
 
 ## davi:tools
@@ -230,9 +230,9 @@ type ToolBlock = {
 
 ## Cách thêm block mới
 
-1. Thêm type mới vào `PageBlock` trong `lib/content/page.ts`.
+1. Thêm type mới vào `PageBlock` trong `src/lib/content/page.ts`.
 2. Thêm case parse field trong `parseDaviBlock` và `getPage`.
-3. Thêm component render trong trang cần dùng, ví dụ `app/home/page.tsx`.
-4. Viết block mới trong file markdown dưới `content/pages` bằng `:::davi:<type>`.
+3. Thêm component render trong trang cần dùng, ví dụ `src/app/home/page.tsx`.
+4. Viết block mới trong file markdown dưới `docs/pages` bằng `:::davi:<type>`.
 
 Tên block nên ngắn, rõ nghĩa, viết bằng kebab-case, ví dụ `davi:feature-grid` hoặc `davi:timeline`.

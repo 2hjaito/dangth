@@ -1,4 +1,4 @@
-const { generateRssFeed } = require('../lib/generateRssFeed');
+const { generateRssFeed } = require('../src/lib/core/generateRssFeed');
 
 generateRssFeed()
   .then(() => console.log('✅ RSS feed generated'))
