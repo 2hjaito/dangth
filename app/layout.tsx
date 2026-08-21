@@ -5,6 +5,7 @@ import { ReactNode } from 'react'
 import Script from 'next/script';
 import { cmuSansVi } from './fonts'
 import Navbar from '@/components/Navbar'
+import CodeCopyClient from '@/components/CodeCopyClient'
 
 
 // import Live2DWidgetClient from '@/components/Live2DWidgetClient'
@@ -133,6 +134,7 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <Navbar />
+        <CodeCopyClient />
 
         <main className='dark:bg-[var(--background-color-dark)]'>{children}</main>
         {/* <Live2DWidgetClient modelName="HK416-2-destroy" /> */}

@@ -12,9 +12,20 @@ export default function CodeCopyClient() {
   useEffect(() => {
     let zoomOverlay: HTMLDivElement | null = null
 
+    const getCodeFrame = (pre: HTMLPreElement) => pre.closest<HTMLDivElement>('.code-block-frame')
+
+    const getLanguage = (pre: HTMLPreElement) => {
+      const dataLang = pre.dataset.lang
+      if (dataLang) return dataLang
+
+      const code = pre.querySelector('code')
+      const languageClass = Array.from(code?.classList ?? []).find((className) => className.startsWith('language-'))
+      return languageClass?.replace('language-', '')
+    }
+
     const closeZoom = () => {
-      document.querySelectorAll<HTMLPreElement>('.prose pre.code-zoomed').forEach((pre) => {
-        pre.classList.remove('code-zoomed')
+      document.querySelectorAll<HTMLDivElement>('.prose .code-block-frame.code-zoomed').forEach((frame) => {
+        frame.classList.remove('code-zoomed')
       })
       if (zoomOverlay) {
         zoomOverlay.remove()
@@ -23,9 +34,12 @@ export default function CodeCopyClient() {
     }
 
     const openZoom = (pre: HTMLPreElement) => {
+      const frame = getCodeFrame(pre)
+      if (!frame) return
+
       closeZoom()
-      pre.classList.remove('code-collapsed')
-      pre.classList.add('code-zoomed')
+      frame.classList.remove('code-collapsed')
+      frame.classList.add('code-zoomed')
 
       zoomOverlay = document.createElement('div')
       zoomOverlay.className = 'code-zoom-overlay'
@@ -34,9 +48,12 @@ export default function CodeCopyClient() {
     }
 
     const toggleCollapse = (pre: HTMLPreElement) => {
-      const isCollapsed = pre.classList.toggle('code-collapsed')
+      const frame = getCodeFrame(pre)
+      if (!frame) return
+
+      const isCollapsed = frame.classList.toggle('code-collapsed')
       if (isCollapsed) {
-        pre.classList.remove('code-zoomed')
+        frame.classList.remove('code-zoomed')
         if (zoomOverlay) {
           zoomOverlay.remove()
           zoomOverlay = null
@@ -46,9 +63,28 @@ export default function CodeCopyClient() {
 
     const addButtons = () => {
       document.querySelectorAll<HTMLPreElement>('.prose pre').forEach((pre) => {
-        if (pre.querySelector('.copy-code-btn')) return
+        const existingFrame = getCodeFrame(pre)
+        if (existingFrame?.querySelector('.copy-code-btn')) return
+
+        Array.from(pre.children).forEach((child) => {
+          if (
+            child.classList.contains('copy-code-btn') ||
+            child.classList.contains('code-lang-label') ||
+            child.classList.contains('code-window-controls') ||
+            child.classList.contains('code-restore-btn')
+          ) {
+            child.remove()
+          }
+        })
 
         pre.classList.add('has-window-controls')
+
+        const frame = existingFrame ?? document.createElement('div')
+        frame.className = 'code-block-frame'
+        if (!existingFrame) {
+          pre.parentNode?.insertBefore(frame, pre)
+          frame.appendChild(pre)
+        }
 
         const controls = document.createElement('div')
         controls.className = 'code-window-controls'
@@ -76,7 +112,7 @@ export default function CodeCopyClient() {
         zoomBtn.setAttribute('title', 'Phóng to block code')
         zoomBtn.innerHTML = '<span>+</span>'
         zoomBtn.onclick = () => {
-          if (pre.classList.contains('code-zoomed')) {
+          if (frame.classList.contains('code-zoomed')) {
             closeZoom()
             return
           }
@@ -86,7 +122,15 @@ export default function CodeCopyClient() {
         controls.appendChild(closeBtn)
         controls.appendChild(minimizeBtn)
         controls.appendChild(zoomBtn)
-        pre.appendChild(controls)
+        frame.appendChild(controls)
+
+        const lang = getLanguage(pre)
+        if (lang) {
+          const langLabel = document.createElement('span')
+          langLabel.className = 'code-lang-label'
+          langLabel.textContent = lang === 'typescript' ? 'ts' : lang
+          frame.appendChild(langLabel)
+        }
 
         const restoreBtn = document.createElement('button')
         restoreBtn.type = 'button'
@@ -94,8 +138,8 @@ export default function CodeCopyClient() {
         restoreBtn.setAttribute('aria-label', 'Mở lại block code')
         restoreBtn.setAttribute('title', 'Mở lại block code')
         restoreBtn.innerHTML = '</>'
-        restoreBtn.onclick = () => pre.classList.remove('code-collapsed')
-        pre.appendChild(restoreBtn)
+        restoreBtn.onclick = () => frame.classList.remove('code-collapsed')
+        frame.appendChild(restoreBtn)
 
         const btn = document.createElement('button')
         btn.type = 'button'
@@ -117,7 +161,7 @@ export default function CodeCopyClient() {
           }, 1500)
         }
 
-        pre.appendChild(btn)
+        frame.appendChild(btn)
       })
     }
 

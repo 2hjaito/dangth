@@ -203,12 +203,20 @@ main:not(.post) a.header-anchor {
    8. CODE BLOCK - HIGHLIGHT.JS
 ========================================================= */
 
+.prose .code-block-frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 1.5rem 0;
+}
+
 .prose pre {
   position: relative;
   display: block;
   width: 100%;
   max-width: 100%;
-  margin: 1.5rem 0;
+  margin: 0;
   padding: 2.5rem 1rem 1rem;
   overflow-x: auto;
   overflow-y: hidden;
@@ -276,6 +284,7 @@ main:not(.post) a.header-anchor {
   position: absolute;
   top: 0.5rem;
   right: 0.75rem;
+  z-index: 7;
 
   border: 1px solid #d1d5db;
   background: rgba(255, 255, 255, .85);
@@ -299,6 +308,16 @@ html.dark .prose .copy-code-btn {
   color: #e5e7eb;
 }
 
+.prose .code-lang-label {
+  position: absolute;
+  top: 0.55rem;
+  right: 3.25rem;
+  z-index: 7;
+  font-size: 0.75rem;
+  color: #888;
+  pointer-events: none;
+}
+
 .prose .code-restore-btn {
   position: absolute;
   top: 0.5rem;
@@ -320,28 +339,29 @@ html.dark .prose .code-restore-btn {
   color: #e5e7eb;
 }
 
-.prose pre.code-collapsed {
+.prose .code-block-frame.code-collapsed pre {
   min-height: 52px;
   height: 52px;
   padding-bottom: 0;
   overflow: hidden;
 }
 
-.prose pre.code-collapsed code {
+.prose .code-block-frame.code-collapsed pre code {
   display: none;
 }
 
-.prose pre.code-collapsed .copy-code-btn {
+.prose .code-block-frame.code-collapsed .copy-code-btn,
+.prose .code-block-frame.code-collapsed .code-lang-label {
   display: none;
 }
 
-.prose pre.code-collapsed .code-restore-btn {
+.prose .code-block-frame.code-collapsed .code-restore-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.prose pre.code-zoomed {
+.prose .code-block-frame.code-zoomed {
   position: fixed;
   top: 80px;
   left: 50%;
@@ -353,6 +373,10 @@ html.dark .prose .code-restore-btn {
   z-index: 60;
   border-radius: 14px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.prose .code-block-frame.code-zoomed pre {
+  max-height: calc(100vh - 120px);
 }
 
 .code-zoom-overlay {
@@ -391,49 +415,8 @@ html.dark .prose .code-restore-btn {
   border-radius: 0;
 }
 
-.prose pre:has(code.language-js)::after {
-  content: "js";
-  position: absolute;
-  top: 0.55rem;
-  right: 3.25rem;
-  /* chừa chỗ cho icon copy */
-  font-size: 0.75rem;
-  color: #888;
-}
-
-.prose pre:has(code.language-js)::after {
-  content: "js";
-}
-
-.prose pre:has(code.language-java)::after {
-  content: "java";
-}
-
-.prose pre:has(code.language-cpp)::after,
-.prose pre:has(code.language-c\+\+)::after {
-  content: "c++";
-}
-
-.prose pre:has(code.language-c)::after {
-  content: "c";
-}
-
-.prose pre:has(code.language-ts)::after,
-.prose pre:has(code.language-typescript)::after {
-  content: "ts";
-}
-
-.prose pre:has(code.language-bash)::after,
-.prose pre:has(code.language-sh)::after {
-  content: "bash";
-}
-
 .prose pre:has(code[class*="language-"])::after {
-  position: absolute;
-  top: 0.55rem;
-  right: 3.25rem;
-  font-size: 0.75rem;
-  color: #888;
+  content: none;
 }
 
 .prose :not(pre)>code {
