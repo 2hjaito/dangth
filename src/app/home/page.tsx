@@ -47,8 +47,12 @@ function MarkdownBlock({ html }: { html: string }) {
 function HeroBlock({ block }: { block: Extract<PageBlock, { type: "hero" }> }) {
   return (
     <div className="relative mt-10">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-        <div>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-12 sm:gap-8">
+        <div className="order-first self-center shrink-0 sm:order-last sm:self-auto">
+          <AvatarStack />
+        </div>
+
+        <div className="order-last sm:order-first">
           <h1
             style={{
               position: "absolute",
@@ -72,10 +76,6 @@ function HeroBlock({ block }: { block: Extract<PageBlock, { type: "hero" }> }) {
           <p className="text-[#2b2c2f] dark:text-[#E5E7EB] font-semibold">
             {block.data.description}
           </p>
-        </div>
-
-        <div className="self-center sm:self-auto shrink-0">
-          <AvatarStack />
         </div>
       </div>
 
