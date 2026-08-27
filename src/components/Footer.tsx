@@ -12,9 +12,9 @@ export default function Footer() {
     <>
       {/* <GoogleAdsenseBanner /> */}
       <footer className="relative z-10 mt-[50px] pt-[20px] pb-[28px] text-[var(--text-color)] dark:text-[var(--text-color-dark)] dark:bg-[var(--background-color-dark)] border-t border-gray-200 dark:border-[#9a9a9a7c]">
-        <div className="max-w-[700px] mx-auto px-4 text-sm text-gray-700 dark:text-gray-300 flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-start md:items-center">
+        <div className="max-w-[700px] mx-auto px-4 text-sm text-gray-700 dark:text-gray-300 flex flex-row gap-3 justify-between items-center">
 
-          <p className="text-left">
+          <p className="min-w-0 text-left">
             <span>{footerConfig.copyright}</span>{" "}
             {footerConfig.attribution && (
               <span>
@@ -31,7 +31,7 @@ export default function Footer() {
             )}
           </p>
 
-          <p className="flex items-center gap-4">
+          <p className="flex shrink-0 items-center gap-4">
             {footerConfig.links.map((link) => {
               const Icon = footerIconMap[link.type];
 
