@@ -80,6 +80,7 @@ export default function Navbar() {
         {navbarConfig.items.map(({ label, href, icon }) => {
           const Icon = navIconMap[icon];
           const localizedHref = localizePath(href, locale);
+          const isActive = pathname === localizedHref;
 
           return (
             <div className="nav-item relative" key={href}>
@@ -92,7 +93,7 @@ export default function Navbar() {
                   group w-11 h-11 rounded-xl 
                   bg-[#EAEAEA] text-[#9A9A9A] 
                   dark:bg-[#4A5363] dark:text-[#9A9A9A]
-                  flex items-center justify-center 
+                  relative flex items-center justify-center 
                   transition-all ease-out duration-300
                   hover:scale-150 hover:mt-[-18px] hover:z-10 hover:mx-2
                 "
@@ -102,6 +103,12 @@ export default function Navbar() {
                   <FaSpinner className="animate-spin" />
                 ) : (
                   <Icon />
+                )}
+                {isActive && (
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-current"
+                  />
                 )}
               </Link>
             </div>
