@@ -79,13 +79,14 @@ export default function Navbar() {
         {/* NAV ITEMS */}
         {navbarConfig.items.map(({ label, href, icon }) => {
           const Icon = navIconMap[icon];
+          const localizedHref = localizePath(href, locale);
 
           return (
             <div className="nav-item relative" key={href}>
               <Link
-                href={localizePath(href, locale)}
+                href={localizedHref}
                 prefetch={false}
-                onClick={() => setActiveNav(localizePath(href, locale))}
+                onClick={() => setActiveNav(localizedHref)}
                 title={label}
                 className="
                   group w-11 h-11 rounded-xl 
@@ -97,7 +98,7 @@ export default function Navbar() {
                 "
               >
                 {/* Spinner chính chủ trở lại */}
-                {activeNav === href ? (
+                {activeNav === localizedHref ? (
                   <FaSpinner className="animate-spin" />
                 ) : (
                   <Icon />

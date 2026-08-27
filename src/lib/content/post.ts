@@ -54,6 +54,9 @@ function buildPostManifest(locale: string = DEFAULT_LOCALE): PostManifestItem[] 
   if (!fs.existsSync(dirPath)) return []
 
   const files = fs.readdirSync(dirPath).filter((file) => file.endsWith('.md'))
+  if (files.length === 0 && locale !== DEFAULT_LOCALE) {
+    return buildPostManifest(DEFAULT_LOCALE)
+  }
   const seen = new Map<string, PostManifestItem>()
 
   for (const filename of files) {
