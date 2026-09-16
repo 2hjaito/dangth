@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'CMU Sans Vietnamese';
+  src: url('/fonts/cmu/vi/CMUSansSerifVietnamized.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CMU Sans Vietnamese';
+  src: url('/fonts/cmu/sans/cmunsx.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-body: 'CMU Sans Vietnamese', sans-serif;
+}
+
+body,
+.dp-home-view,
+.markdown-body,
+.dp-post,
+.dp-sidebar,
+.dp-navbar {
+  font-family: var(--font-body);
+}
+
+.dp-cert-group {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.dp-cert-group-header {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.dp-cert-group-header h3 {
+  flex: 0 0 auto;
+  margin: 0;
+  text-align: left;
+}
+
+.dp-cert-group-header img {
+  margin: 0;
+}
+
+.dp-cert-card-grid {
+  justify-items: stretch;
+  width: 100%;
+}
+
+.dp-cert-card {
+  align-items: flex-start;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.dp-cert-card strong,
+.dp-cert-card small {
+  width: 100%;
+  text-align: left;
+}
+
+.dp-home-view .dp-cert-card-grid {
+  gap: 1.5rem;
+}
+
+.dp-home-view .dp-cert-card {
+  max-width: 250px;
+}
+
+.dp-home-view .dp-cert-card-image {
+  width: 140px;
+  height: 140px;
+  aspect-ratio: 1;
+}
+
+.dp-home-view .dp-cert-card-image img {
+  object-fit: contain;
+}
+
+.dp-home-view .dp-github-section {
+  margin-top: 3rem;
+}
+
+@media (max-width: 639px) {
+  .dp-cert-group-header {
+    justify-content: center;
+  }
+
+  .dp-cert-group-header h3 {
+    text-align: center;
+  }
+
+  .dp-cert-card-grid {
+    justify-items: center;
+  }
+
+  .dp-cert-card,
+  .dp-home-view .dp-cert-card {
+    align-items: center;
+    width: min(100%, 250px);
+  }
+
+  .dp-cert-card strong,
+  .dp-cert-card small {
+    text-align: center;
+  }
+}
