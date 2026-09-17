@@ -4,7 +4,7 @@ slug: tim-hieu-ve-giai-thuat-tham-lam
 subtitle: Cấu trúc dữ liệu và giải thuật
 author: Trần Hữu Đang
 date: "2023-10-20"
-image: /images/post/2023-10-20-greedy-algorithm/1.png
+image: /images/post/2023-10-20-greedy-algorithm/1.webp
 tags:
   - Algorithm
   - Thuật toán
@@ -18,19 +18,19 @@ Thuật toán tham lam được ứng dụng nhiều rất vào các bài toán 
 Thuật toán tham lam là gì, nó có tham lam thật không ???
 
 
-![](/images/post/2023-10-20-greedy-algorithm/1.png)
+![](/images/post/2023-10-20-greedy-algorithm/1.webp)
 
 <details>
 <summary><strong>Nội dung chính</strong></summary>
 
-![Nguyên lý](/images/post/2023-10-20-greedy-algorithm/2.png)  
-![Thành phần](/images/post/2023-10-20-greedy-algorithm/3.png)  
-![Tính chất lựa](/images/post/2023-10-20-greedy-algorithm/4.png)  
-![Ưu điểm](/images/post/2023-10-20-greedy-algorithm/5.png)  
-![Nhược điểm](/images/post/2023-10-20-greedy-algorithm/6.png)  
-![Bài tập](/images/post/2023-10-20-greedy-algorithm/7.png)  
-![Bài giải](/images/post/2023-10-20-greedy-algorithm/8.png)  
-![Lời cảm ơn](/images/post/2023-10-20-greedy-algorithm/9.png)
+![Nguyên lý](/images/post/2023-10-20-greedy-algorithm/2.webp)  
+![Thành phần](/images/post/2023-10-20-greedy-algorithm/3.webp)  
+![Tính chất lựa](/images/post/2023-10-20-greedy-algorithm/4.webp)  
+![Ưu điểm](/images/post/2023-10-20-greedy-algorithm/5.webp)  
+![Nhược điểm](/images/post/2023-10-20-greedy-algorithm/6.webp)  
+![Bài tập](/images/post/2023-10-20-greedy-algorithm/7.webp)  
+![Bài giải](/images/post/2023-10-20-greedy-algorithm/8.webp)  
+![Lời cảm ơn](/images/post/2023-10-20-greedy-algorithm/9.webp)
 
 </details>
 

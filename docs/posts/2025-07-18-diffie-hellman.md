@@ -4,7 +4,7 @@ slug: trien-khai-ma-hoa-dau-cuoi-voi-diffie-hellman-va-aes-bang-java
 subtitle: "Xây dựng cơ chế trao đổi khóa và mã hóa tin nhắn cho dự án mạng xã hội Destiny"
 author: Trần Hữu Đang
 date: 2025-07-14
-image: /images/post/2025-07-18-diffie-hellman/0.png
+image: /images/post/2025-07-18-diffie-hellman/0.webp
 tags:
   - Bảo mật
   - Mật mã học
@@ -74,7 +74,7 @@ Quy trình thực hiện cụ thể như sau:
 
     - Bob: $B\  = \ g^{b}\ mod\ p\,$ 
 
-![Trao đổi khóa Diffie-Hellman -- Wikipedia tiếng Việt](/images/post/2025-07-18-diffie-hellman/1.png)
+![Trao đổi khóa Diffie-Hellman -- Wikipedia tiếng Việt](/images/post/2025-07-18-diffie-hellman/1.webp)
 
 4.  Trao đổi khóa công khai A và B
 
@@ -142,7 +142,7 @@ Dữ liệu được xử lý trong dạng ma trận 4x4 byte, gọi là "State"
 
 - Độ bảo mật cao: Không có tấn công thực tiễn nào bẻ được AES-128 (cho đến nay).
 
-![AES hoat dong](/images/post/2025-07-18-diffie-hellman/2.jpg)
+![AES hoat dong](/images/post/2025-07-18-diffie-hellman/2.webp)
 
 - Dễ triển khai: Có mặt trong mọi thư viện mật mã tiêu chuẩn (Java, Python, OpenSSL\...).
 
@@ -505,7 +505,7 @@ Mọi thao tác được thực hiện trên môi trường Java console với �
 
 ### **5.2. Các bước thực hiện chi tiết** 
 
-![C:\Users\ADMIN\Desktop\1.jpg](/images/post/2025-07-18-diffie-hellman/3.jpg)
+![C:\Users\ADMIN\Desktop\1.jpg](/images/post/2025-07-18-diffie-hellman/3.webp)
 
 #### Bước 1: Khởi tạo giá trị công khai
 
@@ -603,9 +603,9 @@ Chương trình hiện tại chạy trên dòng lệnh (Command Line Interface -
 
 6\. Mã hóa và giải mã tin nhắn
 
-![C:\Users\ADMIN\Desktop\2.jpg](/images/post/2025-07-18-diffie-hellman/4.jpg)
+![C:\Users\ADMIN\Desktop\2.jpg](/images/post/2025-07-18-diffie-hellman/4.webp)
 
-![C:\Users\ADMIN\Desktop\3.jpg](/images/post/2025-07-18-diffie-hellman/5.jpg)
+![C:\Users\ADMIN\Desktop\3.jpg](/images/post/2025-07-18-diffie-hellman/5.webp)
 
 ### **5.4. Giao diện chương trình** 
 

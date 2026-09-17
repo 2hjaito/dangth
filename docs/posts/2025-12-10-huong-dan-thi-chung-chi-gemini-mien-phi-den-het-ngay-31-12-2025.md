@@ -4,7 +4,7 @@ slug: huong-dan-chi-tiet-thi-nhan-chung-chi-gemini-google-mien-phi-han-chot-31-1
 subtitle: Nâng Cấp CV bằng Certificate Gemini Educator/Student & Bộ Đáp Án Mới Nhất
 author: [Trần Hữu Đang] 
 date: "2025-12-10"
-image: /images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.png
+image: /images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.webp
 tags:
   - Gemini
   - Google AI
@@ -19,7 +19,7 @@ published: true
 
 > Tương Lai AI Trong Tầm Tay: Thi Chứng Chỉ Gemini Google Miễn Phí 100%
 
-![](/images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.png)
+![](/images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.webp)
 
 **Chào mừng bạn đến với kỷ nguyên AI!**
 
@@ -46,8 +46,8 @@ Việc sở hữu **Certificate Gemini Educator** hoặc **Student** là sự ch
 * **Gemini University Student:** Dành cho sinh viên, tập trung vào nghiên cứu, soạn thảo tài liệu học thuật và phân tích thông tin.
 
 
-![](/images/cert/google/gemini-certified-educator.jpg)
-![](/images/cert/google/gemini-certified-student.jpg)
+![](/images/cert/google/gemini-certified-educator.webp)
+![](/images/cert/google/gemini-certified-student.webp)
 
 
 ## 2. Hướng Dẫn Từng Bước Thi Chứng Chỉ Gemini Google Miễn Phí

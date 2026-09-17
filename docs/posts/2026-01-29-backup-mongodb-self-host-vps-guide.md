@@ -5,7 +5,7 @@ slug: backup-mongodb-self-host-media-tren-vps-linux-bang-cronjob
 subtitle: "Hướng dẫn backup tự động MongoDB và file upload bằng Shell Script, Cronjob an toàn và hiệu quả"
 author: "Trần Hữu Đang"
 date: 2026-01-29
-image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.png
+image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp
 tags:
   - DevOps
   - Linux
@@ -16,7 +16,7 @@ published: true
 ---
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp)
 
 Trong quá trình vận hành các dự án sử dụng Nodejs (Express) và MongoDB tự triển khai (self-host) trên VPS, việc thiết lập một quy trình sao lưu (backup) dữ liệu là cực kỳ quan trọng. Sai lầm phổ biến của nhiều người là chỉ sử dụng MongoDB Compass để xuất dữ liệu thủ công hoặc viết logic backup ngay trong code ứng dụng.
 
@@ -53,7 +53,7 @@ cd /root/backup
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/1.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/1.webp)
 
 ## 3. Xây dựng Script Backup (backup.sh)
 
@@ -66,7 +66,7 @@ nano /root/backup/backup.sh
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/2.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/2.webp)
 
 Dán nội dung dưới đây vào file:
 
@@ -103,7 +103,7 @@ echo "--------------------------" >> "$LOG_FILE"
 *Lưu ý: Hãy thay đổi `MONGO_URI` và `UPLOAD_DIR` đúng với thực tế dự án của bạn.*
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/3.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/3.webp)
 
 Sau khi lưu file (`Ctrl + O`, `Enter`, `Ctrl + X`), hãy cấp quyền thực thi cho script:
 
@@ -112,7 +112,7 @@ chmod +x /root/backup/backup.sh
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/4.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/4.webp)
 
 ## 4. Kiểm tra vận hành
 
@@ -126,7 +126,7 @@ Trước khi đưa vào chạy tự động, bạn nên chạy thử script đ�
 Kiểm tra thư mục `mongodb` và `files` xem đã xuất hiện các bản backup mới chưa. Nếu log trong `/root/backup/logs/backup.log` không báo lỗi, bạn đã thành công bước đầu.
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.webp)
 
 ## 5. Tự động hóa với Cronjob
 
@@ -146,7 +146,7 @@ Thêm dòng sau vào cuối file:
 
 Cấu hình này sẽ thực thi script vào 2 giờ sáng và ghi toàn bộ kết quả xuất ra vào file `cron.log`.
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/11.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/11.webp)
 
 ## 6. Tải bản sao lưu về máy cá nhân (Windows/MacOS)
 
@@ -159,9 +159,9 @@ Mở Command Prompt hoặc PowerShell trên máy tính của bạn và chạy l�
 scp -r "root@IP_VPS:/root/backup" .
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.webp)
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/10.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/10.webp)
 
 ## 7. Quy trình khôi phục dữ liệu (Restore)
 

@@ -4,7 +4,7 @@ slug: trien-khai-ma-hoa-dau-cuoi-voi-diffie-hellman-va-aes-bang-java
 subtitle: "Building a key-exchange and message-encryption mechanism for the Destiny social network project"
 author: Trần Hữu Đang
 date: 2025-07-14
-image: /images/post/2025-07-18-diffie-hellman/0.png
+image: /images/post/2025-07-18-diffie-hellman/0.webp
 tags:
   - Bảo mật
   - Mật mã học
@@ -74,7 +74,7 @@ The process works as follows:
 
     - Bob: $B\  = \ g^{b}\ mod\ p\,$ 
 
-![Diffie-Hellman key exchange -- Vietnamese Wikipedia](/images/post/2025-07-18-diffie-hellman/1.png)
+![Diffie-Hellman key exchange -- Vietnamese Wikipedia](/images/post/2025-07-18-diffie-hellman/1.webp)
 
 4.  Exchange public keys A and B
 
@@ -142,7 +142,7 @@ Data is processed as a 4x4 byte matrix, called the "State," and goes through mul
 
 - High security: No practical attack has broken AES-128 (as of today).
 
-![How AES works](/images/post/2025-07-18-diffie-hellman/2.jpg)
+![How AES works](/images/post/2025-07-18-diffie-hellman/2.webp)
 
 - Easy to implement: Available in every standard cryptography library (Java, Python, OpenSSL...).
 
@@ -504,7 +504,7 @@ All operations are performed in a Java console environment with simulated input.
 
 ### **5.2. Detailed steps** 
 
-![C:\Users\ADMIN\Desktop\1.jpg](/images/post/2025-07-18-diffie-hellman/3.jpg)
+![C:\Users\ADMIN\Desktop\1.jpg](/images/post/2025-07-18-diffie-hellman/3.webp)
 
 #### Step 1: Initialize the public values
 
@@ -602,9 +602,9 @@ The program currently runs on the Command Line Interface (CLI) with a sequential
 
 6\. Encrypt and decrypt the message
 
-![C:\Users\ADMIN\Desktop\2.jpg](/images/post/2025-07-18-diffie-hellman/4.jpg)
+![C:\Users\ADMIN\Desktop\2.jpg](/images/post/2025-07-18-diffie-hellman/4.webp)
 
-![C:\Users\ADMIN\Desktop\3.jpg](/images/post/2025-07-18-diffie-hellman/5.jpg)
+![C:\Users\ADMIN\Desktop\3.jpg](/images/post/2025-07-18-diffie-hellman/5.webp)
 
 ### **5.4. Program interface** 
 

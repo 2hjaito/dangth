@@ -50,13 +50,13 @@ content: 结合 WebSocket、SSE、Redis、缓存、队列、Docker、Linux、Ngi
 title: Can Tho University
 subtitle: 信息技术
 meta: 2025年9月 – 2027年1月
-logo: /images/education/ctu.png
+logo: /images/education/ctu.webp
 content: 学习编程、数据库、系统分析、软件工程基础以及信息技术核心知识。
 
 title: FPT Polytechnic
 subtitle: 软件开发
 meta: 2021年9月 – 2024年1月
-logo: /images/education/fpoly.jpg
+logo: /images/education/fpoly.webp
 content: 重点学习实战型软件开发，包括面向对象编程、Web 开发、后端开发、测试以及真实项目构建。
 :::
 

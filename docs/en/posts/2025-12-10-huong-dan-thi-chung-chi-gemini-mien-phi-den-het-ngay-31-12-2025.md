@@ -4,7 +4,7 @@ slug: huong-dan-chi-tiet-thi-nhan-chung-chi-gemini-google-mien-phi-han-chot-31-1
 subtitle: Level up your CV with the Gemini Educator/Student Certificate & the latest answer set
 author: [Trần Hữu Đang] 
 date: "2025-12-10"
-image: /images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.png
+image: /images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.webp
 tags:
   - Gemini
   - Google AI
@@ -19,7 +19,7 @@ published: true
 
 > The Future of AI Within Reach: Take the Google Gemini Certificate Exam 100% Free
 
-![](/images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.png)
+![](/images/post/2025-12-10-huong-dan-thi-chung-chi-gemini-mien-phi-den-het-ngay-31-12-2025/banner.webp)
 
 **Welcome to the AI era!**
 
@@ -46,8 +46,8 @@ Holding a **Gemini Educator** or **Student Certificate** is the strongest proof 
 * **Gemini University Student:** For students, focused on research, drafting academic materials, and analyzing information.
 
 
-![](/images/cert/google/gemini-certified-educator.jpg)
-![](/images/cert/google/gemini-certified-student.jpg)
+![](/images/cert/google/gemini-certified-educator.webp)
+![](/images/cert/google/gemini-certified-student.webp)
 
 
 ## 2. Step-by-Step Guide to Taking the Free Google Gemini Certificate Exam

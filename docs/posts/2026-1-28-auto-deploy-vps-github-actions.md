@@ -5,7 +5,7 @@ slug: auto-deploy-vps-voi-github-actions-tu-go-lenh-tay-den-ranh-tay
 subtitle: "Hướng dẫn chi tiết cách setup CI/CD tự động build Docker và xử lý xung đột Port thông minh"
 author: "Trần Hữu Đang"
 date: 2026-01-28
-image: /images/post/2026-1-28-auto-deploy-vps-github-actions/main.png
+image: /images/post/2026-1-28-auto-deploy-vps-github-actions/main.webp
 tags:
   - DevOps
   - Docker
@@ -15,7 +15,7 @@ published: true
 ---
 
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/main.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/main.webp)
 
 Chào anh em, chắc hẳn ai làm Web cũng từng trải qua cái cảnh: Code xong tính năng mới, hì hục `git push`, rồi lại phải mở Terminal lên, SSH vào VPS, gõ một loạt lệnh `git pull`, `docker-compose down`, `up`...
 
@@ -51,7 +51,7 @@ apt update -y && apt upgrade -y
 
 ```
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/1.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/1.webp)
 
 ---
 
@@ -74,7 +74,7 @@ chmod 600 /root/.ssh/authorized_keys
 ```
 
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/2.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/2.webp)
 
 
 > [!WARNING]
@@ -108,7 +108,7 @@ networks:
 
 ```
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/3.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/3.webp)
 ---
 
 ## Bước 4: Giải quyết "nỗi đau" trùng Port 1210
@@ -178,19 +178,19 @@ jobs:
 
 ```
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/4.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/4.webp)
 
 Bây giờ là lúc tận hưởng thành quả. Bạn chỉ cần thực hiện thao tác quen thuộc: Commit những dòng code tâm huyết và đẩy chúng lên nhánh release. Đây chính là "ngòi nổ" để kích hoạt toàn bộ hệ thống tự động mà chúng ta vừa thiết lập.
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/5.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/5.webp)
 
 Ngay lập tức, tab Actions trên GitHub sẽ bừng sáng. Bạn có thể nhìn thấy quy trình đang chạy từng bước một: từ việc SSH vào server, kiểm tra Port, cho đến build lại Docker image. Cảm giác ngồi xem máy tự làm việc thay mình thực sự rất "phê"!
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/6.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/6.webp)
 
 
 Và đây là kết quả cuối cùng: Một màu xanh hy vọng! Mọi dòng lệnh đều thực thi trơn tru, Port 1210 đã được bàn giao cho phiên bản code mới nhất mà không gặp bất kỳ sự cố xung đột nào.
 
-![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/7.png)
+![HotJava Trình Diễn](/images/post/2026-1-28-auto-deploy-vps-github-actions/7.webp)
 ---
 
 ## Tổng kết

@@ -5,14 +5,14 @@ slug: xu-ly-du-lieu-thoi-gian-thuc-voi-laravel-va-nodejs
 subtitle: How to use Socket.io in Laravel to build a realtime application
 author: Trần Hữu Đang
 date: "2024-04-11"
-image: /images/post/2024-04-11-laravel-socketio/1.png
+image: /images/post/2024-04-11-laravel-socketio/1.webp
 tags: ["Backend","Web","Realtime"]
 
 ---
 
 <!-- <img src="https://count-viewer.vercel.app//api/blog/view?url=https://davisupers.web.app/post/back-end/laravel-socketio" alt="Image 1" style="float: left"> -->
 
-![](/images/post/2024-04-11-laravel-socketio/1.png)
+![](/images/post/2024-04-11-laravel-socketio/1.webp)
 
 
 I once worked on a project to manage notifications sent to users. For web apps using Java or NodeJS, this is fairly straightforward. PHP, on the other hand, doesn't seem to support this very well.

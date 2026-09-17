@@ -15,13 +15,13 @@ social: tiktok | https://www.tiktok.com/@2hjato | TikTok
 :::
 
 :::davi:avt
-/images/profile/1.JPG
-/images/profile/2.JPG
-/images/profile/3.JPG
-/images/profile/4.JPG
-/images/profile/5.JPG
-/images/profile/6.JPG
-/images/profile/7.JPG
+/images/profile/1.webp
+/images/profile/2.webp
+/images/profile/3.webp
+/images/profile/4.webp
+/images/profile/5.webp
+/images/profile/6.webp
+/images/profile/7.webp
 :::
 
 I am Tran Huu Dang, a Fullstack Developer focused on building practical, easy-to-use web products. I am interested in how technology can simplify work and create better user experiences.
@@ -51,13 +51,13 @@ content: Work with WebSocket, SSE, Redis, caching, queues, Docker, Linux servers
 title: Can Tho University
 subtitle: Information Technology
 meta: September 2025 – January 2027
-logo: /images/education/ctu.png
+logo: /images/education/ctu.webp
 content: Study programming, databases, system analysis, software engineering fundamentals, and core information technology concepts.
 
 title: FPT Polytechnic
 subtitle: Software Development
 meta: September 2021 – January 2024
-logo: /images/education/fpoly.jpg
+logo: /images/education/fpoly.webp
 content: Focus on practical software development, including object-oriented programming, web development, backend development, testing, and building real-world applications.
 :::
 

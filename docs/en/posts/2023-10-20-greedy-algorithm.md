@@ -4,7 +4,7 @@ slug: tim-hieu-ve-giai-thuat-tham-lam
 subtitle: Data structures and algorithms
 author: Trần Hữu Đang
 date: "2023-10-20"
-image: /images/post/2023-10-20-greedy-algorithm/1.png
+image: /images/post/2023-10-20-greedy-algorithm/1.webp
 tags:
   - Algorithm
   - Thuật toán
@@ -18,19 +18,19 @@ The greedy algorithm is widely applied to real-world problems. Let's dig into it
 What is the greedy algorithm, and is it really "greedy" ???
 
 
-![](/images/post/2023-10-20-greedy-algorithm/1.png)
+![](/images/post/2023-10-20-greedy-algorithm/1.webp)
 
 <details>
 <summary><strong>Main content</strong></summary>
 
-![Principle](/images/post/2023-10-20-greedy-algorithm/2.png)  
-![Components](/images/post/2023-10-20-greedy-algorithm/3.png)  
-![Chosen properties](/images/post/2023-10-20-greedy-algorithm/4.png)  
-![Advantages](/images/post/2023-10-20-greedy-algorithm/5.png)  
-![Disadvantages](/images/post/2023-10-20-greedy-algorithm/6.png)  
-![Exercise](/images/post/2023-10-20-greedy-algorithm/7.png)  
-![Solution](/images/post/2023-10-20-greedy-algorithm/8.png)  
-![Acknowledgements](/images/post/2023-10-20-greedy-algorithm/9.png)
+![Principle](/images/post/2023-10-20-greedy-algorithm/2.webp)  
+![Components](/images/post/2023-10-20-greedy-algorithm/3.webp)  
+![Chosen properties](/images/post/2023-10-20-greedy-algorithm/4.webp)  
+![Advantages](/images/post/2023-10-20-greedy-algorithm/5.webp)  
+![Disadvantages](/images/post/2023-10-20-greedy-algorithm/6.webp)  
+![Exercise](/images/post/2023-10-20-greedy-algorithm/7.webp)  
+![Solution](/images/post/2023-10-20-greedy-algorithm/8.webp)  
+![Acknowledgements](/images/post/2023-10-20-greedy-algorithm/9.webp)
 
 </details>
 

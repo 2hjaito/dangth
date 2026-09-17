@@ -4,7 +4,7 @@ slug: tim-hieu-ve-session-cookie-trong-xac-thuc-nguoi-dung
 subtitle: Session, Cookie là gì?
 author: Trần Hữu Đang
 date: "2023-09-03"
-image: /images/post/2023-09-03-session-cookie-authentication/1.png
+image: /images/post/2023-09-03-session-cookie-authentication/1.webp
 tags:
   - Backend
   - Authentication
@@ -18,7 +18,7 @@ Trong mô hình [CSR]() hay Client-Side-Rendering việc lưu thông tin ngườ
 Vậy Session là gì và Cookie là thế nào? Sao lại phải cần đến tận hai khái niệm cho một công việc
 
 
-![](/images/post/2023-09-03-session-cookie-authentication/1.png)
+![](/images/post/2023-09-03-session-cookie-authentication/1.webp)
 ## Khái niệm
 
 Trước hết chúng ta sẽ tìm hiểu về các khái niệm trước và sẽ đi qua từng trường hợp cụ thể nhé!
@@ -144,7 +144,7 @@ Cơ chế trên được thự thi tự động hết sức đơn giản như sa
 
 Nếu vẫn chưa hiểu thì tham khảo ảnh sau đây:
 
-![](/images/post/2023-09-03-session-cookie-authentication/2.png)
+![](/images/post/2023-09-03-session-cookie-authentication/2.webp)
 
 ## Tổng kết
 

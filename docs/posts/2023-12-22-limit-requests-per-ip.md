@@ -5,7 +5,7 @@ slug: han-che-request-nhan-duoc-tu-mot-ip-trong-khoang-thoi-gian-nhat-dinh
 subtitle: Xây dựng server SpringBoot hạn chế Spam Request từ người dùng
 author: Trần Hữu Đang
 date: "2023-12-22"
-image: /images/post/2023-12-22-limit-requests-per-ip/1.png
+image: /images/post/2023-12-22-limit-requests-per-ip/1.webp
 tags: ["Backend","Redis","Security"]
 
 ---

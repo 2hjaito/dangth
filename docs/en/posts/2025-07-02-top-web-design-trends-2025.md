@@ -5,7 +5,7 @@ slug: 8-xu-huong-thiet-ke-website-noi-bat-nam-2025
 subtitle: Optimizing user experience & brand identity
 author: Trần Hữu Đang
 date: "2025-07-02"
-image: /images/post/2025-07-02-top-web-design-trends-2025/maxresdefault.jpg
+image: /images/post/2025-07-02-top-web-design-trends-2025/maxresdefault.webp
 tags: ["Thiết kế web", "UI/UX", "Xu hướng", "2025"]
 ---
 
@@ -30,27 +30,27 @@ Example: [https://3d.armani.com](https://3d.armani.com) – a website that uses 
 
 The **lucemorphism** style (let's just call it *loo-che-mo-ri-zim*) is a combination of **transparency** and **soft drop shadows**. The result is a design that's both **elegant** and **high-tech**.
 
-<!-- ![](/images/post/2025-07-02-top-web-design-trends-2025/1_Banking-Fintech-Web-Design-glassmorphism.jpg)
-![](/images/post/2025-07-02-top-web-design-trends-2025/3_Music-Player-Exploration-by.jpg)
-![](/images/post/2025-07-02-top-web-design-trends-2025/6_Glassmorphism-Big-Sur-Creative.jpg)
-![](/images/post/2025-07-02-top-web-design-trends-2025/glassmorphism_app_ui.jpg)
-![](/images/post/2025-07-02-top-web-design-trends-2025/caba13d575d23a483e65972f6f31d3f2.jpg)
-![](/images/post/2025-07-02-top-web-design-trends-2025/33b711183845765.65476d4f4ea1f.png)
-![](/images/post/2025-07-02-top-web-design-trends-2025/web-element-with-glass-morphism-effect-free-vector.jpg) -->
+<!-- ![](/images/post/2025-07-02-top-web-design-trends-2025/1_Banking-Fintech-Web-Design-glassmorphism.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/3_Music-Player-Exploration-by.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/6_Glassmorphism-Big-Sur-Creative.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/glassmorphism_app_ui.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/caba13d575d23a483e65972f6f31d3f2.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/33b711183845765.65476d4f4ea1f.webp)
+![](/images/post/2025-07-02-top-web-design-trends-2025/web-element-with-glass-morphism-effect-free-vector.webp) -->
 
-![](/images/post/2025-07-02-top-web-design-trends-2025/maxresdefault.jpg)
+![](/images/post/2025-07-02-top-web-design-trends-2025/maxresdefault.webp)
 
 
 <details>
 <summary>🎨 View the Lucemorphism interface collection</summary>
 <div class="scroll-gallery">
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/1_Banking-Fintech-Web-Design-glassmorphism.jpg" alt="1" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/3_Music-Player-Exploration-by.jpg" alt="2" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/6_Glassmorphism-Big-Sur-Creative.jpg" alt="3" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/glassmorphism_app_ui.jpg" alt="4" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/caba13d575d23a483e65972f6f31d3f2.jpg" alt="5" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/33b711183845765.65476d4f4ea1f.png" alt="6" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/web-element-with-glass-morphism-effect-free-vector.jpg" alt="7" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/1_Banking-Fintech-Web-Design-glassmorphism.webp" alt="1" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/3_Music-Player-Exploration-by.webp" alt="2" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/6_Glassmorphism-Big-Sur-Creative.webp" alt="3" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/glassmorphism_app_ui.webp" alt="4" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/caba13d575d23a483e65972f6f31d3f2.webp" alt="5" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/33b711183845765.65476d4f4ea1f.webp" alt="6" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/web-element-with-glass-morphism-effect-free-vector.webp" alt="7" /></div>
 </div>
 </details>
 
@@ -71,9 +71,9 @@ The **lucemorphism** style (let's just call it *loo-che-mo-ri-zim*) is a combina
 <summary>🎨 View the Bento Grid interface collection</summary>
 <div class="scroll-gallery">
 <div class="scroll-gallery">
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111115.png" alt="Image 2" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111138.png" alt="Image 3" /></div>
-  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111514.png" alt="Image 4" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111115.webp" alt="Image 2" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111138.webp" alt="Image 3" /></div>
+  <div class="slide"><img src="/images/post/2025-07-02-top-web-design-trends-2025/2025-07-03111514.webp" alt="Image 4" /></div>
 </div>
 </div>
 </details>

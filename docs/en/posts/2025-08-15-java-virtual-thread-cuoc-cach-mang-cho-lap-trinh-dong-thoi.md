@@ -5,7 +5,7 @@ slug: java-virtual-thread-cuoc-cach-mang-cho-lap-trinh-dong-thoi
 subtitle: Multithreading in Java
 author: Trần Hữu Đang
 date: "2025-08-15"
-image: /images/post/2024-04-11-laravel-socketio/1.png
+image: /images/post/2024-04-11-laravel-socketio/1.webp
 tags:
   - Lập trình
   - Lịch sử công nghệ

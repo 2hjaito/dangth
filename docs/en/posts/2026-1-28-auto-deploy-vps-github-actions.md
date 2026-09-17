@@ -5,7 +5,7 @@ slug: auto-deploy-vps-voi-github-actions-tu-go-lenh-tay-den-ranh-tay
 subtitle: "A detailed guide to setting up CI/CD that auto-builds Docker and smartly handles Port conflicts"
 author: "Trần Hữu Đang"
 date: 2026-01-28
-image: /images/post/2026-1-28-auto-deploy-vps-github-actions/main.png
+image: /images/post/2026-1-28-auto-deploy-vps-github-actions/main.webp
 tags:
   - DevOps
   - Docker
@@ -15,7 +15,7 @@ published: true
 ---
 
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/main.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/main.webp)
 
 Hey everyone, anyone who's done web development has probably been through this: you finish coding a new feature, `git push` it, then have to open a Terminal, SSH into the VPS, and type a series of commands: `git pull`, `docker-compose down`, `up`...
 
@@ -51,7 +51,7 @@ apt update -y && apt upgrade -y
 
 ```
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/1.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/1.webp)
 
 ---
 
@@ -74,7 +74,7 @@ chmod 600 /root/.ssh/authorized_keys
 ```
 
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/2.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/2.webp)
 
 
 > [!WARNING]
@@ -108,7 +108,7 @@ networks:
 
 ```
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/3.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/3.webp)
 ---
 
 ## Step 4: Solving the "pain" of Port 1210 conflicts
@@ -178,19 +178,19 @@ jobs:
 
 ```
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/4.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/4.webp)
 
 Now it's time to enjoy the results. Just do the familiar routine: commit the code you've poured your heart into and push it to the release branch. That's the "trigger" that kicks off the entire automated system we just set up.
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/5.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/5.webp)
 
 Right away, the Actions tab on GitHub lights up. You can watch the process run step by step: from SSH-ing into the server, checking the Port, all the way to rebuilding the Docker image. Watching the machine do the work for you feels genuinely satisfying!
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/6.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/6.webp)
 
 
 And here's the final result: a hopeful shade of green! Every command ran smoothly, and Port 1210 was handed over to the latest code version without any conflicts.
 
-![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/7.png)
+![HotJava Demo](/images/post/2026-1-28-auto-deploy-vps-github-actions/7.webp)
 ---
 
 ## Conclusion

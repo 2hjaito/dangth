@@ -4,7 +4,7 @@ slug: tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservi
 subtitle: Bài học về chiến lược migration dữ liệu, hiệu năng và tính nhất quán ở quy mô lớn
 author: [Trần Hữu Đang] 
 date: "2025-12-15"
-image: /images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.png
+image: /images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.webp
 tags:
   - Backend
   - Kiến trúc hệ thống
@@ -26,14 +26,14 @@ Trong giới phát triển, việc duy trì một hệ thống core có tuổi �
 Đây không chỉ là một dự án chuyển đổi công nghệ thông thường. Nó là một case study điển hình về cách các team kỹ thuật giải quyết vấn đề **scalability, performance,** và **maintainability** trong môi trường tải cao. Việc Reddit thành công tách một "core model" ra khỏi khối monolith cũ cung cấp nhiều bài học giá trị mà bất kỳ backend engineer nào đang cân nhắc migration cũng nên tham khảo.
 
 
-![](/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.png)
+![](/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.webp)
 
 ---
 
 ## Bối Cảnh Kiến Trúc Cũ: Thách Thức Của Python Monolith
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/python-monolith-architecture.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/python-monolith-architecture.webp"
   width="50%"
   alt="Python monolith architecture"
 />
@@ -61,7 +61,7 @@ Reddit nhận thấy rằng để tiếp tục mở rộng và duy trì trải n
 ## Vì Sao Reddit Chọn Go và Kiến Trúc Microservices?
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/go-microservices-comment-service.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/go-microservices-comment-service.webp"
   width="50%"
   alt="go-microservices-comment-service"
 />
@@ -86,7 +86,7 @@ Sau khi xác định nhu cầu, Go được chọn là ngôn ngữ thay thế ch
 ## Chiến Lược Migration Thận Trọng và An Toàn
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.webp"
   alt="tap-compare-read-migration"
 />
 
@@ -125,7 +125,7 @@ Chiến lược này giúp đảm bảo sự **tương thích ngược (backward
 
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/write-migration-sister-datastore.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/write-migration-sister-datastore.webp"
   alt="write-migration-sister-datastore"
 />
 
@@ -153,7 +153,7 @@ Migration không phải là xu hướng, mà là một quyết định chiến l
 ## Kết Luận
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.webp"
   alt="tap-compare-read-migration"
 />
 

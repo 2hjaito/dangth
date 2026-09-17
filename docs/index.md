@@ -15,13 +15,13 @@ social: tiktok | https://www.tiktok.com/@2hjato | TikTok
 :::
 
 :::davi:avt
-/images/profile/1.JPG
-/images/profile/2.JPG
-/images/profile/3.JPG
-/images/profile/4.JPG
-/images/profile/5.JPG
-/images/profile/6.JPG
-/images/profile/7.JPG
+/images/profile/1.webp
+/images/profile/2.webp
+/images/profile/3.webp
+/images/profile/4.webp
+/images/profile/5.webp
+/images/profile/6.webp
+/images/profile/7.webp
 :::
 
 Mình là Trần Hữu Đang, một lập trình viên Fullstack tập trung xây dựng các sản phẩm web thực tế và dễ sử dụng. Mình quan tâm đến cách công nghệ có thể đơn giản hóa công việc và tạo ra trải nghiệm tốt hơn cho người dùng.
@@ -51,13 +51,13 @@ content: Làm việc với WebSocket, SSE, Redis, bộ nhớ đệm, hàng đợ
 title: Đại học Cần Thơ
 subtitle: Công nghệ thông tin
 meta: Tháng 09/2025 – Tháng 01/2027
-logo: /images/education/ctu.png
+logo: /images/education/ctu.webp
 content: Học lập trình, cơ sở dữ liệu, phân tích hệ thống, nền tảng kỹ nghệ phần mềm và các khái niệm cốt lõi về công nghệ thông tin.
 
 title: Cao đẳng FPT Polytechnic
 subtitle: Phát triển phần mềm
 meta: Tháng 09/2021 – Tháng 01/2024
-logo: /images/education/fpoly.jpg
+logo: /images/education/fpoly.webp
 content: Tập trung vào phát triển phần mềm thực tế, bao gồm lập trình hướng đối tượng, phát triển web, phát triển backend, kiểm thử và xây dựng các ứng dụng thực tế.
 :::
 

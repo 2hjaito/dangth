@@ -5,7 +5,7 @@ slug: backup-mongodb-self-host-media-tren-vps-linux-bang-cronjob
 subtitle: "Automatically backing up MongoDB and uploaded files with a safe, effective Shell Script and Cronjob"
 author: "Trần Hữu Đang"
 date: 2026-01-29
-image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.png
+image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp
 tags:
   - DevOps
   - Linux
@@ -16,7 +16,7 @@ published: true
 ---
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp)
 
 While running projects that use Node.js (Express) and a self-hosted MongoDB on a VPS, setting up a data backup process is extremely important. A common mistake many people make is only using MongoDB Compass to export data manually, or writing backup logic directly inside the application code.
 
@@ -53,7 +53,7 @@ cd /root/backup
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/1.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/1.webp)
 
 ## 3. Building the Backup Script (backup.sh)
 
@@ -66,7 +66,7 @@ nano /root/backup/backup.sh
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/2.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/2.webp)
 
 Paste the following content into the file:
 
@@ -103,7 +103,7 @@ echo "--------------------------" >> "$LOG_FILE"
 *Note: Make sure to update `MONGO_URI` and `UPLOAD_DIR` to match your actual project setup.*
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/3.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/3.webp)
 
 After saving the file (`Ctrl + O`, `Enter`, `Ctrl + X`), grant execute permission to the script:
 
@@ -112,7 +112,7 @@ chmod +x /root/backup/backup.sh
 
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/4.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/4.webp)
 
 ## 4. Verifying it works
 
@@ -126,7 +126,7 @@ Before setting it up to run automatically, you should run the script manually to
 Check the `mongodb` and `files` folders to see whether new backups have appeared. If the log at `/root/backup/logs/backup.log` shows no errors, you've succeeded at this first step.
 
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.webp)
 
 ## 5. Automating with Cronjob
 
@@ -146,7 +146,7 @@ Add the following line to the end of the file:
 
 This configuration will run the script at 2 AM and write all output to the `cron.log` file.
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/11.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/11.webp)
 
 ## 6. Downloading the backup to your personal machine (Windows/macOS)
 
@@ -159,9 +159,9 @@ Open Command Prompt or PowerShell on your computer and run the following command
 scp -r "root@IP_VPS:/root/backup" .
 ```
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/9.webp)
 
-![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/10.png)
+![](/images/post/2026-01-29-backup-mongodb-self-host-vps-guide/10.webp)
 
 ## 7. Data recovery (Restore) process
 

@@ -4,7 +4,7 @@ slug: tim-hieu-ve-session-cookie-trong-xac-thuc-nguoi-dung
 subtitle: What are Session and Cookie?
 author: Trần Hữu Đang
 date: "2023-09-03"
-image: /images/post/2023-09-03-session-cookie-authentication/1.png
+image: /images/post/2023-09-03-session-cookie-authentication/1.webp
 tags:
   - Backend
   - Authentication
@@ -18,7 +18,7 @@ In the [CSR]() (Client-Side Rendering) model, storing user information is usuall
 So what exactly is a Session, and what is a Cookie? Why do we need two whole concepts for a single job?
 
 
-![](/images/post/2023-09-03-session-cookie-authentication/1.png)
+![](/images/post/2023-09-03-session-cookie-authentication/1.webp)
 ## Concepts
 
 First, let's go through the concepts, then walk through some concrete cases!
@@ -144,7 +144,7 @@ The mechanism above is carried out automatically, in a very simple way:
 
 If you're still not clear, check out the following image:
 
-![](/images/post/2023-09-03-session-cookie-authentication/2.png)
+![](/images/post/2023-09-03-session-cookie-authentication/2.webp)
 
 ## Conclusion
 

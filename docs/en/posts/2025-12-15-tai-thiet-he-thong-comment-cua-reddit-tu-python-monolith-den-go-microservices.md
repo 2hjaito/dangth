@@ -4,7 +4,7 @@ slug: tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservi
 subtitle: Lessons on data migration strategy, performance, and consistency at scale
 author: [Trần Hữu Đang] 
 date: "2025-12-15"
-image: /images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.png
+image: /images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.webp
 tags:
   - Backend
   - Kiến trúc hệ thống
@@ -26,14 +26,14 @@ In the development world, maintaining an old, massive-scale core system is alway
 This isn't just another routine tech migration project. It's a textbook case study of how engineering teams solve **scalability, performance,** and **maintainability** problems in a high-load environment. Reddit's success in extracting a "core model" from the old monolith offers many valuable lessons that any backend engineer considering a migration should look into.
 
 
-![](/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.png)
+![](/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/banner.webp)
 
 ---
 
 ## The Old Architecture's Context: The Challenges of a Python Monolith
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/python-monolith-architecture.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/python-monolith-architecture.webp"
   width="50%"
   alt="Python monolith architecture"
 />
@@ -61,7 +61,7 @@ Reddit realized that to keep scaling and preserve the user experience, they need
 ## Why Did Reddit Choose Go and a Microservices Architecture?
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/go-microservices-comment-service.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/go-microservices-comment-service.webp"
   width="50%"
   alt="go-microservices-comment-service"
 />
@@ -86,7 +86,7 @@ After identifying the need, Go was chosen to replace the Python monolith for the
 ## A Careful, Safe Migration Strategy
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.webp"
   alt="tap-compare-read-migration"
 />
 
@@ -125,7 +125,7 @@ This strategy helped ensure **backward compatibility** and **data integrity** th
 
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/write-migration-sister-datastore.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/write-migration-sister-datastore.webp"
   alt="write-migration-sister-datastore"
 />
 
@@ -153,7 +153,7 @@ Migration isn't a trend — it's a strategic decision that must be carefully wei
 ## Conclusion
 
 <img 
-  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.png"
+  src="/images/post/2025-12-15-tai-thiet-he-thong-comment-cua-reddit-tu-python-monolith-den-go-microservices/tap-compare-read-migration.webp"
   alt="tap-compare-read-migration"
 />
 

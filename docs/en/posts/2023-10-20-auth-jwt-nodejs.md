@@ -4,7 +4,7 @@ slug: xay-dung-json-web-token-trong-nodejs
 subtitle: Authorization and login in NodeJS
 author: Trần Hữu Đang
 date: "2023-10-20"
-image: /images/post/2023-10-20-auth-jwt-nodejs/1.png
+image: /images/post/2023-10-20-auth-jwt-nodejs/1.webp
 tags:
   - Backend
   - Authentication
@@ -13,7 +13,7 @@ tags:
 
 [JWT]() is a very secure, effective, and popular user authentication method in the [CSR]() model.
 
-![](/images/post/2023-10-20-auth-jwt-nodejs/1.png)
+![](/images/post/2023-10-20-auth-jwt-nodejs/1.webp)
 
 While teaching myself NodeJS, I built a [SEAN app](#sean-app). You can view the source code [here](https://github.com/dangtranhuu/Rainbow-Flix)
 
@@ -33,25 +33,25 @@ Okay, let's get started !!!
 
 <div class="scroll" style="width: 100%; overflow-x: auto; white-space: nowrap;">
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/2.png" alt="Principle" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/2.webp" alt="Principle" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/3.png" alt="Components" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/3.webp" alt="Components" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/4.png" alt="Chosen properties" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/4.webp" alt="Chosen properties" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/5.png" alt="Advantages" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/5.webp" alt="Advantages" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/6.png" alt="Disadvantages" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/6.webp" alt="Disadvantages" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/7.png" alt="Exercise" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/7.webp" alt="Exercise" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
   <div style="display: inline-block; margin-right: 15px;">
-    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/8.png" alt="Solution" style="width:500px; height:50%;object-fit: cover; margin:0px;">
+    <images post/src="/images/post/2023-10-20-auth-jwt-nodejs/8.webp" alt="Solution" style="width:500px; height:50%;object-fit: cover; margin:0px;">
   </div>
 </div>
 
@@ -60,7 +60,7 @@ Okay, let's get started !!!
 
 ## Building the database
 
-![Diagram DB](/images/post/2023-10-20-auth-jwt-nodejs/djagram-rolesuser.png)
+![Diagram DB](/images/post/2023-10-20-auth-jwt-nodejs/djagram-rolesuser.webp)
 
 As you can see in the picture above, we need 3 main tables related to users: **User** (or **Account**), **Roles**, and **UserRole**.
 
@@ -415,7 +415,7 @@ npm start
 Visit: [http://localhost:3000/](http://localhost:3000/)
 
 You can test it on [Postman](/post/2023-10-20-auth-jwt-nodejs/#api)
-![](/images/post/2023-10-20-auth-jwt-nodejs/loginapi.png)
+![](/images/post/2023-10-20-auth-jwt-nodejs/loginapi.webp)
 
 ## Notes
 
