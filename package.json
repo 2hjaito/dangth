@@ -9,7 +9,7 @@
     "clean": "davipress clean"
   },
   "dependencies": {
-    "davipress": "^0.4.0",
+    "davipress": "^0.4.1",
     "next": "^16.0.8",
     "next-live2d": "^2.1.0",
     "react": "^19.1.0",

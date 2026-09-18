@@ -70,17 +70,17 @@ Mình đã hoàn thành một số chứng chỉ giúp củng cố nền tảng 
 
 :::davi:certifications
 title: Master Microservices with Spring Boot & Spring Cloud
-img: udemy.png
+img: udemy.webp
 org: Udemy
 date: Feb 08, 2024
 
 title: AWS Academy Cloud Foundations
-img: aws-cloudfoundations.png
+img: aws-cloudfoundations.webp
 org: AWS Academy
 date: Jul 03, 2022
 
 title: Intermediate SQL Queries
-img: datacamp/statement-of-accomplishment.png
+img: datacamp/statement-of-accomplishment.webp
 org: DataCamp
 date: Apr 15, 2022
 :::

@@ -24,12 +24,12 @@ cert: Gemini Certified Educator | /images/cert/google/gemini-certified-educator.
 
 org: Data Camp
 logo: /images/cert/datacamp/datacamp-logo-freelogovectors.net_.webp
-cert: Intermediate SQL Queries | /images/cert/datacamp/Intermediate SQL Queries.png | Intermediate
+cert: Intermediate SQL Queries | /images/cert/datacamp/Intermediate SQL Queries.webp | Intermediate
 
 org: FreeCodeCamp
 logo: /images/cert/freecodecamp/freecodecamp-icon.webp
 cert: Data Analysis with Python | /images/cert/freecodecamp/Data Analysis with Python.webp | Intermediate
-cert: Machine Learning with Python | /images/cert/freecodecamp/Machine Learning with Python.PNG | Intermediate
+cert: Machine Learning with Python | /images/cert/freecodecamp/Machine Learning with Python.webp | Intermediate
 cert: Seientific Computing with Python | /images/cert/freecodecamp/Seientific Computing with Python.webp | Beginner
 
 org: Great Learning
