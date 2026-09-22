@@ -23,9 +23,9 @@ export default defineConfig({
       { text: 'Home', link: '/', icon: 'FaUser' },
       { text: 'Dự án', link: '/project', icon: 'DvTerminalBlink' },
       { text: 'Chứng chỉ', link: '/cert', icon: 'FaCertificate' },
-      { text: 'Tutorials', link: '/tutorials', icon: 'GiEvilBook' },
+      { text: 'Tutorials', link: '/tutorial', icon: 'GiEvilBook' },
       // { text: 'Guide', link: '/guide', icon: 'DvAnkhWingsTome' },
-      { text: 'Bài viết', link: '/posts', icon: 'GiMagicPortal' },
+      { text: 'Bài viết', link: '/post', icon: 'GiMagicPortal' },
     ],
     navbar: {
       showThemeToggle: true,
