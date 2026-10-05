@@ -3,5 +3,5 @@
 Place Chinese markdown content here.
 
 - pages: `docs/zh/pages`
-- posts: `docs/zh/posts`
-- tutorials: `docs/zh/tutorials`
+- post: `docs/zh/post`
+- tutorial: `docs/zh/tutorial`
