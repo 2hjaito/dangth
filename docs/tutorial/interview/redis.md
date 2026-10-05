@@ -144,7 +144,7 @@ def login(ip):
 ---
 
 📢 **Bài viết hay không thể bỏ lỡ**  
-👉 [Cách giới hạn số request theo IP bằng Redis - cực thực chiến](/post/han-che-request-nhan-duoc-tu-mot-ip-trong-khoang-thoi-gian-nhat-dinh)
+👉 [Cách giới hạn số request theo IP bằng Redis - cực thực chiến](/han-che-request-nhan-duoc-tu-mot-ip-trong-khoang-thoi-gian-nhat-dinh)
 
 ![Rate limit Redis](https://dangth.dev/api/og?title=Limit%20Requests%20Per%20IP%20Using%20Redis&subtitle=Practical%20rate%20limiting%20in%20Python%20or%20Node.js)
 
