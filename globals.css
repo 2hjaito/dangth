@@ -87,6 +87,15 @@ body,
   margin-top: 3rem;
 }
 
+.dp-socials a {
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.dp-socials a:hover {
+  transform: scale(1.15);
+}
+
 @media (max-width: 639px) {
   .dp-cert-group-header {
     justify-content: center;
