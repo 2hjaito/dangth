@@ -34,8 +34,6 @@ Mỗi container có một filesystem gồm nhiều layer:
 > [!WARNING]
 > Nếu bạn lưu dữ liệu bên trong container mà **không dùng volume**, dữ liệu sẽ **mất** khi container bị xoá!
 
----
-
 ## 2. Các loại Storage
 
 | Loại | Chi tiết |
@@ -46,8 +44,6 @@ Mỗi container có một filesystem gồm nhiều layer:
 
 > [!TIP]
 > **Volume** cho production, **bind mount** cho development, **tmpfs** cho dữ liệu tạm thời.
-
----
 
 ## 3. Ví dụ Docker Volume
 
@@ -67,8 +63,6 @@ Dữ liệu ghi vào `/app/data` sẽ được lưu trong volume và **tồn t�
 > [!NOTE]
 > Stop, xoá hay tạo lại container — dữ liệu vẫn an toàn trong volume!
 
----
-
 ## 4. Ví dụ Bind Mount
 
 ```bash
@@ -86,8 +80,6 @@ Host `/home/user/appdata` ⇄ Bind mount ⇄ Container `/app/data`
 
 > [!INFO]
 > Thay đổi trên thư mục host sẽ **ngay lập tức** hiện trong container (và ngược lại).
-
----
 
 ## 5. Kiểm chứng dữ liệu được giữ lại
 
@@ -110,8 +102,6 @@ Hello Docker!
 ```
 
 Dữ liệu vẫn còn nguyên dù container ban đầu đã bị xoá!
-
----
 
 ## 6. Quản lý Volume
 
@@ -139,8 +129,6 @@ local     otherdata
 > [!WARNING]
 > `docker volume prune` sẽ xoá **vĩnh viễn** các volume không được container nào dùng. Kiểm tra kỹ trước khi chạy!
 
----
-
 ## 7. Ứng dụng thực tế
 
 | Trường hợp | Mục đích |
@@ -152,8 +140,6 @@ local     otherdata
 
 > [!TIP]
 > Bất kỳ dữ liệu nào **không được phép mất** đều phải lưu trong volume.
-
----
 
 ## 8. Volume vs Bind Mount
 
@@ -169,8 +155,6 @@ local     otherdata
 > [!NOTE]
 > Volume thường là lựa chọn **an toàn** và **di động** hơn.
 
----
-
 ## 9. Best Practices
 
 - Dùng **volume** cho dữ liệu lâu dài
@@ -181,8 +165,6 @@ local     otherdata
 - Dùng **named volume** (không dùng anonymous volume)
 - **Dọn dẹp** volume không dùng định kỳ
 - Với dữ liệu nhạy cảm, cân nhắc **tmpfs** hoặc **secrets**
-
----
 
 ## Tổng kết
 

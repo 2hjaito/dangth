@@ -38,8 +38,6 @@ services:
 > [!TIP]
 > Rất phù hợp cho **dev local**, **testing** và **deploy đơn giản**.
 
----
-
 ## 2. Cấu trúc file Compose
 
 ```yaml
@@ -66,8 +64,6 @@ volumes:
 > [!INFO]
 > Các bản Compose cũ yêu cầu dòng `version: '3.8'` ở đầu file. Với **Docker Compose v2** hiện nay, trường `version` đã **không còn cần thiết**.
 
----
-
 ## 3. Các lệnh thường dùng
 
 ```bash
@@ -80,8 +76,6 @@ docker compose build            # Build/rebuild image
 docker compose restart app      # Restart một service
 docker compose exec app sh      # Mở shell trong container
 ```
-
----
 
 ## 4. Ví dụ thực tế
 
@@ -111,8 +105,6 @@ volumes:
 
 Nhiều service, chỉ cần **một lệnh** `docker compose up -d` là chạy!
 
----
-
 ## 5. Thứ tự khởi động service
 
 Dùng `depends_on` để điều khiển **thứ tự khởi động**.
@@ -140,8 +132,6 @@ services:
       retries: 5
 ```
 
----
-
 ## 6. Biến môi trường
 
 Tách cấu hình ra file `.env` đặt cùng thư mục với `docker-compose.yml`:
@@ -167,8 +157,6 @@ services:
 > [!TIP]
 > Dùng `.env` giúp cấu hình gọn gàng và an toàn hơn. Nhớ thêm `.env` vào `.gitignore` nhé!
 
----
-
 ## 7. Volume trong Compose
 
 ```yaml
@@ -185,8 +173,6 @@ volumes:
 - Dùng **named volume** (không dùng anonymous)
 - Rất hợp cho **database** và **file upload**
 
----
-
 ## 8. Network trong Compose
 
 Các service gọi nhau bằng **tên service**.
@@ -200,8 +186,6 @@ Các service gọi nhau bằng **tên service**.
 > [!NOTE]
 > Không cần map port giữa các service với nhau — chỉ map những port cần mở ra ngoài host.
 
----
-
 ## 9. Tips & Best Practices
 
 - Dùng Docker Compose cho **dev local**
@@ -212,8 +196,6 @@ Các service gọi nhau bằng **tên service**.
 - Dùng **profiles** để bật/tắt service
 - Giữ image **nhẹ**
 - Dùng `docker compose logs` để debug
-
----
 
 ## Tổng kết
 

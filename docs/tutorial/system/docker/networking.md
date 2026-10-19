@@ -34,8 +34,6 @@ Container A (`172.18.0.2`) ⇄ Docker Network (bridge) `172.18.0.0/16` ⇄ Conta
 > [!TIP]
 > Hãy hình dung mỗi Docker network như một **switch ảo**.
 
----
-
 ## 2. Network Drivers
 
 | Driver | Khi nào dùng |
@@ -50,8 +48,6 @@ Container A (`172.18.0.2`) ⇄ Docker Network (bridge) `172.18.0.0/16` ⇄ Conta
 > [!NOTE]
 > Chọn driver phù hợp với nhu cầu triển khai của bạn.
 
----
-
 ## 3. Bridge Network (mặc định)
 
 Tạo một **mạng nội bộ riêng** trên host.
@@ -64,8 +60,6 @@ Container A (`172.17.0.2`) ⇄ `docker0` (bridge) `172.17.0.1` ⇄ Container B (
 
 > [!TIP]
 > Phù hợp cho môi trường **dev local** và ứng dụng chạy trên **một host**.
-
----
 
 ## 4. Port Mapping
 
@@ -82,8 +76,6 @@ docker run -d -p 8080:80 nginx
 - Truy cập qua `localhost:8080`
 - Có thể map **nhiều port**
 - Port host **không cần trùng** port container
-
----
 
 ## 5. Container giao tiếp với Container
 
@@ -102,8 +94,6 @@ docker run -d --name app --network mynet myapp
 
 > [!TIP]
 > Dùng **tên container** thay vì IP — Docker tự động phân giải DNS.
-
----
 
 ## 6. DNS & Service Discovery
 
@@ -124,8 +114,6 @@ ping db
 > [!WARNING]
 > DNS theo tên **không hoạt động** trên network `bridge` mặc định (`docker0`). Hãy tự tạo network bằng `docker network create`.
 
----
-
 ## 7. Host Network
 
 Container dùng chung network stack với host.
@@ -144,8 +132,6 @@ docker run --network host myapp
 > [!INFO]
 > Hữu ích cho các ứng dụng cần hiệu năng cao (monitoring, load testing...).
 
----
-
 ## 8. Overlay Network (nhiều host)
 
 Dùng trong **Docker Swarm** hoặc **Kubernetes** để kết nối container trên **nhiều host khác nhau**.
@@ -158,8 +144,6 @@ Host 1: Container A (`10.0.0.2`) ⇄ **Overlay Network** (mạng ảo xuyên hos
 
 > [!NOTE]
 > Cùng một network, khác máy chủ.
-
----
 
 ## 9. Các lệnh thường dùng
 
@@ -175,8 +159,6 @@ docker network disconnect mynet container     # Gỡ container khỏi network
 
 > [!TIP]
 > Dùng `docker network inspect` để debug các vấn đề về DNS, kết nối và cấp phát IP.
-
----
 
 ## Tổng kết
 

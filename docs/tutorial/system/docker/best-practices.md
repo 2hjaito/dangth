@@ -35,8 +35,6 @@ Dùng image chính thức từ nguồn tin cậy và ưu tiên base image nhỏ 
 > [!TIP]
 > Image nhỏ hơn = build nhanh hơn, bề mặt tấn công nhỏ hơn!
 
----
-
 ## 2. Viết Dockerfile tốt hơn
 
 Giữ Dockerfile gọn gàng, hiệu quả và tận dụng cache.
@@ -57,8 +55,6 @@ CMD ["node", "server.js"]
 - Tận dụng build cache (copy dependency trước)
 - Dùng multi-stage build để image nhỏ hơn
 
----
-
 ## 3. Dùng .dockerignore
 
 Loại bỏ file không cần thiết khỏi build context.
@@ -77,8 +73,6 @@ coverage
 > [!NOTE]
 > Build context nhỏ hơn = build nhanh hơn và image nhỏ hơn.
 
----
-
 ## 4. Chạy bằng user không phải root
 
 Đừng chạy container bằng `root`. Hãy dùng user thường để tăng bảo mật.
@@ -94,8 +88,6 @@ CMD ["node", "server.js"]
 
 > [!TIP]
 > Luôn tuân thủ nguyên tắc **đặc quyền tối thiểu** (Principle of Least Privilege)!
-
----
 
 ## 5. Quản lý Secrets an toàn
 
@@ -116,8 +108,6 @@ services:
 > [!NOTE]
 > Giữ secret **ngoài image**, đặt ở nơi an toàn (env, secret manager...).
 
----
-
 ## 6. Healthcheck
 
 Dùng healthcheck để hệ thống phát hiện và tự phục hồi container lỗi.
@@ -135,8 +125,6 @@ HEALTHCHECK --interval=30s \
 
 > [!WARNING]
 > Image `alpine` mặc định không có `curl`. Hãy cài thêm (`apk add --no-cache curl`) hoặc dùng `wget` / script của chính ứng dụng.
-
----
 
 ## 7. Logging & Monitoring
 
@@ -157,8 +145,6 @@ fs.writeFileSync("app.log", "...")
 > [!TIP]
 > Log giúp bạn debug. Monitoring giúp bạn đi trước vấn đề!
 
----
-
 ## 8. Giới hạn tài nguyên
 
 Đặt giới hạn CPU và memory để tránh "hàng xóm ồn ào" (noisy neighbors).
@@ -177,8 +163,6 @@ services:
 - Ngăn một container **ngốn hết** tài nguyên
 - Đặc biệt quan trọng với môi trường **dùng chung**
 
----
-
 ## 9. Cập nhật image thường xuyên
 
 Luôn giữ base image và dependency được cập nhật.
@@ -195,8 +179,6 @@ Luôn giữ base image và dependency được cập nhật.
 
 > [!NOTE]
 > Luôn cập nhật. Luôn an toàn!
-
----
 
 ## Tổng kết series
 

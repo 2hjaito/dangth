@@ -41,8 +41,6 @@ CMD ["node", "index.js"]
 
 Chỉ với một file `Dockerfile` như trên, ứng dụng của bạn có thể được đóng gói thành **image** và chạy trên Laptop, Server, AWS, Google Cloud hay Azure mà không cần cài đặt lại môi trường.
 
----
-
 ## 2. Vấn đề "Works on my machine"
 
 Chắc hẳn bạn đã từng nghe (hoặc từng nói) câu: *"Trên máy em chạy được mà!"* 😅
@@ -58,8 +56,6 @@ Nguyên nhân thường đến từ:
 > [!WARNING]
 > Những khác biệt này dẫn đến lỗi khi deploy, ứng dụng chạy không nhất quán và tốn rất nhiều thời gian để debug.
 
----
-
 ## 3. Giải pháp: Container
 
 Docker gom tất cả vào một gói duy nhất:
@@ -68,8 +64,6 @@ Docker gom tất cả vào một gói duy nhất:
 
 > [!TIP]
 > Cùng một container → cùng một hành vi → ở mọi nơi.
-
----
 
 ## 4. Container vs Virtual Machine
 
@@ -87,8 +81,6 @@ Docker gom tất cả vào một gói duy nhất:
 
 > [!INFO]
 > Container **không phải** là máy ảo thu nhỏ. Container dùng chung kernel của host nhưng được cô lập ở mức **tiến trình (process)**.
-
----
 
 ## 5. Ví dụ thực tế
 
@@ -114,8 +106,6 @@ $ docker run myapp
 > [!TIP]
 > Docker loại bỏ sự phức tạp khi setup môi trường và giúp ứng dụng của bạn trở nên **portable**.
 
----
-
 ## 6. Docker chạy ở đâu?
 
 - **Laptop** của bạn (môi trường Dev)
@@ -125,8 +115,6 @@ $ docker run myapp
 - **Thiết bị Edge** (ARM, IoT, Raspberry Pi)
 
 Cùng một image chạy được ở tất cả những nơi trên!
-
----
 
 ## 7. Lợi ích chính
 
@@ -140,8 +128,6 @@ Cùng một image chạy được ở tất cả những nơi trên!
 
 > [!WARNING]
 > Docker rất mạnh nhưng không phải "viên đạn bạc". Với hệ thống production, bạn vẫn phải tự lo về **networking**, **storage**, **security** và **orchestration**.
-
----
 
 ## Tổng kết
 

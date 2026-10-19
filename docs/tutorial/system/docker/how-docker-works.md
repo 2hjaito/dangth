@@ -41,8 +41,6 @@ Docker Client (CLI / API)
 > - **Docker Daemon**: tiến trình chạy nền, làm mọi việc thực sự.
 > - **Docker Registry**: nơi lưu trữ image (Docker Hub, registry riêng...).
 
----
-
 ## 2. Luồng xử lý
 
 1. Bạn chạy một lệnh, ví dụ `docker run nginx`
@@ -52,8 +50,6 @@ Docker Client (CLI / API)
 5. Daemon tạo container từ image (thông qua container runtime)
 6. Container được khởi động với **namespaces** và **cgroups** riêng
 7. Container của bạn đã chạy!
-
----
 
 ## 3. Docker CLI thực tế
 
@@ -71,8 +67,6 @@ $ docker run -d -p 8080:80 nginx
 > [!TIP]
 > Chỉ một lệnh nhưng kích hoạt cả chuỗi: pull image, tạo container, cấu hình network và cô lập tiến trình!
 
----
-
 ## 4. Luồng pull image
 
 `docker run nginx` → Kiểm tra local cache
@@ -80,13 +74,9 @@ $ docker run -d -p 8080:80 nginx
 - ✅ **Có image ở local** → dùng luôn
 - ❌ **Không có** → Pull từ registry (Docker Hub) → Lưu vào local cache
 
----
-
 ## 5. Luồng tạo container
 
 **Image** → Tạo container (từ các layer của image) → Thiết lập **namespaces** (process, network, mount...) → Áp dụng **cgroups** (giới hạn tài nguyên) → ▶ **Khởi động** tiến trình chính (ví dụ `nginx`)
-
----
 
 ## 6. Docker Daemon (dockerd)
 
@@ -100,8 +90,6 @@ $ docker run -d -p 8080:80 nginx
 > [!INFO]
 > Thường bạn sẽ không làm việc trực tiếp với `dockerd` — Docker CLI đã làm thay bạn rồi!
 
----
-
 ## 7. Container Runtime
 
 Bên dưới, Docker dùng **containerd** (và **runc**) để thực sự chạy container.
@@ -112,8 +100,6 @@ Bên dưới, Docker dùng **containerd** (và **runc**) để thực sự chạ
 | ↓ `containerd` | Quản lý vòng đời container |
 | ↓ `runc` | Tạo và chạy tiến trình container (dùng tính năng của Linux) |
 | ↓ Linux Kernel | Cung cấp namespaces, cgroups... |
-
----
 
 ## 8. Registry
 
@@ -130,8 +116,6 @@ docker push myrepo/myapp:v1
 
 > [!TIP]
 > Bạn hoàn toàn có thể tự dựng một **private registry** để dùng nội bộ trong công ty.
-
----
 
 ## Tổng kết
 

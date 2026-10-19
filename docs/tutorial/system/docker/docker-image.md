@@ -34,8 +34,6 @@ tags:
 > [!TIP]
 > Hãy hình dung image như một **bản chụp (snapshot)** của filesystem, chứa đầy đủ mọi thứ ứng dụng cần để chạy.
 
----
-
 ## 2. Image vs Container
 
 | Docker Image | Docker Container |
@@ -49,8 +47,6 @@ tags:
 
 > [!NOTE]
 > **Image = bản thiết kế**, **Container = ngôi nhà đã xây**.
-
----
 
 ## 3. Image Layers
 
@@ -66,8 +62,6 @@ Một image được tạo thành từ nhiều **layer**:
 > [!INFO]
 > Các layer **read-only** được xếp chồng lên nhau thông qua **Union File System**.
 
----
-
 ## 4. Union Filesystem
 
 Docker dùng **Union Filesystem** để gộp nhiều layer read-only thành **một góc nhìn filesystem duy nhất**.
@@ -76,8 +70,6 @@ Layer 3 + Layer 2 + Layer 1 (read-only) → **Union Filesystem** → Merged View
 
 > [!WARNING]
 > Các layer **không bị gộp vật lý** với nhau, chúng chỉ được xếp chồng và mount lên.
-
----
 
 ## 5. Layer Caching
 
@@ -98,8 +90,6 @@ Step 4/5 : RUN npm install
 > [!TIP]
 > Sắp xếp các lệnh trong Dockerfile theo thứ tự **từ ít thay đổi đến hay thay đổi** để tận dụng cache tối đa.
 
----
-
 ## 6. Tính bất biến của Image
 
 Một khi image đã build xong thì **không nên chỉnh sửa**. Cần thay đổi? Build image mới với tag mới.
@@ -113,8 +103,6 @@ Một khi image đã build xong thì **không nên chỉnh sửa**. Cần thay �
 
 > [!NOTE]
 > Hãy coi image như một **artifact bất biến**.
-
----
 
 ## 7. Vì sao image nhỏ lại quan trọng?
 
@@ -135,8 +123,6 @@ So sánh kích thước:
 > [!TIP]
 > Ưu tiên dùng **base image tối giản** (ví dụ Alpine) cho production.
 
----
-
 ## 8. Image Registry
 
 Image được lưu trên **container registry** để chia sẻ và deploy.
@@ -150,8 +136,6 @@ Image được lưu trên **container registry** để chia sẻ và deploy.
 docker push myapp:v1   # Đẩy image lên registry
 docker pull myapp:v1   # Kéo image về
 ```
-
----
 
 ## 9. Tag và Version
 
@@ -167,8 +151,6 @@ Image được gắn **tag** để quản lý phiên bản.
 
 > [!WARNING]
 > Đừng chỉ dùng mỗi `latest`. Tag có ý nghĩa giúp bạn **rollback** và **truy vết** dễ dàng hơn.
-
----
 
 ## Tổng kết
 

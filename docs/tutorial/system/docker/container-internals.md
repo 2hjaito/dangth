@@ -36,8 +36,6 @@ Container là một tiến trình (hoặc nhóm tiến trình) chạy trên host
 > [!NOTE]
 > Các container **dùng chung kernel** với host, nhưng mỗi container nhìn thấy một **góc nhìn hệ thống riêng**.
 
----
-
 ## 2. Linux Namespaces
 
 Namespaces cô lập các tài nguyên hệ thống để mỗi container có góc nhìn riêng.
@@ -67,8 +65,6 @@ hostname        # hostname khác
 ip a            # network riêng của container
 mount | grep /  # filesystem được cô lập
 ```
-
----
 
 ## 3. Cgroups (Control Groups)
 
@@ -100,16 +96,12 @@ docker run -d \
 > [!WARNING]
 > Nếu không có cgroups, một container có thể **ngốn hết tài nguyên** của host và kéo sập các container khác!
 
----
-
 ## 4. Container được khởi chạy thế nào?
 
 `docker run nginx` → Docker daemon (`dockerd`) → Tạo **namespaces** → Thiết lập **cgroups** → Mount **filesystem** (từ image) → Khởi động tiến trình chính (ví dụ `nginx`)
 
 > [!INFO]
 > Không có phép màu nào cả, chỉ là các tính năng của Linux được dùng một cách thông minh!
-
----
 
 ## 5. Cô lập tiến trình (Process Isolation)
 
@@ -134,8 +126,6 @@ PID 7   sh
 > [!WARNING]
 > PID 1 trong container **không phải** PID 1 của host. PID 1 trong container rất đặc biệt: nó phải xử lý signal đúng cách (có thể dùng `tini` hoặc `dumb-init`).
 
----
-
 ## 6. Cô lập Filesystem
 
 Mỗi container có góc nhìn filesystem riêng nhờ **mount namespace** và **Union File System** (như OverlayFS):
@@ -148,8 +138,6 @@ Mỗi container có góc nhìn filesystem riêng nhờ **mount namespace** và *
 
 > [!TIP]
 > Thay đổi bên trong container **không ảnh hưởng** tới image gốc hay host (trừ khi bạn dùng volume).
-
----
 
 ## 7. Cô lập Network
 
@@ -167,8 +155,6 @@ Container 1 (172.17.0.2) ⇄ veth ⇄ Container 2 (172.17.0.3)
 - Giao tiếp qua mạng ảo (**bridge**)
 - Cô lập với mạng host (mặc định)
 
----
-
 ## 8. Container ≠ Virtual Machine
 
 | Tiêu chí | Container | Virtual Machine |
@@ -184,8 +170,6 @@ Container 1 (172.17.0.2) ⇄ veth ⇄ Container 2 (172.17.0.3)
 > [!NOTE]
 > Container **được cô lập**, chứ **không được ảo hoá**.
 
----
-
 ## 9. Lưu ý bảo mật
 
 - Dùng **user không phải root** trong container
@@ -199,8 +183,6 @@ Container 1 (172.17.0.2) ⇄ veth ⇄ Container 2 (172.17.0.3)
 
 > [!WARNING]
 > Tránh dùng `--privileged` — nó gần như trao toàn quyền truy cập host cho container.
-
----
 
 ## Tổng kết
 

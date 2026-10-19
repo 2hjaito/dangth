@@ -46,8 +46,6 @@ EXPOSE 3000
 CMD ["node", "index.js"]
 ```
 
----
-
 ## 2. Các lệnh thường dùng
 
 | Lệnh | Mô tả |
@@ -64,8 +62,6 @@ CMD ["node", "index.js"]
 | `ARG` | Biến chỉ dùng lúc build |
 | `USER` | Thiết lập user chạy trong container |
 | `LABEL` | Thêm metadata |
-
----
 
 ## 3. Build Context
 
@@ -89,8 +85,6 @@ $ docker build .
 > [!WARNING]
 > Chỉ những file nằm trong build context mới được gửi tới Docker daemon. Hãy dùng `.dockerignore` để loại bỏ những file không cần thiết (ví dụ `node_modules`).
 
----
-
 ## 4. File .dockerignore
 
 ```
@@ -106,8 +100,6 @@ Giúp image **nhỏ hơn**, build **nhanh hơn** và tránh **lộ file nhạy c
 
 > [!TIP]
 > `.dockerignore` hoạt động giống `.gitignore`, nhưng dành cho build context của Docker.
-
----
 
 ## 5. Multi-stage Build
 
@@ -130,8 +122,6 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 > [!INFO]
 > Build tools và dependency chỉ nằm ở stage `builder`, image cuối cùng chỉ chứa kết quả build → **nhỏ gọn** và **an toàn** hơn.
 
----
-
 ## 6. Ví dụ thực tế (Node.js App)
 
 ```dockerfile
@@ -150,8 +140,6 @@ CMD ["node", "index.js"]
 
 > [!TIP]
 > Dùng **base image chính thức**, **user không phải root**, **healthcheck** và chỉ cài **dependency production** để có image an toàn và hiệu quả.
-
----
 
 ## 7. Build, Tag và Run
 
@@ -172,8 +160,6 @@ docker push myapp:latest
 > [!NOTE]
 > Cùng một image có thể push lên bất kỳ registry nào (Docker Hub, ECR, GCR...).
 
----
-
 ## 8. Best Practices
 
 - Dùng **base image chính thức** (ví dụ Alpine)
@@ -187,8 +173,6 @@ docker push myapp:latest
 - **Scan** image để tìm lỗ hổng
 - Giữ Dockerfile **đơn giản, dễ đọc**
 
----
-
 ## 9. Những lỗi thường gặp
 
 > [!WARNING]
@@ -200,8 +184,6 @@ docker push myapp:latest
 > - **Hardcode secret** trong Dockerfile
 > - Không dùng multi-stage build
 > - Bỏ qua vấn đề bảo mật (lỗ hổng trong image)
-
----
 
 ## Tổng kết
 
