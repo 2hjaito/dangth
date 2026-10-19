@@ -174,6 +174,7 @@ export default defineConfig({
           children: [
             { text: 'Java', icon: 'ViFileTypeJava', link: '/tutorial/interview/java' },
             { text: 'Redis', icon: 'DiRedisOriginal', link: '/tutorial/interview/redis' },
+            { text: 'Authentication', icon: 'FaUserLock', link: '/tutorial/interview/auth' },
           ],
         },
       ],
