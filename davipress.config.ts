@@ -106,6 +106,28 @@ export default defineConfig({
           ],
         },
         {
+          text: 'System',
+          icon: 'FaTerminal',
+          collapsible: false,
+          children: [
+            {
+              text: 'Docker',
+              icon: 'DiDockerOriginal',
+              items: [
+                { text: 'Docker giải quyết vấn đề gì?', link: '/tutorial/system/docker/introduction' },
+                { text: 'Docker hoạt động thế nào?', link: '/tutorial/system/docker/how-docker-works' },
+                { text: 'Docker Image', link: '/tutorial/system/docker/docker-image' },
+                { text: 'Dockerfile', link: '/tutorial/system/docker/dockerfile' },
+                { text: 'Container Internals', link: '/tutorial/system/docker/container-internals' },
+                { text: 'Networking', link: '/tutorial/system/docker/networking' },
+                { text: 'Storage & Volumes', link: '/tutorial/system/docker/volumes' },
+                { text: 'Docker Compose', link: '/tutorial/system/docker/docker-compose' },
+                { text: 'Best Practices', link: '/tutorial/system/docker/best-practices' },
+              ],
+            },
+          ],
+        },
+        {
           text: 'Tool',
           icon: 'FaTools',
           collapsible: false,
