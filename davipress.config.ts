@@ -210,6 +210,10 @@ export default defineConfig({
     darkTheme: 'transparent_dark',
     lang: 'vi',
   },
+  views: {
+    enabled: true,
+    endpoint: 'https://profilyze.vercel.app/api/views',
+  },
   seo: {
     twitterCard: 'summary_large_image',
   },
