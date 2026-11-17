@@ -4,7 +4,7 @@ title: "Backing up a self-hosted MongoDB & Media files on a Linux VPS with Cronj
 slug: backup-mongodb-self-host-media-tren-vps-linux-bang-cronjob
 subtitle: "Automatically backing up MongoDB and uploaded files with a safe, effective Shell Script and Cronjob"
 author: "Trần Hữu Đang"
-date: 2026-01-29
+date: "2026-01-29"
 image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp
 tags:
   - DevOps

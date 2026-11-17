@@ -3,7 +3,7 @@ title: "Implementing End-to-End Encryption with Diffie-Hellman and AES in Java"
 slug: trien-khai-ma-hoa-dau-cuoi-voi-diffie-hellman-va-aes-bang-java
 subtitle: "Building a key-exchange and message-encryption mechanism for the Destiny social network project"
 author: Trần Hữu Đang
-date: 2025-07-14
+date: "2025-07-14"
 image: /images/post/2025-07-18-diffie-hellman/0.webp
 tags:
   - Bảo mật

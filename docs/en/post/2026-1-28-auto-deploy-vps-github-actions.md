@@ -4,7 +4,7 @@ title: "Auto-Deploying to a VPS with GitHub Actions: From Manual Commands to Han
 slug: auto-deploy-vps-voi-github-actions-tu-go-lenh-tay-den-ranh-tay
 subtitle: "A detailed guide to setting up CI/CD that auto-builds Docker and smartly handles Port conflicts"
 author: "Trần Hữu Đang"
-date: 2026-01-28
+date: "2026-01-28"
 image: /images/post/2026-1-28-auto-deploy-vps-github-actions/main.webp
 tags:
   - DevOps
