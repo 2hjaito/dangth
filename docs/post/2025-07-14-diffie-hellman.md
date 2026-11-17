@@ -3,7 +3,7 @@ title: "Tìm hiểu về thuật toán Diffie-Hellman"
 slug: tim-hieu-ve-thuat-toan-diffie-hellman
 subtitle: "Mã hóa đầu cuối trong dự án mạng xã hội Destiny"
 author: Trần Hữu Đang
-date: 2025-07-14
+date: "2025-07-14"
 image: /images/post/2025-07-14-diffie-hellman/1.png
 tags:
   - Bảo mật

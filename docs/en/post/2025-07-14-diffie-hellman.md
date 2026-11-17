@@ -3,7 +3,7 @@ title: "Understanding the Diffie-Hellman Algorithm"
 slug: tim-hieu-ve-thuat-toan-diffie-hellman
 subtitle: "End-to-end encryption in the Destiny social network project"
 author: Trần Hữu Đang
-date: 2025-07-14
+date: "2025-07-14"
 image: /images/post/2025-07-14-diffie-hellman/1.png
 tags:
   - Bảo mật

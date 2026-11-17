@@ -4,7 +4,7 @@ title: "Backup MongoDB Self-host & Media trên VPS Linux bằng Cronjob"
 slug: backup-mongodb-self-host-media-tren-vps-linux-bang-cronjob
 subtitle: "Hướng dẫn backup tự động MongoDB và file upload bằng Shell Script, Cronjob an toàn và hiệu quả"
 author: "Trần Hữu Đang"
-date: 2026-01-29
+date: "2026-01-29"
 image: /images/post/2026-01-29-backup-mongodb-self-host-vps-guide/banner.webp
 tags:
   - DevOps
